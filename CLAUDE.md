@@ -13,6 +13,7 @@ Website for Solven Advisory, Lda (solvenadvisory.ai): a boutique AI enablement a
 
 ## Status
 A full visual redesign is in progress on branch redesign/base and its child branches. The design source of truth will be docs/design-brief.md and DESIGN.md once they exist. Read them before any UI work. Log every design attempt and every rejection in docs/redesign-log.md.
+Phase 3: docs/design-brief.md is the source of truth for typography, colour, spacing, grid and components. If it conflicts with anything else except the hard limits, the brief wins.
 
 ## Feeling
 Prestigious, formal, polished: "good old-fashioned finance", with a quiet freshness that comes from precision, clarity and plain confident language, never from effects.
@@ -23,7 +24,7 @@ Prestigious, formal, polished: "good old-fashioned finance", with a quiet freshn
 - No team headshot grids. No founder names or photos.
 - No client logos, case numbers or invented statistics. Use clearly marked placeholders where a future section needs them.
 - Remove "AI Flix" entirely.
-- Do not reproduce the old look: warm cream background, Georgia serif headlines with one italicised word, sage green, small uppercase tracked "eyebrow" labels over headings, 01/02/03 or i/ii/iii numbering, faded giant logo watermark, scroll fade-ins.
+- Do not reproduce the old site's patterns: warm cream background (#F3EEE4-like), sage green (#6B8068) as a brand colour, Georgia anywhere outside the logo, italicised single words inside headlines, small uppercase tracked 'eyebrow' labels above headings, 01/02/03 or i/ii/iii numbering, faded giant logo watermark, scroll fade-ins. A serif headline typeface IS allowed, used upright, at one or two heading levels only, as defined in docs/design-brief.md.
 - Avoid generic AI-startup aesthetics: black backgrounds with glows, purple/blue gradients, Inter-on-black slogan heroes, bento grids, emoji or icon-per-feature cards.
 - Flat surfaces: small radii (about 3 to 5px), no drop shadows, thin rules.
 - Photography must be real and contextual, not abstract gradients or 3D renders.
@@ -43,6 +44,7 @@ Per-page titles and meta descriptions, canonical URLs on solvenadvisory.ai, EN/P
 - Change only what the current prompt asks for. Do not "improve" untouched sections.
 - Commit after each completed step with a descriptive message.
 - Only use design skills that the prompt names explicitly. If a design skill activates without being named, say so and stop.
+- docs/, CLAUDE.md, tools/, .claude/ and .impeccable/ are excluded from deployment via .vercelignore; keep it that way.
 
 ## Figma
 - Figma access is a Starter plan with a View seat: read tools (get_design_context, get_screenshot, get_metadata, get_variable_defs, etc.) are limited to about 20 calls per month. Never call Figma read tools unless the prompt explicitly asks for it.
