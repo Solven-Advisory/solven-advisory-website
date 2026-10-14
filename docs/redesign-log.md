@@ -3,6 +3,7 @@
 ## Decided
 - 2026-10-14 · Batch 2 palette (owner request): the logo's own colours, grey #2A2A28 (supporting/section) and green #6B8068 (accent; #5A6E57 same hue where small text or button labels need AA; favicon #8FA68A on dark). Overrides the CLAUDE.md note listing sage #6B8068 as an old-site pattern, for these explorations.
 - 2026-10-14 · Ledger is the current favourite and reference; not to be modified.
+- 2026-10-14 · Owner narrowed to one design: Ledger, edited in place. Navy replaced by the logo grey #2A2A28 (buttons, dark band, footer); oxblood replaced by green #5A6E57 (button hover, link accents); logo fills as in ledger-image (#2A2A28 / #6B8068, reversed #8FA68A). Hero Book a call button and the four-box facts strip removed.
 - 2026-10-14 · Headline for all explorations: "Sharper judgment for the age of AI.", same on all three directions for a fair comparison; copy not final.
 - 2026-10-14 · Nav EN: Approach · Services · Insights · About us · Contact, plus "Book a call" and EN/PT switch; "Firm" replaced by "About us". Target URLs /approach, /services (+ /services/enablement, /build, /ai-diligence, /token-economics), /insights, /about, /contact; 301s from /programmes, /blog, /work, /ai-flix plus sitemap and hreflang updates at build time.
 - 2026-10-14 · Nav PT: Abordagem · Serviços · Publicações · Sobre nós · Contacto; Publicações lists all articles, untranslated ones marked "(EN)" and linked to the English article.
@@ -31,6 +32,8 @@
 - 2026-10-14 · Bake-off on Ledger sections 1-4 with a fully locked brief: both skills produced near-identical pages, so the brief left too little room for design judgment.
 
 ## Rejected
+- 2026-10-14 · Ledger's four-box facts strip (Lisbon, Iberia & Europe, private equity focus, Anthropic Partner Network) and the hero Book a call button: owner did not like them.
+- 2026-10-14 · Ledger's navy and oxblood (red hover): replaced by the logo grey and green.
 - 2026-10-14 · Batch 1 explorations archived in explorations/archive/: themed metaphors (letter, term sheet, annual report, tombstone, prospectus index) rejected; also walls of text, many fonts and sizes per page, section numbering, heavy underlining, decorative graphics and diagrams, off-grid placement. Kept from banking-hall: the dark, monumental, institutional idea only.
 - Old site look (cream + Georgia italic + sage, eyebrows, numbering, watermark, fade-ins): reads as AI-generated.
 - Earlier canvas sketches, none chosen: A "Private Bank" (dark green + brass + classic serif, centred), B "Swiss Ledger" (white, large grotesk, cobalt; type too big), C "Tear Sheet" (cool grey + navy, fact-sheet panel, ticker band, orange; ticker rejected).
