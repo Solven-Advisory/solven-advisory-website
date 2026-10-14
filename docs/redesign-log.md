@@ -26,6 +26,7 @@
 - 2026-10-14 · Design skill: Impeccable chosen over Taste Skill after a Ledger bake-off (better fidelity and steering). Taste Skill removed.
 
 ## Tried
+- 2026-10-14 · Hero title weight ladder on ledger-cards-tile-link (owner finds 300 too thin): ledger-cards-tile-link-w350, -w400, -w450, -w500, -w600. Source Serif 4 loaded as a variable range 300..700 on these pages; weight set via --h1-weight on body (explorations/weights/weights.css).
 - 2026-10-14 · ledger-cards-tile-link: ledger-cards-tile without the How it works links, cards only as tall as their content, whole card clickable (title link stretched over the card; hover darkens the border and turns the title green; keyboard focus rings the card). Shared CSS class cards-stretch.
 - 2026-10-14 · ledger-cards-tileimg-nolink: ledger-cards-tileimg without the How it works links, so each card ends just below its description. The four cards stay equal height, so the card with the shortest text (Token Economics) keeps one line of space at the bottom.
 - 2026-10-14 · ledger-cards-tileimg: Row as base, each card headed by a solid 3:2 azulejo panel (80% opacity, 2:1 on phones), text below, no fixed card height so the empty middle is gone. Panels alternate A B A B (owner request; first version ran A B B A). Stylesheet link carries ?v=2 because the dev server sends no cache headers and browsers kept the old cards.css.
