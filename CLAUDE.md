@@ -3,6 +3,14 @@
 ## Project
 Website for Solven Advisory, Lda (solvenadvisory.ai): a boutique AI enablement and implementation consultancy in Lisbon, member of the Anthropic Partner Network. Clients: private equity firms first, also real estate and venture firms, across Iberia and Europe. Readers are PE partners, associates and analysts, portfolio-company executives, and future hires. They skim, so pages read like an elevator pitch: key ideas only, then links to depth.
 
+## Stack
+- Plain HTML, CSS and JS. No framework, no build step, no package.json. Deployed on Vercel (clean URLs).
+- Local dev server: `python3 tools/serve.py` (default http://127.0.0.1:8000). Pass a port number as an argument to run a second instance, e.g. `python3 tools/serve.py 8001`.
+- Pages: `.html` files at the repo root (index, programmes, approach, work, about, contact, privacy, 404, ai-flix) and articles in `blog/`.
+- Global styles: `solven.css`. The current motion layer lives in `solven.js` and will be removed in the redesign; do not extend it.
+- Portuguese: a hand-maintained copy of each page in `pt/` (index, programas, abordagem, trabalho, sobre, contacto), linked with hreflang tags and an EN/PT toggle. Any page change must be mirrored in its PT counterpart once a design is approved (not during explorations).
+- Do not introduce a framework, bundler, npm dependencies or an animation library without explicit approval.
+
 ## Status
 A full visual redesign is in progress on branch redesign/base and its child branches. The design source of truth will be docs/design-brief.md and DESIGN.md once they exist. Read them before any UI work. Log every design attempt and every rejection in docs/redesign-log.md.
 
@@ -33,6 +41,11 @@ Per-page titles and meta descriptions, canonical URLs on solvenadvisory.ai, EN/P
 ## Working rules
 - Change only what the current prompt asks for. Do not "improve" untouched sections.
 - Commit after each completed step with a descriptive message.
+- Only use design skills that the prompt names explicitly. If a design skill activates without being named, say so and stop.
+
+## Figma
+- Figma access is a Starter plan with a View seat: read tools (get_design_context, get_screenshot, get_metadata, get_variable_defs, etc.) are limited to about 20 calls per month. Never call Figma read tools unless the prompt explicitly asks for it.
+- Write tools are allowed: use generate_figma_design (code to canvas) to capture pages into a file in my Figma drafts when asked.
 
 ## Current site reference (pre-redesign)
 
