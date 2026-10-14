@@ -6,7 +6,7 @@ Website for Solven Advisory, Lda (solvenadvisory.ai): a boutique AI enablement a
 ## Stack
 - Plain HTML, CSS and JS. No framework, no build step, no package.json. Deployed on Vercel (clean URLs).
 - Local dev server: `python3 tools/serve.py` (default http://127.0.0.1:8000). Pass a port number as an argument to run a second instance, e.g. `python3 tools/serve.py 8001`.
-- Pages: `.html` files at the repo root (index, programmes, approach, work, about, contact, privacy, 404, ai-flix) and articles in `blog/`.
+- Pages: `.html` files at the repo root (index, programmes, approach, work, about, contact, privacy, 404) and articles in `blog/`.
 - Global styles: `solven.css`. The current motion layer lives in `solven.js` and will be removed in the redesign; do not extend it.
 - Portuguese: a hand-maintained copy of each page in `pt/` (index, programas, abordagem, trabalho, sobre, contacto), linked with hreflang tags and an EN/PT toggle. Any page change must be mirrored in its PT counterpart once a design is approved (not during explorations).
 - Do not introduce a framework, bundler, npm dependencies or an animation library without explicit approval.
@@ -34,6 +34,7 @@ Wordmark "Solven" in Georgia with a custom V notch, "ADVISORY" in spaced capital
 
 ## Content
 The substance of the current copy stays: the thesis "Augmentation without cognitive atrophy", the three convictions (Judgment is the product, Fluency is firm-wide, The frontier is the job), and four services (Enablement, Build, AI Diligence, Token Economics). Copy can be condensed or moved, not reinvented. Languages: EN and PT, with a PT mirror of every page.
+AI Flix is being removed from the site entirely (page /ai-flix and any links or mentions). Do not reference it in new work; it will get a 301 redirect at build time.
 
 ## SEO (must be preserved in any rebuild)
 Per-page titles and meta descriptions, canonical URLs on solvenadvisory.ai, EN/PT hreflang, ProfessionalService structured data, Open Graph images, one H1 per page.
@@ -83,20 +84,7 @@ member of the Anthropic Partner Network.
 
 - Pages: `index`, `programmes`, `approach`, `work`, `about`, `contact`,
   `privacy`, `404`, `blog/index` + three articles (`blog/<slug>.html`,
-  July 2026, author Miguel Monteiro), and `ai-flix` (AI Flix, the Solven
-  screening room: Netflix-style dark shelves of YouTube videos with real
-  thumbnails; EN-only like the journal, "AI Flix · EN" in the PT nav).
-  Cards open in the on-site Solven player (a dialog embedding YouTube's
-  privacy-enhanced youtube-nocookie player); videos whose owners disable
-  embedding are detected automatically and open on YouTube instead.
-  **AI Flix is videos only and the owner curates it** — never add entries
-  on your own initiative. `ai-flix.html` is GENERATED: to add a video the
-  owner supplies a YouTube URL; append it to `VIDEOS` in
-  `tools/build_ai_flix.py` (url + len required; title/src/note optional
-  overrides) and run the tool, which fetches title, channel, and
-  thumbnail from YouTube oEmbed and rebuilds the page and its JSON-LD.
-  Bump the "updated" month in the tool's hero copy when the shelf
-  changes.
+  July 2026, author Miguel Monteiro).
 - Portuguese mirror under `pt/`: `pt/index` plus full pt-PT versions of the
   five core pages. The pairs (keep in sync when EN copy changes):
   `/` ↔ `/pt`, `/programmes` ↔ `/pt/programas`, `/approach` ↔ `/pt/abordagem`,
