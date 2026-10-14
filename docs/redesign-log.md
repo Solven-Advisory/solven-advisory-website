@@ -26,6 +26,7 @@
 - 2026-10-14 · Design skill: Impeccable chosen over Taste Skill after a Ledger bake-off (better fidelity and steering). Taste Skill removed.
 
 ## Tried
+- 2026-10-14 · Hero title weight: owner chose 400. ledger-advisory: ledger-cards-tile-link-w400 plus the live site's header lockup (wordmark SVG unchanged, 1px rule, ADVISORY in spaced capitals, 13px, V notch green #6B8068), explorations/brand/brand.css. Desktop nav gaps tighten between 960 and 1199px so the wider lockup fits.
 - 2026-10-14 · Hero title weight ladder on ledger-cards-tile-link (owner finds 300 too thin): ledger-cards-tile-link-w350, -w400, -w450, -w500, -w600. Source Serif 4 loaded as a variable range 300..700 on these pages; weight set via --h1-weight on body (explorations/weights/weights.css).
 - 2026-10-14 · ledger-cards-tile-link: ledger-cards-tile without the How it works links, cards only as tall as their content, whole card clickable (title link stretched over the card; hover darkens the border and turns the title green; keyboard focus rings the card). Shared CSS class cards-stretch.
 - 2026-10-14 · ledger-cards-tileimg-nolink: ledger-cards-tileimg without the How it works links, so each card ends just below its description. The four cards stay equal height, so the card with the shortest text (Token Economics) keeps one line of space at the bottom.
