@@ -22,6 +22,7 @@
 - 2026-10-14 · Design skill: Impeccable chosen over Taste Skill after a Ledger bake-off (better fidelity and steering). Taste Skill removed.
 
 ## Tried
+- 2026-10-14 · Register (Direction 2) full homepage exploration in explorations/register/, built with Impeccable, code-first. Split hero with square photo placeholder; services as a ruled register (bottle-green rules open and close it, light rules divide rows); convictions on the one light band; Plex Mono dates on three text-only insight cards; closing CTA under a single rule; footer the only dark surface. 2,888px at 1440 (budget 2,860).
 - 2026-10-14 · Bake-off on Ledger sections 1-4 with a fully locked brief: both skills produced near-identical pages, so the brief left too little room for design judgment.
 
 ## Rejected
