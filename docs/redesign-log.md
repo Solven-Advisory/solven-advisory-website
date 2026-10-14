@@ -1,6 +1,7 @@
 # Redesign log
 
 ## Decided
+- 2026-10-14 · ledger-twocol is the preferred page so far (other explorations kept for now).
 - 2026-10-14 · Batch 2 palette (owner request): the logo's own colours, grey #2A2A28 (supporting/section) and green #6B8068 (accent; #5A6E57 same hue where small text or button labels need AA; favicon #8FA68A on dark). Overrides the CLAUDE.md note listing sage #6B8068 as an old-site pattern, for these explorations.
 - 2026-10-14 · Ledger is the current favourite and reference; not to be modified.
 - 2026-10-14 · Owner narrowed to one design: Ledger, edited in place. Navy replaced by the logo grey #2A2A28 (buttons, dark band, footer); oxblood replaced by green #5A6E57 (button hover, link accents); logo fills as in ledger-image (#2A2A28 / #6B8068, reversed #8FA68A). Hero Book a call button and the four-box facts strip removed.
@@ -25,6 +26,7 @@
 - 2026-10-14 · Design skill: Impeccable chosen over Taste Skill after a Ledger bake-off (better fidelity and steering). Taste Skill removed.
 
 ## Tried
+- 2026-10-14 · Service card studies on ledger-twocol, all portrait cards (owner prefers vertical): ledger-cards-rail (sideways scroll, rail bleeds past the right edge), -row (four in one row), -photo (4:3 photo frame heads each card), -dark (grey cards, green on hover), -tile (azulejo heads each card). Shared CSS explorations/cards/cards.css.
 - 2026-10-14 · ledger-twocol: full Ledger page with hero lab variant 2 (owner's pick). Sticky header (needed so the button can reappear); header Book a call hidden with visibility (bar layout unchanged) while the hero is in view, shown instantly after via a small IntersectionObserver script, desktop bar only (the mobile menu keeps it). Owner-requested; first JavaScript in the explorations.
 - 2026-10-14 · Hero lab (explorations/hero-lab): eight Ledger heroes stacked to fix left-heavy balance on wide screens: 0 control, 1 scale, 2 two columns, 3 right anchor (Private equity · Real estate · Venture / Lisbon / Anthropic Partner Network), 4 pattern weighted right, 5 = 2 + 4, 6 = 3 + 4, 7 image slot (right ~40%). Base background is the Dim 10% azulejo (Ledger itself has none). On screens under 960px everything stacks and the pattern-weighted variants move the pattern to a top strip so it stays off the subline.
 - 2026-10-14 · Dim tile strength ladder: ledger-tiles-dim-4, -dim-7, -dim (10%), -dim-14, -dim-20 (opacity set per page via --dim on body).
