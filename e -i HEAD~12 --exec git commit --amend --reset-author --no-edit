@@ -1,0 +1,925 @@
+[33mcommit 2e7f904fd1b27e737658fb1bf482a7081472f138[m[33m ([m[1;36mHEAD -> [m[1;32mredesign/base[m[33m)[m
+Author: jmsolv <joaofonseca@solvenadvisory.ai>
+Date:   Wed Oct 14 14:34:33 2026 +0100
+
+    Phase 3 complete: brief closed
+    
+    Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+
+[33mcommit 72dde1470b66a2923a0b2d23d440bdbbb87ffd0b[m
+Author: jmsolv <joaofonseca@solvenadvisory.ai>
+Date:   Wed Oct 14 14:34:33 2026 +0100
+
+    Design brief: fold in owner decisions on open questions
+    
+    Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+
+[33mcommit 6f56c7fcc2e9651af432d9c06041f00acfd09e6b[m
+Author: jmsolv <joaofonseca@solvenadvisory.ai>
+Date:   Wed Oct 14 14:34:33 2026 +0100
+
+    Phase 3: design brief
+    
+    Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+
+[33mcommit f01aba92b0e5035b0f184ca9907ac50a51285f79[m
+Author: jmsolv <joaofonseca@solvenadvisory.ai>
+Date:   Wed Oct 14 14:34:33 2026 +0100
+
+    CLAUDE.md: allow serif headlines, brief is source of truth
+    
+    Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+
+[33mcommit d4da358ff1f3bf978ebf5a3bac5954e211e91d08[m
+Author: jmsolv <joaofonseca@solvenadvisory.ai>
+Date:   Wed Oct 14 14:34:33 2026 +0100
+
+    Phase 2: references, screenshots, .vercelignore
+
+[33mcommit 58a932c93f3f11489d550c5e5bca7f776ad28b90[m
+Author: jmsolv <joaofonseca@solvenadvisory.ai>
+Date:   Wed Oct 14 14:34:33 2026 +0100
+
+    Synthesis: replace font verdict with old-money pairings and palettes
+    
+    Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+
+[33mcommit 3e02cea6efcdde805e6e51520e06c2cf7e243e3b[m
+Author: jmsolv <joaofonseca@solvenadvisory.ai>
+Date:   Wed Oct 14 14:34:32 2026 +0100
+
+    Phase 2: design references
+
+[33mcommit 955edc28646b9f30a45af278baa11121acaaa126[m
+Author: jmsolv <joaofonseca@solvenadvisory.ai>
+Date:   Wed Oct 14 14:34:32 2026 +0100
+
+    Add measured design references for the redesign brief
+    
+    Current site, Hark, Subduxion, Actionist, five institutional sites and a
+    synthesis, from computed styles measured at 1440px.
+    
+    Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+
+[33mcommit 0a6cf0c6291732a312faa4111ebaac8c577fc474[m
+Author: jmsolv <joaofonseca@solvenadvisory.ai>
+Date:   Wed Oct 14 14:34:32 2026 +0100
+
+    CLAUDE.md: AI Flix is being removed
+    
+    Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+
+[33mcommit 8a20130d9f5c383d01276936e649e6540175505c[m
+Author: jmsolv <joaofonseca@solvenadvisory.ai>
+Date:   Wed Oct 14 14:34:32 2026 +0100
+
+    CLAUDE.md: add Stack and Figma sections, design-skill rule
+    
+    Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+
+[33mcommit b6f54db223dd20e513be0e229f702232d0ecd750[m
+Author: jmsolv <joaofonseca@solvenadvisory.ai>
+Date:   Wed Oct 14 14:34:32 2026 +0100
+
+    Add local dev server
+
+[33mcommit 5778023dddb9d2d6fb63af2d97b5cec42440362a[m
+Author: jmsolv <joaofonseca@solvenadvisory.ai>
+Date:   Wed Oct 14 14:34:32 2026 +0100
+
+    Add redesign brief to CLAUDE.md and start docs/redesign-log.md
+    
+    Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>
+
+[33mcommit d0bb4258e7016a7512508c212fbda7a20c57da51[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 18:12:52 2026 +0100
+
+    Tidy the repository: remove legacy, empty dirs, unreferenced assets
+    
+    - legacy/ deleted (the pre-redesign Astro site, 57 tracked files and
+      120MB on disk with node_modules; recoverable from git history)
+    - articlesforblog/ (empty) and the cinematic redesign concept file
+      removed now that its token-economics chart has been absorbed
+    - assets/og-image.svg and assets/ornaments/ deleted: referenced by
+      nothing (og.png superseded the former; pages draw chevrons inline)
+    - .vercelignore and CLAUDE.md updated to match
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 8530b19b1aa18271140e9d8fe74eff4d64cb61b7[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 18:02:59 2026 +0100
+
+    Token economics: budget-depletion chart, drawn on arrival
+    
+    Inspired by the token-economics graph in the cinematic redesign concept:
+    the two burn bars on the homepage become a line chart of the year's
+    budget. The unmanaged curve plunges to zero by March; the Solven curve
+    paces to December. Both lines ink themselves when the section enters the
+    viewport, with the annotations settling once the ink has dried, all
+    inside the house palette and the visible-by-default motion contract.
+    
+    The reveal engine needed one correction for any of this to be seen: the
+    2.5-second safety net used to force-reveal the entire page, so every
+    below-fold animation (this chart, the contract signature, the cascades)
+    pre-fired before visitors scrolled to it. The net now rescues only what
+    is already near the viewport, a throttled scroll belt catches anything
+    the observer misses once it is well inside view, and a print stylesheet
+    neutralises pending states. Verified: the chart stays armed past the old
+    deadline, draws on scroll, and a full-page pass leaves nothing hidden.
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 23cb9f359fc0e8ddd2d7ed881d78c3361a5d2603[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 16:11:47 2026 +0100
+
+    Enforce vertical alignment across every page
+    
+    From a full-site visual audit (all 19 pages at desktop width):
+    
+    - Header nav links never wrap mid-label (white-space: nowrap), and
+      Portuguese pages hand the header to the menu below 1420px, since PT
+      labels are longer; the PT nav CTA reads "Marcar chamada". This removes
+      the three-level nav that PT headers showed at common widths.
+    - Programmes toolkit: cards are flex columns with the session tag pinned
+      by margin-top auto, so tags sit level across each row.
+    - Contact rail: the last detail item drops its border, ending the
+      doubled hairline above "Based in / Working from".
+    - About: conviction headings reserve two lines so the three paragraphs
+      start level, and the pedigree columns share subgrid rows so their
+      separators align across the gutter (graceful fallback where subgrid
+      is unsupported).
+    - CTA rows: text links carry a compensating top padding so their
+      baseline sits level with adjacent button text.
+    - AI Flix: card titles reserve two lines, aligning the source line
+      across each row.
+    
+    All fixes applied to both language mirrors and verified by screenshot.
+    The footer cookie-settings href fix rides along on the touched pages.
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 126423d00137452fe6ab8ad8b98a8105f1e4a50b[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 15:43:36 2026 +0100
+
+    AI Flix: remove the Tech With Tim MCP tutorial
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit cc02d68dd77dc85a7ceb69bae1958e8190b3ea1e[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 13:21:51 2026 +0100
+
+    AI Flix: add KodeKloud on AI agent fundamentals
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit ebe2063e157c0af651ed8e56a73a7c840286871b[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 13:17:30 2026 +0100
+
+    AI Flix: add Tech With Tim on building a custom MCP server
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit d7396cf343f68ab8bf0198e9006c8bb6dadb81a1[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 13:13:39 2026 +0100
+
+    AI Flix: add two Wharton private equity lectures
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit eb519fbe7a95cd61f42049e10525cc497ef1bb1e[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 13:12:15 2026 +0100
+
+    AI Flix: add Stanford MS&E 435, The GPU Economy
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit ba107c03337133f92f2025de0bc1210b0d2b3e6f[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 13:10:10 2026 +0100
+
+    Retrigger deployment
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 7bf5d6433ec36decd6d8db1770d5f908e0e4a176[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 13:03:55 2026 +0100
+
+    AI Flix: add Matt Pocock, Software Fundamentals Matter More Than Ever
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 44a2648eb27964ada8f585358a9c23fef71fa6df[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 13:01:18 2026 +0100
+
+    AI Flix: the Solven player, plus Dario Amodei on Dwarkesh
+    
+    Cards no longer leave for YouTube: clicking one opens the Solven player,
+    an on-site dialog (dark scrim, serif title bar, sage-ruled 16:9 frame)
+    that streams through YouTube's privacy-enhanced no-cookie service, so
+    the site's no-cookies promise holds; the privacy page says so
+    explicitly. Close by button, scrim, or Escape; closing destroys the
+    iframe so playback stops; focus and page scroll are restored.
+    Progressive enhancement: without JS every card is still a plain link,
+    and videos whose owners disable embedding (Stanford CS229 here) are
+    detected at build time and keep opening on YouTube.
+    
+    Tenth video: Dario Amodei on the Dwarkesh Podcast, retitled on the card
+    to the quote itself since the YouTube title carries an em dash.
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit b003785e1737b8b197d9ce2de0ea3475e1bef78c[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 12:38:07 2026 +0100
+
+    AI Flix: add Stanford CS229 on building LLMs and DeepMind's The Thinking Game
+    
+    Also make the builder tolerate videos with embedding disabled (oEmbed
+    returns 401 for them): thumbnails come from i.ytimg.com regardless, and
+    manual title/src overrides cover the metadata.
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit d4dc5508469f35c23c972a40c3aca8d38c01d3d3[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 12:17:49 2026 +0100
+
+    AI Flix: add Amrit Saxena, The New AI Playbook for Private Equity
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit aaa89bb983b1bc245edf717e7eb1fd807471be4e[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 12:09:07 2026 +0100
+
+    AI Flix: add Francis Huang on AI and the private equity analyst
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 52820d217756d44b8eb404612b249c843be75b6b[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 12:06:47 2026 +0100
+
+    AI Flix: add 3Blue1Brown, Transformers, the tech behind LLMs
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 03333f53f784e430fb0ec9d5b511dbda36e9ddea[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 12:00:57 2026 +0100
+
+    AI Flix: add Mutual Information on AI-generated training data
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 3e8db01eb278a9a6293f9aa0ec85d70360329cf5[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 11:58:46 2026 +0100
+
+    AI Flix: grid layout, three columns fitted to the site width
+    
+    The horizontally scrolling rail becomes a responsive grid: three columns
+    at full width, two under 980px, one under 620px. No horizontal scroll.
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 01fc285acdc7a8898fb7b5d3812d3fd540f93e79[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 11:55:30 2026 +0100
+
+    AI Flix: add Karpathy, How I use LLMs
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 5a0d72cf5085a36a8b79b138db2b6118b38aa0ff[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 11:49:34 2026 +0100
+
+    AI Flix: add Karpathy at Sequoia, From Vibe Coding to Agentic Engineering
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit f34d78b2df81b6a68d111a09c738b9bfbafaf2b9[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 11:46:50 2026 +0100
+
+    AI Flix v2: videos only, owner-curated, real Netflix treatment
+    
+    The twenty-two mixed resources are gone. AI Flix is now the screening
+    room: a fully dark page of Netflix-style shelves where each card is the
+    video's actual YouTube thumbnail (full resolution, with a duration chip
+    and a hover play mark made from the brand chevron rotated into a play
+    triangle). One video opens the shelf: Peter Steinberger on the Lex
+    Fridman Podcast. Curation is the owner's alone: ai-flix.html is now
+    generated by tools/build_ai_flix.py, which takes a YouTube URL per entry
+    and fetches title, channel, and thumbnail from oEmbed; CLAUDE.md records
+    that Claude must never add entries on its own. llms files updated.
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 0dc723b75da62db52b36d4e68dee21800840215d[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 11:40:43 2026 +0100
+
+    Add AI Flix: the Solven library of hand-curated AI resources
+    
+    New /ai-flix page: twenty-two talks, papers, courses, and tools across
+    five themed shelves (Start here, The craft, Agents and systems, Papers
+    worth the hour, Stay current), each carrying a one-line Solven note on
+    why it earns its place. Netflix's shelf metaphor rendered in the house
+    system: a dark marquee hero, horizontally scrolling card rails with
+    scroll snap, staggered reveals, and a closer that points the extra mile
+    back at the programmes.
+    
+    Every link was verified live before publishing (exact titles, authors,
+    canonical homes): the checks caught a retitled 3Blue1Brown video, the
+    docs.claude.com to platform.claude.com move, the claude-cookbooks repo
+    rename, Claude Code docs at code.claude.com, and a broken https
+    certificate on The Bitter Lesson (kept http). CollectionPage + ItemList
+    JSON-LD mirrors the cards. AI Flix joins the nav and footer of every
+    page (as "AI Flix · EN" on the Portuguese side), the sitemap, llms.txt,
+    and the llms-full generator; CLAUDE.md records the page and the
+    link-verification rule.
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 385f50985e9f04f66f58530c69dc0c3127a80baf[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 10:47:59 2026 +0100
+
+    Full Portuguese mirror: /pt/programas, /pt/abordagem, /pt/trabalho, /pt/sobre, /pt/contacto
+    
+    Clicking any nav item in the Portuguese version previously switched to
+    English, because only the PT home existed. The five core pages now have
+    full pt-PT versions as exact structural copies (same markup, motion,
+    anchors, and the Cal.com booking embed on /pt/contacto with a PT success
+    state). The PT nav navigates entirely within /pt; the journal is linked
+    honestly as "Blog · EN". Language toggles now map page to page in both
+    directions (EN on /pt/programas goes to /programmes and back), with
+    reciprocal hreflang on every pair in heads and sitemap (17 URLs). The
+    ten-question FAQ exists in Portuguese with its FAQPage JSON-LD mirroring
+    the visible text, and the three shared answers are word-for-word
+    identical between /pt/programas and /pt/contacto. llms.txt lists the PT
+    pages; llms-full.txt regenerated (17 pages); CLAUDE.md records the pair
+    map and invariants. Verified by script (108 checks) and in-browser:
+    the Programas click stays Portuguese, toggles round-trip, zero em dashes.
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 57daeb36c01879f57a46471ae4b3067146963293[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 10:34:34 2026 +0100
+
+    Give the PT page the full site navigation
+    
+    The minimal EN-plus-CTA header read as the nav disappearing. The PT page
+    now carries the standard header with Portuguese labels (Início, Programas,
+    Abordagem, Trabalho, Sobre, Blog, Contacto) linking to the English pages,
+    the EN toggle, the booking CTA, and the mobile Menu button it was missing.
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 5d0c21c785cc60f9de210f3b854ca0ea55fda536[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 10:23:44 2026 +0100
+
+    Rewrite CLAUDE.md as full session context; add llms-full generator script
+    
+    CLAUDE.md now records the stack and deployment (push to main deploys),
+    site layout, conversion stack, writing rules (em-dash prohibition, voice,
+    pt-PT conventions), content and motion invariants, and the open owner
+    to-dos (apex domain, SPF/DKIM, FormSubmit activation, analytics toggle,
+    GSC sitemap, .pt registrations, the Co-founder question, the unlinked
+    partner badge). tools/build_llms_full.py replaces the ad-hoc heredoc for
+    regenerating llms-full.txt and is excluded from deployment.
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit c47e5fa2b577c978b4bbc4e84f7c7ff06ae6af33[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 10:20:27 2026 +0100
+
+    Add a PT/EN header toggle; tighten the PT page to European Portuguese
+    
+    A sage PT link now sits in the header nav of every English page, and the
+    Portuguese page carries a matching EN link (previously the only way to
+    Portuguese was a footer credit). pt-PT wording pass: capacitação becomes
+    formação, firmas becomes casas/sociedades de investimento, and the
+    warranty line reads «não somos a casa certa para isto». llms-full.txt
+    regenerated.
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 8574946e116dd3c5f4ce2a3f08c189c75fafb186[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed Jul 29 10:01:08 2026 +0100
+
+    Remove the eyebrow hairline tick from every hero
+    
+    The 34px rule beside each section eyebrow read as an em dash. The span,
+    its per-page CSS, and its draw-in animation are gone from all thirteen
+    heroes; labels now sit flush at the margin.
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 68ab8cade9f39947770b49f7654a0fac652c8d09[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Tue Jul 28 22:19:04 2026 +0100
+
+    Cinematic motion layer: continuity, focus pulls, atmosphere
+    
+    - Cross-page view transitions upgraded from a flat fade to a directed
+      exit and entrance; the header is snapshotted separately so it holds
+      still while the page performs beneath it
+    - Focus-pull reveals: hero intros and scroll reveals now resolve from a
+      soft blur alongside the existing rise, like a rack focus
+    - Atmosphere: a slow sage light drifts across every dark band and the
+      footer; subpage hero and footer chevrons breathe at a nine-second
+      cadence (animated on the path so intro pins are never fought)
+    - Signature beats: the executed contract signature on the contact page
+      draws itself in ink when the signing block scrolls into view (path
+      length measured in solven.js); eyebrow ticks draw in with each hero;
+      the big serif numerals on programmes and approach settle a beat after
+      their section
+    - Choreography density: staggered cascades for the FAQ rows, contract
+      clauses, session topic lists, pedigree, constraints, builds, and the
+      journal post list via the existing data-stagger engine
+    - FAQ rows animate open, with native smooth height where
+      interpolate-size is supported; magnetic CTAs gain a slight scale
+    
+    All effects gated behind html.anim and prefers-reduced-motion:
+    no-preference, with the visible-by-default contract and rescue paths
+    intact. Verified in-browser: full-page scroll leaves zero stranded or
+    hidden elements on home, programmes, and contact; reduced-motion and
+    no-JS resting states unchanged. CLAUDE.md records the motion contract.
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 4b27207ccfcfaf54243a2202e0ea4b6d886ee5cf[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Tue Jul 28 15:07:52 2026 +0100
+
+    Remove every em dash from the site; codify the rule in CLAUDE.md
+    
+    157 em dashes rewritten across all pages, articles, the PT page, llms.txt,
+    robots.txt, and code comments: each occurrence re-punctuated with a comma,
+    colon, full stop, or restructured sentence rather than swapped for another
+    dash. Page-name/brand title pairs use the house middot (Contact · Solven
+    Advisory). llms-full.txt regenerated from the corrected pages. FAQ text
+    remains word-for-word identical between programmes and contact, and the
+    FAQPage JSON-LD still mirrors the visible answers exactly (verified).
+    
+    CLAUDE.md added at the repo root: em dashes are prohibited everywhere on
+    this site, with the voice rules and content invariants future edits must
+    respect.
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 6d9f45d846ad822d0078cbff8a0a9c0dc6232d75[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Tue Jul 28 14:38:34 2026 +0100
+
+    Align PT references with trailingSlash:false (/pt, not /pt/)
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 8391018677226aa10db256392b1a3e00abbaa401[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Tue Jul 28 12:48:32 2026 +0100
+
+    Overhaul SEO, credibility, and conversion across the site
+    
+    Addresses an external SEO review point by point, plus issues it missed:
+    
+    - Clean URLs: cleanUrls in vercel.json, all internal links extensionless,
+      /blog.html redirect, absolute asset paths
+    - Discovery: robots.txt (all crawlers and AI bots explicitly welcomed),
+      sitemap.xml with hreflang, llms.txt + llms-full.txt, site.webmanifest
+    - Metadata: canonical + Open Graph + Twitter cards on every page against
+      https://solvenadvisory.ai, generated 1200x630 og.png and apple-touch-icon
+      from brand SVGs, Organization/Service/FAQPage/BlogPosting JSON-LD
+    - Booking: Cal.com (EU) embedded inline on /contact#calendar, countersign
+      retargeted on-page, persistent Book-a-call header CTA on all pages,
+      booking promoted to primary CTA in hero and closers
+    - Contact form: mailto action replaced with FormSubmit endpoint, honeypot,
+      and an on-page success state (mailto silently failed without a client)
+    - Blog: three launch articles under /blog/<slug> with listing at /blog;
+      coming-soon shell removed
+    - Portuguese: native pt-PT landing page at /pt/ with reciprocal hreflang
+    - FAQ: ten grounded questions on /programmes (with FAQPage JSON-LD),
+      three-question subset on /contact
+    - Privacy (RGPD) page linked from a proper footer legal line
+    - Dev-artifact cleanup: Tweaks panel + edit-mode script stripped from
+      programmes (frontier visual now static), signature TODO comment removed,
+      legacy/ and BRAND.md excluded from deployment via .vercelignore
+    - Polish: sub-AA contrast fixes, 10px labels raised to 12px, text
+      equivalents for aria-hidden charts, off-voice lines rewritten, branded
+      404, cookieless Vercel analytics snippet
+    
+    Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+
+[33mcommit 6ac3fb46ff331e333d551f6179eb4d30ea9a1646[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Sun Jul 12 14:25:33 2026 +0100
+
+    Add the booking execution page to contact, wire it across the site
+    
+    Integrate the term-sheet "execution page" booking CTA as a CSS-only,
+    link-mode section (no third-party script, so "No tracking, no list"
+    survives). It lives above the contact form as the primary conversion
+    path; the mailto form stays below as secondary.
+    
+    - solven.css: add --sage-ink token, .tlink--dark and .cta-row helpers,
+      and the section CSS namespaced under .exec/.clause/.signing/.party/
+      .countersign, remapped onto the site's existing colour and type tokens.
+    - contact.html: insert the #book section above "Send a note"; title
+      demoted to h2; duplicate footer tagline dropped.
+    - index/programmes/approach/work/about/blog: add a secondary
+      "Book a call →" link to contact.html#book beside the existing CTA.
+    
+    Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+
+[33mcommit a79d5a1ecaa78539dd39b1db93bbd149197ca28b[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Thu Jul 2 18:12:41 2026 +0100
+
+    Make the hero chevron a signature, living element
+    
+    Elevate the intro from an inner-V draw at 5% opacity into a full
+    brand-mark construction: the outline inks the outer V then carves the
+    triangular cutout, lifted to a visible opacity during the build, then
+    recedes to the watermark. Retimed to land before the 2s intro-rescue snap.
+    
+    Add post-intro interactivity (fine pointer, motion only): the chevron
+    leans toward the cursor and wakes while the pointer is in the hero, and a
+    click re-inks it. Interactive states are scoped under intro-rescue so they
+    out-rank the persistent !important finalizer solven.js leaves on the body.
+    
+    Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+
+[33mcommit 8a6eb24dafd6965c94d64dcb66f8cbe9507d175b[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Tue Jun 30 23:04:51 2026 +0100
+
+    Add Token Economics offering and Blog section
+    
+    - Add fourth product offering "Token Economics" to the homepage:
+      new offer door plus a dedicated band with a budget-burn comparison
+      and usage/ROI/efficiency/pacing capability cards.
+    - Add "Blog" to the primary nav and footer across all pages, and a
+      placeholder blog.html page (SEO/lead-magnet shell, coming soon).
+    
+    Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+
+[33mcommit bb9d0e54f02474e4185387ba87e915d9bbc9038f[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Thu Jun 11 22:14:02 2026 +0100
+
+    Remove client mentions; make Work page generic capabilities
+    
+    Scrub all client-identifying detail, including the NDA-covered
+    "pan-European real estate firm." Convert work.html from a
+    client-engagement showcase into generic capability statements
+    (no client, sector, AUM, or location specifics) and drop the
+    "currently working with" live-client phrasing on the homepage.
+    
+    Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+
+[33mcommit bbb6a96886a6595dad98791e5936e09c7b78c22c[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Mon Jun 8 18:00:58 2026 +0100
+
+    Use miguelmonteiro@ as the sole contact email; drop hello@
+    
+    Remove the generic hello@solvenadvisory.ai address site-wide and leave
+    Miguel's address as the single point of contact.
+    
+    - Footer email link updated on all six pages
+    - contact.html: drop the "General" (hello@) details row, promote the
+      direct address to the primary "Email" row, and repoint the form
+      action, footer link, and meta description
+    
+    Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+
+[33mcommit 36b0290019e2e2eef0198c9eeb26fff43fa0d768[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Mon Jun 8 17:32:28 2026 +0100
+
+    Add cinematic motion layer across the site
+    
+    A progressive-enhancement animation system, transition-based off one
+    IntersectionObserver, that stays visible-by-default and fully static
+    under prefers-reduced-motion.
+    
+    Shared (solven.js + solven.css):
+    - Capability gate (html.anim / has-pointer), reveal engine with a
+      reveal:in event bus, line-mask headline splitter, magnetic CTA,
+      scroll-progress hairline (charcoal), film grain, and a generic
+      .intro-rise / .intro-chev / .line-mask hero-entrance contract
+    - Cross-page View Transitions, dark-band curtains, accent-bar draw,
+      staggered child cascades — all reduced-motion gated
+    
+    Homepage (index.html):
+    - Hero chevron stroke-draws then fills; AI-diligence argument resolves
+      row by row; frontier cadence timeline cascades; door hover; closer
+      wry-line flourish
+    
+    Sub-pages (programmes/approach/work/about/contact):
+    - data-intro heroes with line-mask H1s, intro-chev watermarks, and
+      band-curtain dark sections
+    
+    Reviewed across reduced-motion/FOUC, a11y, performance, cross-browser,
+    brand, and correctness; fixes applied (neutral non-blend grain,
+    -webkit-backdrop-filter + color-mix fallback, will-change cleanup).
+    
+    Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+
+[33mcommit 123e3ef0a539bf6bb7c3af1458b1e29d9ddd8ada[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Mon Jun 8 13:01:27 2026 +0100
+
+    Replace Astro site with v2 static site; archive old build in legacy/
+    
+    Switch the deployed site to the new static v2 build (plain HTML/CSS/JS)
+    and archive the previous Astro project under legacy/.
+    
+    - Move v2's six pages (index, about, approach, contact, programmes,
+      work), solven.css, solven.js, and assets/ to the repo root
+    - Archive the Astro project (src, public, config, CLAUDE.md, README)
+      under legacy/; keep BRAND.md and .gitignore at root
+    - Tuck v2 design artifacts (screenshots, hero-options.html) into
+      legacy/v2-working/
+    - Add vercel.json to serve the static site with no build step
+    
+    Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+
+[33mcommit 272370fbfa5b0d8351a2a4c29eda7599a8d3c701[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Thu Jun 4 19:30:39 2026 +0100
+
+    Add AI diligence service line
+    
+    Introduce a third offering: stress-testing whether a company raising
+    capital is genuinely AI-native, for investors evaluating the claim.
+    
+    - New /services #diligence section: the problem, what we do, a
+      "What we examine" list, and a contact CTA
+    - Home: rework "Two ways we work" into "How we work" with a third card
+      (3-up grid, collapses to one column on mobile)
+    - Add an AI diligence Service entity to the JSON-LD @graph
+    
+    Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+
+[33mcommit ba9c1538d55e37cb3ff3ccd0819eaebd02ae386c[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Thu Jun 4 18:55:47 2026 +0100
+
+    Add Services page; present Enablement + Delivery offering
+    
+    Introduce the learning/enablement product line alongside consulting.
+    
+    - New /services page: Enablement (full Claude toolkit + four-session
+      curriculum, no pricing) and Delivery (the four pillars, moved here)
+    - Extract the pillar grid from HowWeHelp into a header-less Pillars.astro
+    - Restructure home: replace the pillar grid with a lighter "Two ways we
+      work" section routing into /services
+    - Add Services to nav; add an enablement Service to the JSON-LD @graph
+    - Repoint the approach anchor to /services#delivery; update 404 links
+    - Wrap mobile nav so four items fit at 320px
+    
+    Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+
+[33mcommit 1f7a0c8b38b68e9068b415b9b47d2dd7c4865e2c[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Wed May 13 16:37:40 2026 +0100
+
+    Put second co-founder into stealth: remove name from site and schema
+    
+    Bruno asked to stay off the public-facing site for now. Removes all
+    mentions of his name and LinkedIn URL from:
+    
+    - About page body copy and meta description (now refers to "Miguel
+      Monteiro and his co-founder" without naming the second founder)
+    - JSON-LD founder array in Base.astro (was declaring two founders
+      with sameAs LinkedIn URLs; now declares Miguel only)
+    - CLAUDE.md page-structure description (with a note for future
+      agents that the second founder is in stealth and must not be
+      named anywhere)
+    
+    Miguel stays named throughout — the wording is "Miguel Monteiro and
+    his co-founder" so the firm doesn't read as solo, but only one
+    founder is identified.
+    
+    Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+
+[33mcommit ff3c5bd2d70ca5356529d602e1888fd0e78142a3[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Mon May 11 19:20:02 2026 +0100
+
+    Align home hero copy with H1 and title for SEO
+    
+    Two-part change to clear the SEO scorer warnings around H1/title vs
+    body content overlap:
+    
+    - Hero now opens "Solven Advisory helps private equity firms..."
+      instead of "We help...". Puts the brand name in visible body text
+      (it was previously only in image alt attributes, which the scorer
+      doesn't count as content).
+    - Geography on the home page is now consistently Iberia. Hero body,
+      H1 (visually-hidden), title, and meta description all align.
+    
+    All 8 H1 words now appear in the visible body. Title still includes
+    "Strategy" which is a deliberate trade-off — keeps "AI strategy" as
+    a keyword in the strongest ranking signal.
+    
+    Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+
+[33mcommit b0b4585a2e7b7613c6f3c7b6091f920171fb802b[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Mon May 11 19:13:14 2026 +0100
+
+    Align home H1 with visible hero copy
+    
+    The visually-hidden home H1 said "AI strategy for private equity in
+    Iberia" while the visible hero body says "private equity firms in
+    Portugal adopt AI". SEO scorers correctly flag the mismatch — H1
+    words should appear in body content. Drops "strategy" and switches
+    "Iberia" to "Portugal" so every H1 word now appears in the page
+    body. Iberia and strategy are still carried in the title tag, meta
+    description, and JSON-LD for keyword targeting.
+    
+    Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+
+[33mcommit befec6d0adcf180cb059b088918e9969b93dd509[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Mon May 11 19:07:58 2026 +0100
+
+    Add three internal cross-page links with keyword-rich anchor text
+    
+    SEO best practice: anchor text is a strong signal to Google about
+    what the destination page is about. Drops three contextual links into
+    existing body copy — no padding sentences, no new visible chrome.
+    
+    - Home (HowWeHelp intro) → /approach via "sharpen judgment, not
+      substitute for it"
+    - About paragraph 2 → /approach via "augmentation without cognitive
+      atrophy" (the thesis phrase that defines the page)
+    - Approach (The practice section) → /#how-we-help-title via "client
+      workflows across diligence, portfolio operations, and investor
+      relations"
+    
+    Two links push /approach (the thesis page) for cognitive-atrophy and
+    augmentation queries. One pushes the home pillars for service-level
+    PE queries.
+    
+    Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+
+[33mcommit b87ee6dcd43e7a8947572b2784c9733a3ee3219a[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Mon May 11 19:03:54 2026 +0100
+
+    SEO pass 2: heading hierarchy, 404, richer JSON-LD, theme-color
+    
+    Fixes:
+    - Approach page had <h3> appearing before <h2> within each section,
+      which inverts the semantic hierarchy. The "The risk" / "The
+      principle" / "The practice" labels are designators, not
+      subheadings — switched to <p class="designator"> to clean it up.
+    - Adds a branded /404 page so missed URLs land somewhere useful
+      rather than the Vercel default.
+    
+    Schema additions:
+    - Restructures the JSON-LD into an @graph with three entity types:
+      ProfessionalService (the firm), WebSite (the site), and four
+      Service nodes (one per pillar). Each Service declares its audience
+      and links back to the firm as provider, so Google can rank the
+      pillars as distinct service offerings within the entity graph.
+    
+    Polish:
+    - Adds <meta name="theme-color"> set to the bone background so
+      mobile browser chrome matches the page on iOS Safari and Android
+      Chrome.
+    
+    Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+
+[33mcommit 7db0c0992d5c05f82d206d6887adb3cdb29f522b[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Mon May 11 18:58:19 2026 +0100
+
+    Wire LinkedIn URLs into JSON-LD sameAs
+    
+    Adds the Solven Advisory company LinkedIn at the firm level, and the
+    two founders' personal LinkedIn profiles on their respective Person
+    sub-objects. Strengthens the entity graph Google builds for the
+    knowledge panel and improves the chance of branded queries surfacing
+    both the site and the partners.
+    
+    Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+
+[33mcommit ecaeef5f6e678f78b06073dc909fccd89e2c61e0[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Mon May 11 18:55:03 2026 +0100
+
+    SEO pass: titles, sitemap, schema, robots, canonicals
+    
+    - Rewrites every page title with target keywords (PE, AI, Iberia)
+      rather than the previous bare "[Page] — Solven Advisory" pattern.
+    - Adds a visually-hidden H1 text to the home page so crawlers see a
+      keyword-rich heading; the wordmark image's alt is emptied to avoid
+      duplication for screen readers.
+    - Adds @astrojs/sitemap (the only new dep) for auto-generated
+      sitemap-index.xml and sitemap-0.xml at every build.
+    - Adds public/robots.txt pointing to the sitemap.
+    - Adds a Schema.org ProfessionalService JSON-LD blob in Base.astro
+      declaring founders, Lisbon address, areaServed (PT + ES), and
+      knowsAbout topics.
+    - Adds rel="canonical" to every page.
+    - Tightens the contact-page meta description; previously had no
+      keywords.
+    - Standardises geography on Iberia in meta/titles; visible page copy
+      stays as-is.
+    
+    Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+
+[33mcommit 6ea90909018d6dd1523cdfd3d98de4ede2d5c369[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Mon May 11 18:37:56 2026 +0100
+
+    Restore /favicon.ico with the green-V-on-white treatment
+    
+    Adds back a multi-resolution favicon.ico (16/32/48 sizes embedded)
+    generated from the existing favicon SVG. Google's image crawler and
+    many legacy clients auto-request /favicon.ico regardless of the
+    <link> tags in the HTML, so having a real ICO at the root helps with
+    search-result favicons and other discovery flows.
+    
+    Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+
+[33mcommit b2fce52c817edec7b0793e46a3bab984251bc1dc[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Mon May 11 01:23:21 2026 +0100
+
+    Add "Where we work" section to homepage
+    
+    Introduces four service pillars below the hero — diligence & deal flow,
+    portfolio operations, investor relations & compliance, and knowledge &
+    methodology — each mapping to a different buyer inside a PE firm.
+    Astro component using existing tokens, no new dependencies.
+    
+    Editorial tick mark above each pillar uses charcoal (not sage) so the
+    chevron-as-only-sage-element rule still holds. Deliverables are
+    hairline-separated rows rather than bulleted lists, to feel like a
+    service spec rather than a pitch deck.
+    
+    Updates CLAUDE.md to reflect the deliberate expansion of the homepage
+    beyond the original one-screen scope.
+    
+    Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+
+[33mcommit 2e80b20e9d6733cce22b3b7c65c746def9ad964b[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Fri May 8 18:37:13 2026 +0100
+
+    Use single hello@ inbox on contact page
+    
+    Replaces the per-partner email list with one shared address. Cleaner for
+    visitors who just want to reach the firm, and routes inbound mail to a
+    single shared inbox we can triage rather than betting on the right
+    person being available.
+    
+    Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+
+[33mcommit e5e9fccb8f6681705495e05eb52c0218997ac3b1[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Fri May 8 17:38:10 2026 +0100
+
+    Set canonical site URL to https://www.solvenadvisory.ai
+    
+    Now that the production domain is acquired, hardcode it as `site` so
+    Astro emits absolute URLs in OG/Twitter meta tags. Social scrapers need
+    absolute URLs to resolve preview images correctly.
+    
+    Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
+
+[33mcommit 1885aec491058afdc0e5a66fe617e2b16b6d2787[m
+Author: miguel9monteiro <miguelmonteiroaz@gmail.com>
+Date:   Fri May 8 05:49:22 2026 +0100
+
+    Initial commit: Astro scaffold with brand assets and four pages
+    
+    Sets up the Solven Advisory marketing site: home, about, approach, and
+    contact, built on Astro with plain CSS and zero JavaScript in the
+    bundle. Brand assets (logos, icons, ornaments, favicons) and design
+    tokens are wired in per BRAND.md.
+    
+    Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
