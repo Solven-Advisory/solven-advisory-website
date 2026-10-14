@@ -1,5 +1,46 @@
 # Solven Advisory Website
 
+## Project
+Website for Solven Advisory, Lda (solvenadvisory.ai): a boutique AI enablement and implementation consultancy in Lisbon, member of the Anthropic Partner Network. Clients: private equity firms first, also real estate and venture firms, across Iberia and Europe. Readers are PE partners, associates and analysts, portfolio-company executives, and future hires. They skim, so pages read like an elevator pitch: key ideas only, then links to depth.
+
+## Status
+A full visual redesign is in progress on branch redesign/base and its child branches. The design source of truth will be docs/design-brief.md and DESIGN.md once they exist. Read them before any UI work. Log every design attempt and every rejection in docs/redesign-log.md.
+
+## Feeling
+Prestigious, formal, polished: "good old-fashioned finance", with a quiet freshness that comes from precision, clarity and plain confident language, never from effects.
+
+## Hard limits (never violate, even if a skill suggests otherwise)
+- Zero motion as a feature: no scroll-triggered reveals, fade-ins, text that bolds or assembles on scroll, split-letter effects, animated shapes, intro loaders, parallax, smooth-scroll hijacking, WebGL or animated backgrounds. Do not add GSAP, Framer Motion, Lenis or any animation library. Allowed: simple hover states and instant UI feedback. Always respect prefers-reduced-motion.
+- Must run smoothly on an ordinary laptop. Static, fast pages.
+- No team headshot grids. No founder names or photos.
+- No client logos, case numbers or invented statistics. Use clearly marked placeholders where a future section needs them.
+- Remove "AI Flix" entirely.
+- Do not reproduce the old look: warm cream background, Georgia serif headlines with one italicised word, sage green, small uppercase tracked "eyebrow" labels over headings, 01/02/03 or i/ii/iii numbering, faded giant logo watermark, scroll fade-ins.
+- Avoid generic AI-startup aesthetics: black backgrounds with glows, purple/blue gradients, Inter-on-black slogan heroes, bento grids, emoji or icon-per-feature cards.
+- Flat surfaces: small radii (about 3 to 5px), no drop shadows, thin rules.
+- Photography must be real and contextual, not abstract gradients or 3D renders.
+- Homepage target height: roughly one third of the current one (about 3,000px on desktop).
+
+## Logo (fixed)
+Wordmark "Solven" in Georgia with a custom V notch, "ADVISORY" in spaced capitals below. Source: assets/logos/01_solven_primary_lockup.svg (reversed: 02_solven_reversed_lockup.svg). Only the two colour slots may change (wordmark fill; V notch + ADVISORY fill). Never change letterforms, fonts, the V shape or proportions. Georgia appears only in the logo.
+
+## Content
+The substance of the current copy stays: the thesis "Augmentation without cognitive atrophy", the three convictions (Judgment is the product, Fluency is firm-wide, The frontier is the job), and four services (Enablement, Build, AI Diligence, Token Economics). Copy can be condensed or moved, not reinvented. Languages: EN and PT, with a PT mirror of every page.
+
+## SEO (must be preserved in any rebuild)
+Per-page titles and meta descriptions, canonical URLs on solvenadvisory.ai, EN/PT hreflang, ProfessionalService structured data, Open Graph images, one H1 per page.
+
+## Working rules
+- Change only what the current prompt asks for. Do not "improve" untouched sections.
+- Commit after each completed step with a descriptive message.
+
+## Current site reference (pre-redesign)
+
+This section describes the site as built before the redesign. The build,
+deployment, SEO and writing mechanics still apply. Where anything below
+conflicts with the sections above (the motion layer, AI Flix, the founder
+name, the old palette and type), the sections above win.
+
 Marketing site for Solven Advisory: a one-founder AI enablement and
 implementation consultancy in Lisbon (founder: Miguel Monteiro), selling to
 private equity, real estate, and venture firms. Core thesis: "augmentation
@@ -9,7 +50,7 @@ Claude enablement programmes (four-session arc), build work (agents on real
 workflows), AI due diligence on targets, and token economics. Solven is a
 member of the Anthropic Partner Network.
 
-## Stack and deployment
+### Stack and deployment
 
 - Plain HTML/CSS/JS. No framework, no build step, no webfonts.
 - Deployed on Vercel from GitHub `miguel9monteiro/solven-advisory-website`;
@@ -25,7 +66,7 @@ member of the Anthropic Partner Network.
   slash; the PT page is `/pt`). Every page carries canonical + OG + Twitter
   meta and shares `assets/og.png` (1200x630, generated from brand SVGs).
 
-## Layout
+### Layout
 
 - Pages: `index`, `programmes`, `approach`, `work`, `about`, `contact`,
   `privacy`, `404`, `blog/index` + three articles (`blog/<slug>.html`,
@@ -61,7 +102,7 @@ member of the Anthropic Partner Network.
 - Structured data: ProfessionalService on `/`, Service + FAQPage on
   `/programmes`, Blog/BlogPosting on the journal, WebPage on `/pt`.
 
-## Conversion stack
+### Conversion stack
 
 - Booking: Cal.com EU embedded inline on `/contact#calendar`
   (`cal.eu/miguelmonteirosolven`, loader from `app.cal.eu/embed/embed.js`);
@@ -75,7 +116,7 @@ member of the Anthropic Partner Network.
 - Analytics: Vercel Web Analytics snippet on every page (cookieless; the site
   promises "No cookies, no list", so never add cookie-based tracking).
 
-## Writing rules
+### Writing rules
 
 - **Em dashes are a big no. Never use an em dash (—) anywhere**: not in copy,
   titles, meta, JSON-LD, code comments, or generated files. Rewrite with a
@@ -93,7 +134,7 @@ member of the Anthropic Partner Network.
   "marcar uma chamada". Finance anglicisms (private equity, term sheet, deck)
   are deliberate.
 
-## Invariants
+### Invariants
 
 - The three FAQ answers shared between `programmes.html` and `contact.html`
   must stay word-for-word identical, and the FAQPage JSON-LD in
@@ -119,7 +160,7 @@ member of the Anthropic Partner Network.
 - Never pure black, no greens beyond the two brand sages, no third typeface,
   bone background not white (BRAND.md).
 
-## Known issues and owner to-dos (verify before assuming fixed)
+### Known issues and owner to-dos (verify before assuming fixed)
 
 - **Apex misrouted**: `solvenadvisory.ai` 301s to
   `solven-advisory-website.vercel.app`; only `www` serves correctly. Fix is in
