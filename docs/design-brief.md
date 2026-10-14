@@ -1,6 +1,6 @@
 # Design brief · solvenadvisory.ai redesign
 
-Status: Phase 3, written 2026-10-14. This file is the single source of truth for typography, colour, spacing, grid and components. If it conflicts with anything except the hard limits in `CLAUDE.md`, this brief wins. Where it is silent, ask; do not improvise.
+Status: Phase 3, written 2026-10-14; owner decisions on the first open questions folded in the same day. This file is the single source of truth for typography, colour, spacing, grid and components. If it conflicts with anything except the hard limits in `CLAUDE.md`, this brief wins. Where it is silent, ask; do not improvise.
 
 Sources: `CLAUDE.md`, `docs/redesign-log.md`, `docs/references/` (current-site, hark, subduxion, actionist, institutional, synthesis, client screenshots in `screens/`), and the copy in `index.html` and `about.html`. All reference measurements are at 1440px wide in Chromium, 2026-10-14.
 
@@ -70,7 +70,7 @@ Reason: H1 56px is smaller than every reference (60-112px) on purpose: the clien
 - Fallback stacks: serif `Georgia` is **not** allowed as a fallback (it is logo-only); use `"Source Serif 4", "Iowan Old Style", "Times New Roman", serif` and `"Spectral", "Iowan Old Style", "Times New Roman", serif`. Sans: `"Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif` and `"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif`.
 - Portuguese: all five families cover Latin-1 (ã, õ, ç, á, à, é, ê, í, ó, ô, ú, «, ») in Google's `latin` subset. Before approving any direction, render this test line in every face and weight used and check it visually: `Formação, gestão, decisões, análise, equipas, «sócios», você, três, à, ô, ú.`
 
-Note: synthesis 4d suggested self-hosting woff2. The owner chose Google Fonts for Phase 4; self-hosting can be revisited at build (see Open questions).
+Note: Google Fonts is for Phase 4 explorations only. Production self-hosts the same files (see section 11, Build-phase notes).
 
 ### 2.4 Forbidden
 
@@ -88,7 +88,7 @@ Note: synthesis 4d suggested self-hosting woff2. The owner chose Google Fonts fo
 ### 3.1 Shared rules
 
 - Every palette has exactly these roles, as CSS custom properties with these names:
-  `--c-ground` (page), `--c-band` (one light alternate band), `--c-anchor` (deep colour: H1/H2 colour, one dark band, footer, solid buttons, logo wordmark), `--c-text` (body), `--c-muted` (secondary text), `--c-rule` (1px rules on light), `--c-accent` (optional), `--c-link`, `--c-focus`, and the on-anchor set `--c-on-anchor`, `--c-on-anchor-muted`, `--c-rule-on-anchor`, plus the logo slots `--c-logo-word`, `--c-logo-mark` and their reversed pair `--c-logo-word-rev`, `--c-logo-mark-rev`.
+  `--c-ground` (page), `--c-band` (one light alternate band), `--c-anchor` (deep colour: H1/H2 colour, one dark band, footer, solid buttons, logo V notch and "ADVISORY"), `--c-text` (body), `--c-muted` (secondary text), `--c-rule` (1px rules on light), `--c-accent` (optional), `--c-link`, `--c-focus`, and the on-anchor set `--c-on-anchor`, `--c-on-anchor-muted`, `--c-rule-on-anchor`, plus the logo slots `--c-logo-word`, `--c-logo-mark` and their reversed pair `--c-logo-word-rev`, `--c-logo-mark-rev`.
 - Pure white `#FFFFFF` and pure black `#000000` are never used. Text greys are fixed hex values, never opacity.
 - The anchor fills at most **one** full-width band plus the footer per page.
 - The accent covers under 2% of any screen and is never a background fill. Use it for links and focus, or one small detail, never both a link colour and a decorative detail in the same palette.
@@ -106,14 +106,14 @@ Note: synthesis 4d suggested self-hosting woff2. The owner chose Google Fonts fo
 | `--c-text` | `#1C1D20` | 16.0:1 ground, 14.4:1 band | |
 | `--c-muted` | `#5E6066` | 6.0:1 ground, 5.4:1 band | |
 | `--c-rule` | `#D9D6D0` | (non-text) | 1px |
-| `--c-accent` | `#7A2E2E` | 8.8:1 ground, 8.0:1 band | Oxblood: link underline colour, link hover text, logo mark. Never a fill. |
+| `--c-accent` | `#7A2E2E` | 8.8:1 ground, 8.0:1 band | Oxblood: link underline colour, link hover text. Never a fill. |
 | `--c-link` | `--c-text` text, `--c-accent` underline | | |
 | `--c-focus` | `#1B2433` | 14.8:1 | |
 | `--c-on-anchor` | `#FAF9F6` | 14.8:1 on anchor | |
 | `--c-on-anchor-muted` | `#B4B9C2` | 7.9:1 on anchor | Derived here. |
 | `--c-rule-on-anchor` | `#3A4354` | (non-text) | Derived here. |
-| `--c-logo-word` / `--c-logo-mark` | `#1B2433` / `#7A2E2E` | 14.8:1 / 8.8:1 | |
-| `--c-logo-word-rev` / `--c-logo-mark-rev` | `#FAF9F6` / `#D7A9A3` | 14.8:1 / 7.5:1 on anchor | Oxblood on ink fails, so the reversed mark is a light oxblood tint. Derived here. |
+| `--c-logo-word` / `--c-logo-mark` | `#1C1D20` / `#1B2433` | 16.0:1 / 14.8:1 | Text colour / anchor, per the logo rule (3.5). The two are only 1.08:1 apart, so the V notch barely separates from the letters: see Open questions. |
+| `--c-logo-word-rev` / `--c-logo-mark-rev` | `#FAF9F6` / `#D7A9A3` | 14.8:1 / 7.5:1 on anchor | The anchor cannot sit on itself, so the reversed mark is the light oxblood the owner specified. |
 
 ### 3.3 P2 · Oxblood (Direction 3)
 
@@ -131,8 +131,8 @@ Note: synthesis 4d suggested self-hosting woff2. The owner chose Google Fonts fo
 | `--c-on-anchor` | `#F8F7F4` | 11.8:1 on anchor | |
 | `--c-on-anchor-muted` | `#E0CFCC` | 8.4:1 on anchor | Derived here. |
 | `--c-rule-on-anchor` | `#7A3F44` | (non-text) | Derived here. |
-| `--c-logo-word` / `--c-logo-mark` | `#5B1F24` / `#68625C` | 11.8:1 / 5.6:1 | The accent is links-only, so the mark takes the muted grey. |
-| `--c-logo-word-rev` / `--c-logo-mark-rev` | `#F8F7F4` / `#E0CFCC` | 11.8:1 / 8.4:1 on anchor | |
+| `--c-logo-word` / `--c-logo-mark` | `#23201E` / `#5B1F24` | 15.1:1 / 11.8:1 | Text colour / anchor, per the logo rule (3.5). |
+| `--c-logo-word-rev` / `--c-logo-mark-rev` | `#F8F7F4` / `#E0CFCC` | 11.8:1 / 8.4:1 on anchor | Reversed mark is a light oxblood tint (the anchor cannot sit on itself). |
 
 ### 3.4 P3 · Bottle green, no accent (Direction 2)
 
@@ -150,14 +150,16 @@ Note: synthesis 4d suggested self-hosting woff2. The owner chose Google Fonts fo
 | `--c-on-anchor` | `#F7F7F5` | 11.5:1 on anchor | |
 | `--c-on-anchor-muted` | `#C2C7C3` | 7.2:1 on anchor | Neutral grey, not a sage tint. Derived here. |
 | `--c-rule-on-anchor` | `#3B5347` | (non-text) | Derived here. |
-| `--c-logo-word` / `--c-logo-mark` | `#1F3A2E` / `#5F635F` | 11.5:1 / 5.7:1 | |
-| `--c-logo-word-rev` / `--c-logo-mark-rev` | `#F7F7F5` / `#C2C7C3` | 11.5:1 / 7.2:1 on anchor | |
+| `--c-logo-word` / `--c-logo-mark` | `#1C1E1C` / `#1F3A2E` | 15.6:1 / 11.5:1 | Text colour / anchor, per the logo rule (3.5). |
+| `--c-logo-word-rev` / `--c-logo-mark-rev` | `#F7F7F5` / `#C9D6CE` | 11.5:1 / 8.2:1 on anchor | Reversed mark is a light bottle-green tint (the anchor cannot sit on itself; muted grey is not allowed). Derived here; must read as pale bottle green, not sage. |
 
 ### 3.5 Logo
 
-- Source files: `assets/logos/01_solven_primary_lockup.svg`, `02_solven_reversed_lockup.svg`, `03_solven_horizontal_lockup.svg`. Use them inline so the two fills can take `var(--c-logo-word)` and `var(--c-logo-mark)`.
-- Only these may change: the wordmark fill (slot 1) and the V notch plus "ADVISORY" fill (slot 2). Never change paths, letterforms, font attributes, letter-spacing, positions or proportions. Cropping the `viewBox` to the artwork is allowed (it removes empty margin; the geometry is untouched). The reversed file's background `rect` is dropped; the band behind it provides the colour.
-- Header: `03` horizontal lockup, 40px tall desktop, 32px mobile. Footer: `01` primary lockup, 88px tall, reversed slots.
+- Source files: `assets/logos/04_solven_wordmark_only.svg` (header) and `assets/logos/01_solven_primary_lockup.svg` (footer; `02_solven_reversed_lockup.svg` shows the reversed arrangement). Use them inline so the two fills can take `var(--c-logo-word)` and `var(--c-logo-mark)`.
+- Colour rule (owner decision): slot 1, the wordmark, is the palette's main text colour (`--c-text`; `--c-on-anchor` when reversed). Slot 2, the V notch and "ADVISORY", is the palette's anchor colour (`--c-anchor`); when reversed on the anchor, a light tint of the anchor hue (P1 `#D7A9A3`, P2 `#E0CFCC`, P3 `#C9D6CE`) because the anchor cannot sit on itself. Never muted grey, never the accent.
+- Only these two fills may change. Never change paths, letterforms, font attributes, letter-spacing, positions or proportions. Cropping the `viewBox` to the artwork is allowed (it removes empty margin; the geometry is untouched). The reversed file's background `rect` is dropped; the band behind it provides the colour.
+- Header: wordmark only (`04`, no "ADVISORY"), 36px tall desktop, 28px mobile. Reason: "ADVISORY" renders at about 6px in every lockup at header size and is unreadable. Footer: full primary lockup (`01`), 88px tall, reversed slots.
+- At build, the live Georgia and Calibri text in the logo files is converted to outlined paths (section 11). During explorations, the live-text files are used as they are.
 - Clear space: at least the height of the "S" on all sides.
 
 ---
@@ -198,13 +200,10 @@ Copy below is condensed from `index.html` (services) and `about.html` (convictio
 
 ### 5.1 Sections, in order
 
-**(1) Header.** Logo left. Nav right: Approach · Services · Insights · Firm · Contact (rendered as five links; the middots here are only notation). "Book a call" primary button. EN/PT switch at the far right. PT labels: see Open questions.
+**(1) Header.** Logo left (wordmark only, 3.5). Nav right: Approach · Services · Insights · About us · Contact (rendered as five links; the middots here are only notation). "Book a call" primary button. EN/PT switch at the far right. PT labels: Abordagem · Serviços · Publicações · Sobre nós · Contacto (see 5.4).
 
 **(2) Hero.** H1 (thesis), one supporting line, one primary action ("Book a call", to `/contact#calendar`). No second button.
-- H1 placeholder options:
-  - "Sharper judgment for the age of AI."
-  - "AI that strengthens the analyst."
-  - "The thinking stays human. The rest moves faster."
+- H1 for all Phase 4 explorations: "Sharper judgment for the age of AI." The same headline is used in all three directions so they can be compared fairly. Copy is not final.
 - Supporting line: "Solven trains private equity teams on AI and builds it into their workflows, so the people making the call still own the reasoning behind it."
 - The thesis phrase "Augmentation without cognitive atrophy" is kept as the H2 of section 4 (see below).
 
@@ -212,10 +211,10 @@ Copy below is condensed from `index.html` (services) and `about.html` (convictio
 
 | Service | Two-line text | Link |
 |---|---|---|
-| Enablement | Hands-on Claude sessions for the whole firm, analyst to managing partner, run monthly because the frontier moves weekly. | The programmes → `/programmes` |
-| Build | Agents and workflow systems on the real work: contract redlining, IC memo interrogation, portfolio reporting. | Selected work → `/work` |
-| AI Diligence | An independent read on whether a target's AI is genuine capability or marketing, before the term sheet is signed. | How it works → `[detail page TBD]` |
-| Token Economics | Where the compute spend goes, what it returns, and how to pace it so the year's budget lasts the year. | How it works → `[detail page TBD]` |
+| Enablement | Hands-on Claude sessions for the whole firm, analyst to managing partner, run monthly because the frontier moves weekly. | How it works → `/services/enablement` |
+| Build | Agents and workflow systems on the real work: contract redlining, IC memo interrogation, portfolio reporting. | How it works → `/services/build` |
+| AI Diligence | An independent read on whether a target's AI is genuine capability or marketing, before the term sheet is signed. | How it works → `/services/ai-diligence` |
+| Token Economics | Where the compute spend goes, what it returns, and how to pace it so the year's budget lasts the year. | How it works → `/services/token-economics` |
 
 **(4) Why Solven.** H2: "Augmentation without cognitive atrophy." Three convictions, H3 plus one sentence each:
 - Judgment is the product. "In an investment firm the deliverable is a defensible decision; AI should make that judgment sharper, never thinner."
@@ -223,11 +222,11 @@ Copy below is condensed from `index.html` (services) and `about.html` (convictio
 - The frontier is the job. "Staying current is a standing discipline, not a one-off project, which is why our work is monthly."
 Section link: "Our approach" → `/approach`.
 
-**(5) Latest insights.** H2: "Insights." Up to three entries from `blog/` (title, date, one-line summary or photo per direction). Section link: "All insights" → `/blog`. Placeholders allowed: `[Insight title]`, `[Month 2026]`.
+**(5) Latest insights.** H2: "Insights." The three newest articles, selected automatically by date (see section 11 for how, with no runtime JavaScript). Text-only cards: title, date, one-line summary. No article images, so the section never depends on them. Section link: "All insights" → `/insights`. Placeholders allowed in mockups: `[Insight title]`, `[Month 2026]`.
 
-**(6) Closing call to action.** H2: "Let's tune a programme to your firm's priorities." One line: "A short conversation is the fastest way to see where Claude belongs in your team's work, and where it shouldn't." Primary button "Book a call". Secondary text link "Write to us" → `/contact`. The line "Member of the Anthropic Partner Network" may sit here in `--fs-small`, plain text.
+**(6) Closing call to action.** H2: "Let's tune a programme to your firm's priorities." One line: "A short conversation is the fastest way to see where Claude belongs in your team's work, and where it shouldn't." Primary button "Book a call". Secondary text link "Write to us" → `/contact`. A partner mention may sit here in `--fs-small`, plain text, using only the wording the Anthropic partner agreement permits (`[Partner wording per agreement]` until confirmed). Never "Phase 1".
 
-**(7) Footer.** Anchor colour. Reversed logo; "Lisbon, Portugal"; email; nav repeat (Approach, Services, Insights, Firm, Contact); EN/PT switch; legal row: "© 2026 Solven Advisory, Lda · Privacy · Cookie settings". LinkedIn as a text link, no icon.
+**(7) Footer.** Anchor colour. Reversed logo; "Lisbon, Portugal"; email; nav repeat (Approach, Services, Insights, About us, Contact); EN/PT switch; legal row: "© 2026 Solven Advisory, Lda · Privacy · Cookie settings". LinkedIn as a text link, no icon.
 
 ### 5.2 Reserved slots (describe, do not build)
 
@@ -237,7 +236,27 @@ Section link: "Our approach" → `/approach`.
 
 ### 5.3 Exclusions
 
-No founder names or photos, no team grid, no client logos (until permitted), no case numbers or statistics, no testimonial quotes, nothing about AI Flix, no FAQ on the homepage, no Token Economics chart, no cadence timeline. The practices grid and the AI Diligence pitch/surface comparison move off the homepage to their detail pages.
+No founder names or photos, no team grid (see 5.5 for how the founders are described), no client logos (until permitted), no case numbers or statistics, no testimonial quotes, nothing about AI Flix, no FAQ on the homepage, no Token Economics chart, no cadence timeline. The practices grid and the AI Diligence pitch/surface comparison move off the homepage to their service pages under `/services/`.
+
+### 5.4 Site map and URLs
+
+| EN label | EN URL | PT label | PT URL |
+|---|---|---|---|
+| Approach | `/approach` | Abordagem | `/pt/abordagem` |
+| Services | `/services` | Serviços | `/pt/servicos` (proposed) |
+| (service pages) | `/services/enablement`, `/services/build`, `/services/ai-diligence`, `/services/token-economics` | | `/pt/servicos/<slug>` (proposed) |
+| Insights | `/insights` (articles at `/insights/<slug>`, proposed) | Publicações | `/pt/publicacoes` (proposed) |
+| About us | `/about` | Sobre nós | `/pt/sobre` |
+| Contact | `/contact` | Contacto | `/pt/contacto` |
+
+- "Firm" is not used as a label anywhere; the page is "About us".
+- Each service's "How it works" / "Read more" link goes to that service's own page under `/services/`.
+- The PT Publicações page lists every article. Articles without a PT translation are marked "(EN)" after the title and link to the English article.
+- Redirects, sitemap and hreflang changes happen at build, not during explorations (section 11).
+
+### 5.5 Founders (About us page, not the homepage)
+
+Solven has three co-founders: two younger co-founders with finance and AI/engineering backgrounds, and one senior co-founder who is a former business owner. No names or photos on the site for now. The About us page describes this pairing in general terms (for example, finance and engineering depth alongside the experience of having run a business). The homepage does not describe the founders.
 
 ---
 
@@ -279,7 +298,7 @@ All interactive states change **colour, background-colour, border-colour, text-d
 
 - Four equal cells on the grid (3 columns each), 1px rules top and bottom and between cells, height 112px, cell padding 24px.
 - Each cell: one fact in 18px sans 500 `--c-text`, one 14px `--c-muted` caption line.
-- Content (no numbers until the owner supplies verified ones): "Lisbon" / "Based in Portugal"; "Iberia and Europe" / "Where we work"; "Anthropic Partner Network" / "Member"; "Private equity" / "Our first focus". Any future figure stays `[Figure]` until verified.
+- Content (approved by the owner; every item must stay true): "Lisbon" / "Based in Portugal"; "Iberia & Europe" / "Where we work"; "Private equity focus" / "Our first clients"; "Anthropic Partner Network" / `[Wording per partner agreement]`. The partner item uses only wording the partner agreement permits and never says "Phase 1". No numbers; any future figure stays `[Figure]` until verified.
 - Mobile: 2 × 2, height 2 × 96px.
 
 ### 6.5 Service item
@@ -295,16 +314,18 @@ All interactive states change **colour, background-colour, border-colour, text-d
 
 ### 6.7 Photo panel
 
-- Allowed aspect ratios only: **3:2** (in-section photo with text beside it), **4:5** (portrait panel, insight images in D3), **1:1** (D2 hero), **16:9** (insight images in D2 if 3:2 does not fit), **3:1** (D3 full-width hero strip). Reason: Actionist 3:2 and 0.82; institutions 16:9 and 3:4; J.P. Morgan's Lisbon strip about 3.1:1.
+- Allowed aspect ratios only: **3:2** (in-section photo with text beside it), **4:5** (portrait panel), **1:1** (D2 hero), **16:9** (wide in-section photo), **3:1** (D3 full-width hero strip). Reason: Actionist 3:2 and 0.82; institutions 16:9 and 3:4; J.P. Morgan's Lisbon strip about 3.1:1.
 - `object-fit: cover`, radius 0, no border, no overlay, no tint, no colour layer, no caption over the image.
 - Every photo has `width`/`height` attributes (no layout shift), `loading="lazy"` below the fold, `decoding="async"`, real `alt` text. Formats AVIF or WebP with JPEG fallback; hero image under 180KB at 1440px.
 - Exploration placeholder: a block in `--c-band` with a 1px `--c-rule` border at the final aspect ratio, and a 14px `--c-muted` caption centred inside: "Photo: [subject]", e.g. "Photo: Lisbon office interior, morning light, empty desk with printed memo".
 
 ### 6.8 Insight card
 
-- D1 (list row): 1px rule above; date left (14px `--c-muted`, tabular), title (18px sans 500, `--c-text`) and one-line summary (16px `--c-muted`); row 88px. Whole row is the link; hover underlines the title.
-- D2 (card): photo 3:2 on top, then 16px gap, date in 14px Plex Mono `--c-muted` ("14 Oct 2026"), 8px gap, title 20px sans 500 (two lines max), no category label. 4 columns wide. Whole card is one link; hover underlines the title. No border.
-- D3 (feature plus list): one feature (photo 4:5 at 4 columns, title and one-line summary beside it) and two list rows as in D1.
+Text-only in every direction: title, date, one-line summary. No images. The three newest articles fill the slots automatically.
+
+- D1 (stacked list rows): full content width, 1px rule above each row; date left on cols 1-2 (14px `--c-muted`, tabular), title (18px sans 500, `--c-text`) and one-line summary (16px `--c-muted`) on cols 3-10; row 88px. Whole row is the link; hover underlines the title.
+- D2 (three-column cards): 4 columns each, 1px rule above; date in 14px Plex Mono `--c-muted` ("14 Oct 2026"), 12px gap, title 20px sans 500 (two lines max), 8px gap, one-line summary 16px `--c-muted`. Whole card is one link; hover underlines the title. No border, no box.
+- D3 (statement and list): H2 and "All insights" on cols 1-4; three list rows on cols 6-12 (title 18px sans 500, summary 16px `--c-muted`, date 14px `--c-muted` right-aligned on the title line), 1px rules between. Reason: the Subduxion article-links screenshot the client saved.
 - No uppercase category labels (unlike the client's dark "Latest news" screenshot), no open line frames.
 
 ### 6.9 CTA band
@@ -322,7 +343,7 @@ All interactive states change **colour, background-colour, border-colour, text-d
 ### 6.11 EN/PT switch
 
 - Two text links "EN" and "PT" separated by a 1px vertical rule 14px tall, 14px sans 500. The current language is `--c-text` with `aria-current="true"`; the other is `--c-muted`, underlined on hover. Tap target 44 × 44px each.
-- Each link targets the page's own counterpart (`/programmes` ↔ `/pt/programas`, etc.); on unpaired pages PT targets `/pt`. `lang` and `hreflang` attributes on each link.
+- Each link targets the page's own counterpart (`/services` ↔ `/pt/servicos`, `/insights` ↔ `/pt/publicacoes`, etc., per 5.4); on unpaired pages PT targets `/pt`. On an English-only article, PT targets `/pt/publicacoes`. `lang` and `hreflang` attributes on each link.
 
 ---
 
@@ -331,8 +352,8 @@ All interactive states change **colour, background-colour, border-colour, text-d
 - Real, contextual, calm photography in natural colour: architecture (Lisbon stone, arcades, stairwells), workspaces (empty desks, meeting rooms in daylight), documents (printed memos, annotated pages, a pen on a term sheet), Lisbon light on façades and floors, hands at work (writing, turning a page, at a keyboard; faces out of frame).
 - People only as hands, backs, or small figures in a space; nobody looks at the camera. No headshots, no portraits, no team photos.
 - Never: gradients, 3D renders, abstract glass, ASCII or halftone treatments, AI-generated or AI-looking illustrations, icon-per-feature graphics, glows, colour overlays or tints, stock handshakes, screens showing chat interfaces.
-- One photo per section at most; at most four photos on the homepage (insight images count).
-- During Phase 4 explorations every photo is a placeholder block (section 6.7) with its intended subject. Sourcing is an open question.
+- One photo per section at most; at most four photos on the homepage. Insights never carry images.
+- Sourcing, in order: (1) Phase 4 explorations use neutral captioned placeholder blocks only (section 6.7). (2) Before launch, curated stock photography that meets every rule above. (3) Over time, replace stock with the client's own Lisbon photography (architecture, light, workspaces). No headshots at any stage.
 
 ---
 
@@ -376,7 +397,7 @@ From synthesis section 5 (reference traits not to carry over):
 
 ## 9. The three directions for Phase 4
 
-All three follow sections 1-8 exactly. They differ only in layout, type pairing and palette. Each is a homepage mockup at 1440px and 390px, built as static HTML on its own child branch of `redesign/base`, and logged in `docs/redesign-log.md`.
+All three follow sections 1-8 exactly. They differ only in layout, type pairing and palette. All three use the same copy, including the H1 "Sharper judgment for the age of AI.", so they can be compared fairly. Each is a homepage mockup at 1440px and 390px, built as static HTML on its own child branch of `redesign/base`, and logged in `docs/redesign-log.md`. Insights are text-only in all three (6.8).
 
 ### 9.1 Direction 1 · "Ledger" (Hark-like)
 
@@ -386,10 +407,10 @@ Type: Source Serif 4 (H1 300, H2 400) + Source Sans 3 (400, 500). Palette: P1 In
 |---|---|---|---|---|
 | 1 | Header | Standard (6.1) | Ground | 80 |
 | 2 | Hero | Type only. H1 left on cols 1-8, supporting line cols 1-7, primary button. 96px top, 64px bottom. | Ground | 440 |
-| 3 | Facts strip | Four cells (6.4), full content width | Ground, ruled | 112 |
-| 4 | Services | H2 left, then 2 × 2 boxes (6.5 box), 24px gaps | Band | 720 |
+| 3 | Facts strip | Four cells (6.4): Lisbon · Iberia & Europe · Private equity focus · Anthropic Partner Network | Ground, ruled | 112 |
+| 4 | Services | H2 left, then 2 × 2 boxes (6.5 box), 24px gaps, each linking to its `/services/<slug>` page | Band | 720 |
 | 5 | Why Solven | H2 cols 1-7, three convictions in a row, link | **Anchor (the one dark band)** | 480 |
-| 6 | Insights | H2 left and "All insights" right on one line; three list rows (6.8 D1) | Ground | 400 |
+| 6 | Insights | H2 left and "All insights" right on one line; three newest articles as stacked list rows (6.8 D1) | Ground | 400 |
 | 7 | Closing CTA | 6.9 | Band | 320 |
 | 8 | Footer | 6.10 | Anchor | 360 |
 | | **Total** | | | **2,912** |
@@ -404,14 +425,14 @@ Type: Spectral (H1 300, H2 400) + IBM Plex Sans (400, 500); IBM Plex Mono 400 on
 |---|---|---|---|---|
 | 1 | Header | Standard | Ground | 80 |
 | 2 | Hero | H1, line and button on cols 1-6, vertically centred; photo panel 1:1 on cols 8-12 (about 486 × 486). Photo: "Lisbon office interior, morning light, papers on a desk". | Ground | 620 |
-| 3 | Services | H2 and a one-line lead, then four ruled rows (6.5 row) | Ground | 700 |
+| 3 | Services | H2 and a one-line lead, then four ruled rows (6.5 row), "Read more" to each `/services/<slug>` page | Ground | 700 |
 | 4 | Why Solven | H2 left, three convictions in a quiet three-column row, rules above each, link | Band | 400 |
-| 5 | Insights | H2 left and "All insights" right; three cards with 3:2 photos and Plex Mono dates (6.8 D2) | Ground | 600 |
+| 5 | Insights | H2 left and "All insights" right; three newest articles as text-only three-column cards with Plex Mono dates (6.8 D2) | Ground | 420 |
 | 6 | Closing CTA | 6.9, separated from Insights by a 1px rule | Ground | 280 |
 | 7 | Footer | 6.10 | Anchor (the only dark surface) | 360 |
-| | **Total** | | | **3,040** |
+| | **Total** | | | **2,860** |
 
-Photos: hero plus three insight images (four). Distinct because: it is the quietest direction, with no full dark band at all (the anchor appears only in the footer, in buttons and headings), services as a ruled register of rows rather than boxes, a split hero with one square photograph, and the only use of a monospace.
+Photos: the hero only (one). Distinct because: it is the quietest direction, with no full dark band at all (the anchor appears only in the footer, in buttons and headings), services as a ruled register of rows rather than boxes, a split hero with one square photograph, and the only use of a monospace.
 
 ### 9.3 Direction 3 · "Chapters" (Actionist-like)
 
@@ -421,14 +442,14 @@ Type: Source Serif 4 (H1 300, H2 400) + Source Sans 3 (400, 500). Palette: P2 Ox
 |---|---|---|---|---|
 | 1 | Header | Standard | Ground | 80 |
 | 2 | Hero chapter | H1 cols 1-8 and line cols 1-7, primary button; 48px below, a full-bleed 3:1 photo strip (1440 × 480). Photo: "Lisbon arcade or stone stairwell in raking light". | Ground | 800 |
-| 3 | Services chapter | Photo panel 3:2 on cols 1-6 (588 × 392). Right, cols 7-12: H2, then four compact rows (6.5 row, stacked: H3 above text, link inline) | Ground | 640 |
+| 3 | Services chapter | Photo panel 3:2 on cols 1-6 (588 × 392). Right, cols 7-12: H2, then four compact rows (6.5 row, stacked: H3 above text, "How it works" inline to each `/services/<slug>` page) | Ground | 640 |
 | 4 | Why Solven chapter | Mirror: cols 1-6 H2 and three convictions stacked (rule above each), cols 8-12 photo panel 4:5. Photo: "Hands annotating a printed memo". | Band | 600 |
-| 5 | Insights | H2 left, "All insights" right; one feature (photo 4:5 cols 1-4, title and summary cols 5-8) and two list rows on cols 9-12 | Ground | 460 |
+| 5 | Insights | H2 and "All insights" on cols 1-4; three newest articles as ruled list rows on cols 6-12 (6.8 D3) | Ground | 440 |
 | 6 | Closing CTA | 6.9 on oxblood | **Anchor (the one dark band)** | 300 |
 | 7 | Footer | 6.10, separated from the CTA by a 1px `--c-rule-on-anchor` rule | Anchor | 320 |
-| | **Total** | | | **3,200** |
+| | **Total** | | | **3,180** |
 
-Photos: hero strip, services, convictions, one insight (four). Distinct because: it is the only direction built from alternating photo and text panels (left, then right), the only full-bleed photograph, and the only one where the dark band is the closing call to action, flowing into the footer. It reads like chapters of a printed brochure. The total runs about 7% over 3,000px; if it must come down, shorten the hero strip to 4:1 (1440 × 360, saving 120px).
+Photos: hero strip, services, convictions (three). Distinct because: it is the only direction built from alternating photo and text panels (left, then right), the only full-bleed photograph, and the only one where the dark band is the closing call to action, flowing into the footer. It reads like chapters of a printed brochure. It may stay at about 3,200px for exploration; trim only if it wins (first cut: shorten the hero strip to 4:1, 1440 × 360, saving 120px).
 
 ### 9.4 Common acceptance checks for every direction
 
@@ -442,15 +463,33 @@ Photos: hero strip, services, convictions, one insight (four). Distinct because:
 
 ## 10. Open questions
 
-1. **Headline.** Which of the three H1 options (or another)? Copy is placeholder until chosen.
-2. **Navigation and URLs.** The new nav is Approach · Services · Insights · Firm · Contact, but current URLs are `/programmes`, `/blog`, `/about`. Rename the pages (with 301s, sitemap, hreflang and canonical updates) or keep URLs and change only labels?
-3. **PT nav labels.** Proposed: Abordagem · Serviços · Publicações · Sobre nós · Contacto. "Firma" is excluded by the European Portuguese rules; "Firm" needs an approved PT equivalent. Insights are EN-only today: does the PT nav link to the EN journal as "Publicações · EN"?
-4. **Detail pages for AI Diligence and Token Economics.** Their homepage sections are removed; where do the "How it works" links go (sections of `/programmes`, or new pages)?
-5. **Logo legibility.** At header size, "ADVISORY" renders at about 6px in every supplied lockup. Is that acceptable as a mark, or should the header use the wordmark-only file `04`? Also, the logo's text is live `<text>` in Georgia and Calibri, which renders differently on devices without those fonts; may it be converted to outlined paths (same geometry) for consistency?
-6. **Logo mark colour in P2 and P3.** The brief puts the V and "ADVISORY" in the muted grey because P2's accent is links-only and P3 has none. Confirm, or prefer the anchor for both slots.
-7. **Photography source.** Commissioned Lisbon shoot, licensed stock, or the owner's own photos? Placeholders until decided.
-8. **Facts strip content (D1).** Are the four placeholder facts acceptable, and is "Anthropic Partner Network" to be shown with "Phase 1" and a verification link?
-9. **Fonts at build.** Keep Google Fonts in production (third-party request, but cookieless) or self-host the woff2 files as synthesis 4d suggested?
-10. **Founder count.** The contact signature says "Co-founder" and about says "the team". The homepage avoids the question, but the Firm page will need an answer.
-11. **Insights on the homepage.** Should they always show the three newest journal posts, or a hand-picked set? Do insight images exist for the current three articles?
-12. **D3 budget.** Accept about 3,200px, or enforce 3,000px by shortening the hero strip?
+1. **P1 logo colours.** The logo rule (wordmark in text colour, V and "ADVISORY" in anchor colour) gives `#1C1D20` and `#1B2433` in P1, only 1.08:1 apart, so the V notch will not read as a separate colour on light grounds. Accept that in P1, or use oxblood `#7A2E2E` for slot 2 on light grounds (matching the light oxblood `#D7A9A3` already chosen for the reversed mark)? In P2 (1.28:1) and P3 (1.36:1) the difference is visible but subtle.
+2. **PT slugs for new pages.** Proposed in 5.4: `/pt/servicos`, `/pt/servicos/<slug>` and `/pt/publicacoes`, with English articles at `/insights/<slug>`. Confirm before build.
+
+---
+
+## 11. Build-phase notes
+
+Not to be done during Phase 4 explorations. Carry out when a direction is approved and built into the real pages.
+
+**URLs and redirects** (5.4)
+- Create `/services`, `/services/enablement`, `/services/build`, `/services/ai-diligence`, `/services/token-economics` and `/insights`; keep `/approach`, `/about`, `/contact`.
+- Add 301 redirects in `vercel.json`: `/programmes` → `/services`; `/blog` → `/insights`; `/blog/:slug` → `/insights/:slug`; `/work` → `/services/build` (proposed target); `/ai-flix` → `/` (proposed target). PT equivalents: `/pt/programas` → `/pt/servicos`, `/pt/trabalho` → `/pt/servicos/build` (proposed).
+- Update `sitemap.xml`, hreflang pairs (5.4 table), canonicals, every internal link and `.nav-lang` target, `llms.txt`, then regenerate `llms-full.txt` with `python3 tools/build_llms_full.py`.
+- Re-point the CLAUDE.md invariants that name `programmes.html` (shared FAQ answers, FAQPage JSON-LD) to whichever new page carries the FAQ.
+
+**Fonts**
+- Self-host the same families and weights as woff2 in `/assets/fonts/`, Latin subset (Latin-1 covers Portuguese), `@font-face` with `font-display: swap`, preload only the H1 serif and the body regular. Remove the Google Fonts links and preconnects. Reason: performance (no third-party connection) and EU privacy (no visitor IP sent to Google). Re-run the PT test line.
+
+**Logo**
+- Convert the live Georgia and Calibri text in `01` and `04` (and the reversed arrangement) to outlined paths with identical geometry, proportions and V notch, so the logo renders the same on every device. Keep only the two fills as variables. Never redraw or re-space.
+
+**Homepage insights**
+- The three newest articles are selected by date at build, not by runtime JavaScript. Proposed: a small script in `tools/` (like `build_llms_full.py`) that reads article dates and writes the three newest (title, date, one-line summary) between marker comments in the EN and PT homepages; run it after publishing an article. On the PT homepage, untranslated entries carry "(EN)".
+
+**PT Publicações**
+- `/pt/publicacoes` lists every article; untranslated ones show "(EN)" after the title and link to the English article.
+
+**Copy follow-ups**
+- About us page: describe the three co-founders in general terms (5.5). Reconcile the contact page signature ("Co-founder") with it. No names or photos.
+- Partner mention: only wording the Anthropic partner agreement permits; remove "Phase 1" everywhere.
