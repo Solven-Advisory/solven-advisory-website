@@ -1,6 +1,8 @@
 # Redesign log
 
 ## Decided
+- 2026-10-14 · Batch 2 palette (owner request): the logo's own colours, grey #2A2A28 (supporting/section) and green #6B8068 (accent; #5A6E57 same hue where small text or button labels need AA; favicon #8FA68A on dark). Overrides the CLAUDE.md note listing sage #6B8068 as an old-site pattern, for these explorations.
+- 2026-10-14 · Ledger is the current favourite and reference; not to be modified.
 - 2026-10-14 · Headline for all explorations: "Sharper judgment for the age of AI.", same on all three directions for a fair comparison; copy not final.
 - 2026-10-14 · Nav EN: Approach · Services · Insights · About us · Contact, plus "Book a call" and EN/PT switch; "Firm" replaced by "About us". Target URLs /approach, /services (+ /services/enablement, /build, /ai-diligence, /token-economics), /insights, /about, /contact; 301s from /programmes, /blog, /work, /ai-flix plus sitemap and hreflang updates at build time.
 - 2026-10-14 · Nav PT: Abordagem · Serviços · Publicações · Sobre nós · Contacto; Publicações lists all articles, untranslated ones marked "(EN)" and linked to the English article.
@@ -22,12 +24,14 @@
 - 2026-10-14 · Design skill: Impeccable chosen over Taste Skill after a Ledger bake-off (better fidelity and steering). Taste Skill removed.
 
 ## Tried
+- 2026-10-14 · Batch 2: ledger-image, ledger-noimage, ledger-centred (Ledger copies; only hero right-side fix, single-line facts strip, square image beside insights, logo palette) and three research-led wildcards from explorations/research.md: wildcard-pe (claim, figures, platform: EQT, Permira, H&F), wildcard-bank (publisher front page: Goldman Sachs, Lazard, J.P. Morgan, Rothschild), wildcard-dark (monumental dark: CVC, Rothschild, H&F). Fonts: Hanken Grotesk; Literata + Instrument Sans; Libre Caslon Display + Jost.
 - 2026-10-14 · Divergent batch of eight homepage explorations (one build pass and one self-review each, parallel subagents, frontend-design + Impeccable): tombstone, annual-report, letter, prospectus-index, split, term-sheet, banking-hall, swiss-grid, in explorations/<slug>/; gallery with fold thumbnails at explorations/. Owner-requested exceptions to the old-site list: numbered contents (prospectus-index, clause style 1 to 6 and §) and oversized section numerals (swiss-grid, 1 to 3); serif body text (letter) and small serif labels (term-sheet). Shifts: split moved off Register's square-photo split (full-bleed photo half, solid spruce field, grotesk); term-sheet off Ledger's navy (form blue on bond paper, whole page as one label/value document); annual-report on greyer report stock #F0EEE8, not old cream.
 - 2026-10-14 · Chapters (Direction 3) full homepage exploration in explorations/chapters/, built with Impeccable, code-first. Hero type on the grid opening onto a full-bleed 3:1 strip; services chapter (3:2 photo left, ruled rows right with inline "How it works"); Why Solven mirrored on the band (4:5 photo narrowed to cols 9-12 to hold height); each ruled list opens with one oxblood rule; insights as statement plus ruled list; oxblood CTA band runs into the footer under one on-anchor rule. 3,626px at 1440 (budget 3,180, +14%); 4,632px at 375.
 - 2026-10-14 · Register (Direction 2) full homepage exploration in explorations/register/, built with Impeccable, code-first. Split hero with square photo placeholder; services as a ruled register (bottle-green rules open and close it, light rules divide rows); convictions on the one light band; Plex Mono dates on three text-only insight cards; closing CTA under a single rule; footer the only dark surface. 2,888px at 1440 (budget 2,860).
 - 2026-10-14 · Bake-off on Ledger sections 1-4 with a fully locked brief: both skills produced near-identical pages, so the brief left too little room for design judgment.
 
 ## Rejected
+- 2026-10-14 · Batch 1 explorations archived in explorations/archive/: themed metaphors (letter, term sheet, annual report, tombstone, prospectus index) rejected; also walls of text, many fonts and sizes per page, section numbering, heavy underlining, decorative graphics and diagrams, off-grid placement. Kept from banking-hall: the dark, monumental, institutional idea only.
 - Old site look (cream + Georgia italic + sage, eyebrows, numbering, watermark, fade-ins): reads as AI-generated.
 - Earlier canvas sketches, none chosen: A "Private Bank" (dark green + brass + classic serif, centred), B "Swiss Ledger" (white, large grotesk, cobalt; type too big), C "Tear Sheet" (cool grey + navy, fact-sheet panel, ticker band, orange; ticker rejected).
 - Reference sites rejected for motion: Tresmares Capital (animated red squares), Fort Vega (heavy intro animation), DAQ Consulting (text bolding on scroll).
