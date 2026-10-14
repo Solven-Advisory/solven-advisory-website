@@ -13,6 +13,12 @@
 - 2026-10-14 · Founders: three co-founders (two younger, finance and AI/engineering; one senior, former business owner). No names or photos; About us describes the pairing in general terms.
 - 2026-10-14 · Homepage insights: the three newest articles, automatically; text-only cards (title, date, one-line summary), no article images.
 - 2026-10-14 · Chapters may stay at about 3,200px for exploration; trim only if it wins.
+- 2026-10-14 · P1 logo: V notch and "ADVISORY" in oxblood #7A2E2E on light grounds; reversed tint #D7A9A3 on dark grounds.
+- 2026-10-14 · URLs confirmed: /pt/servicos, /pt/servicos/<slug>, /pt/publicacoes; articles at /insights/<slug>. Recorded in build-phase notes.
+- 2026-10-14 · Reversed logo tints P2 #E0CFCC and P3 #C9D6CE accepted provisionally; if the P3 tint reads as sage on screen, use the P3 ground colour instead.
+- 2026-10-14 · Redirects /work to /services/build and /ai-flix to /, and the build-time "newest three insights" script in tools/, accepted as build-phase notes, to be confirmed at build.
+- 2026-10-14 · CLAUDE.md updated: three co-founders, no names or photos on the site for now.
+- 2026-10-14 · Phase 3 closed: design brief has no open questions.
 
 ## Tried
 

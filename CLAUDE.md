@@ -57,14 +57,15 @@ deployment, SEO and writing mechanics still apply. Where anything below
 conflicts with the sections above (the motion layer, AI Flix, the founder
 name, the old palette and type), the sections above win.
 
-Marketing site for Solven Advisory: a one-founder AI enablement and
-implementation consultancy in Lisbon (founder: Miguel Monteiro), selling to
+Marketing site for Solven Advisory: an AI enablement and implementation
+consultancy in Lisbon, selling to
 private equity, real estate, and venture firms. Core thesis: "augmentation
 without cognitive atrophy". The analyst produces the work first; the model
 enters as critic, red-teamer, and verifier, never as author. Offer: monthly
 Claude enablement programmes (four-session arc), build work (agents on real
 workflows), AI due diligence on targets, and token economics. Solven is a
 member of the Anthropic Partner Network.
+Solven has three co-founders (two young co-founders with finance and AI/engineering backgrounds, one senior co-founder and former business owner). No names or photos on the site for now.
 
 ### Stack and deployment
 
@@ -181,7 +182,6 @@ member of the Anthropic Partner Network.
 - `solvenadvisory.com` belongs to an unrelated ERP advisory (name collision on
   branded search). `solvenadvisory.pt` and `solven.pt` were unregistered as of
   2026-07-28; owner intends to register.
-- The contact signature says "Co-founder" while about says "the team"; whether
-  Solven is one founder or two is unresolved. Do not "fix" without asking.
+- Solven has three co-founders (two young co-founders with finance and AI/engineering backgrounds, one senior co-founder and former business owner). No names or photos on the site for now.
 - The "Anthropic Partner Network · Phase 1" badge is plain text; it needs a
   verification link only the owner can supply.

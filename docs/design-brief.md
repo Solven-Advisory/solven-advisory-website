@@ -112,7 +112,7 @@ Note: Google Fonts is for Phase 4 explorations only. Production self-hosts the s
 | `--c-on-anchor` | `#FAF9F6` | 14.8:1 on anchor | |
 | `--c-on-anchor-muted` | `#B4B9C2` | 7.9:1 on anchor | Derived here. |
 | `--c-rule-on-anchor` | `#3A4354` | (non-text) | Derived here. |
-| `--c-logo-word` / `--c-logo-mark` | `#1C1D20` / `#1B2433` | 16.0:1 / 14.8:1 | Text colour / anchor, per the logo rule (3.5). The two are only 1.08:1 apart, so the V notch barely separates from the letters: see Open questions. |
+| `--c-logo-word` / `--c-logo-mark` | `#1C1D20` / `#7A2E2E` | 16.0:1 / 8.8:1 | P1 exception to the logo rule (3.5): the anchor `#1B2433` is only 1.08:1 from the text colour, so the V notch and "ADVISORY" use oxblood on light grounds. |
 | `--c-logo-word-rev` / `--c-logo-mark-rev` | `#FAF9F6` / `#D7A9A3` | 14.8:1 / 7.5:1 on anchor | The anchor cannot sit on itself, so the reversed mark is the light oxblood the owner specified. |
 
 ### 3.3 P2 · Oxblood (Direction 3)
@@ -132,7 +132,7 @@ Note: Google Fonts is for Phase 4 explorations only. Production self-hosts the s
 | `--c-on-anchor-muted` | `#E0CFCC` | 8.4:1 on anchor | Derived here. |
 | `--c-rule-on-anchor` | `#7A3F44` | (non-text) | Derived here. |
 | `--c-logo-word` / `--c-logo-mark` | `#23201E` / `#5B1F24` | 15.1:1 / 11.8:1 | Text colour / anchor, per the logo rule (3.5). |
-| `--c-logo-word-rev` / `--c-logo-mark-rev` | `#F8F7F4` / `#E0CFCC` | 11.8:1 / 8.4:1 on anchor | Reversed mark is a light oxblood tint (the anchor cannot sit on itself). |
+| `--c-logo-word-rev` / `--c-logo-mark-rev` | `#F8F7F4` / `#E0CFCC` | 11.8:1 / 8.4:1 on anchor | Reversed mark is a light oxblood tint (the anchor cannot sit on itself). Provisional. |
 
 ### 3.4 P3 · Bottle green, no accent (Direction 2)
 
@@ -151,12 +151,12 @@ Note: Google Fonts is for Phase 4 explorations only. Production self-hosts the s
 | `--c-on-anchor-muted` | `#C2C7C3` | 7.2:1 on anchor | Neutral grey, not a sage tint. Derived here. |
 | `--c-rule-on-anchor` | `#3B5347` | (non-text) | Derived here. |
 | `--c-logo-word` / `--c-logo-mark` | `#1C1E1C` / `#1F3A2E` | 15.6:1 / 11.5:1 | Text colour / anchor, per the logo rule (3.5). |
-| `--c-logo-word-rev` / `--c-logo-mark-rev` | `#F7F7F5` / `#C9D6CE` | 11.5:1 / 8.2:1 on anchor | Reversed mark is a light bottle-green tint (the anchor cannot sit on itself; muted grey is not allowed). Derived here; must read as pale bottle green, not sage. |
+| `--c-logo-word-rev` / `--c-logo-mark-rev` | `#F7F7F5` / `#C9D6CE` | 11.5:1 / 8.2:1 on anchor | Reversed mark is a light bottle-green tint (the anchor cannot sit on itself; muted grey is not allowed). Provisional. If it reads as sage green on screen, replace it with the P3 ground `#F7F7F5`. |
 
 ### 3.5 Logo
 
 - Source files: `assets/logos/04_solven_wordmark_only.svg` (header) and `assets/logos/01_solven_primary_lockup.svg` (footer; `02_solven_reversed_lockup.svg` shows the reversed arrangement). Use them inline so the two fills can take `var(--c-logo-word)` and `var(--c-logo-mark)`.
-- Colour rule (owner decision): slot 1, the wordmark, is the palette's main text colour (`--c-text`; `--c-on-anchor` when reversed). Slot 2, the V notch and "ADVISORY", is the palette's anchor colour (`--c-anchor`); when reversed on the anchor, a light tint of the anchor hue (P1 `#D7A9A3`, P2 `#E0CFCC`, P3 `#C9D6CE`) because the anchor cannot sit on itself. Never muted grey, never the accent.
+- Colour rule (owner decision): slot 1, the wordmark, is the palette's main text colour (`--c-text`; `--c-on-anchor` when reversed). Slot 2, the V notch and "ADVISORY", is the palette's anchor colour (`--c-anchor`), except in P1, where it is oxblood `#7A2E2E` on light grounds because ink is too close to the text colour; when reversed on the anchor, a light tint of the anchor hue (P1 `#D7A9A3`, P2 `#E0CFCC`, P3 `#C9D6CE`) because the anchor cannot sit on itself. The P2 and P3 reversed tints are provisional; if the P3 tint reads as sage green on screen, replace it with the P3 ground `#F7F7F5`. Never muted grey.
 - Only these two fills may change. Never change paths, letterforms, font attributes, letter-spacing, positions or proportions. Cropping the `viewBox` to the artwork is allowed (it removes empty margin; the geometry is untouched). The reversed file's background `rect` is dropped; the band behind it provides the colour.
 - Header: wordmark only (`04`, no "ADVISORY"), 36px tall desktop, 28px mobile. Reason: "ADVISORY" renders at about 6px in every lockup at header size and is unreadable. Footer: full primary lockup (`01`), 88px tall, reversed slots.
 - At build, the live Georgia and Calibri text in the logo files is converted to outlined paths (section 11). During explorations, the live-text files are used as they are.
@@ -243,9 +243,9 @@ No founder names or photos, no team grid (see 5.5 for how the founders are descr
 | EN label | EN URL | PT label | PT URL |
 |---|---|---|---|
 | Approach | `/approach` | Abordagem | `/pt/abordagem` |
-| Services | `/services` | Serviços | `/pt/servicos` (proposed) |
-| (service pages) | `/services/enablement`, `/services/build`, `/services/ai-diligence`, `/services/token-economics` | | `/pt/servicos/<slug>` (proposed) |
-| Insights | `/insights` (articles at `/insights/<slug>`, proposed) | Publicações | `/pt/publicacoes` (proposed) |
+| Services | `/services` | Serviços | `/pt/servicos` |
+| (service pages) | `/services/enablement`, `/services/build`, `/services/ai-diligence`, `/services/token-economics` | | `/pt/servicos/<slug>` |
+| Insights | `/insights` (articles at `/insights/<slug>`) | Publicações | `/pt/publicacoes` |
 | About us | `/about` | Sobre nós | `/pt/sobre` |
 | Contact | `/contact` | Contacto | `/pt/contacto` |
 
@@ -463,8 +463,7 @@ Photos: hero strip, services, convictions (three). Distinct because: it is the o
 
 ## 10. Open questions
 
-1. **P1 logo colours.** The logo rule (wordmark in text colour, V and "ADVISORY" in anchor colour) gives `#1C1D20` and `#1B2433` in P1, only 1.08:1 apart, so the V notch will not read as a separate colour on light grounds. Accept that in P1, or use oxblood `#7A2E2E` for slot 2 on light grounds (matching the light oxblood `#D7A9A3` already chosen for the reversed mark)? In P2 (1.28:1) and P3 (1.36:1) the difference is visible but subtle.
-2. **PT slugs for new pages.** Proposed in 5.4: `/pt/servicos`, `/pt/servicos/<slug>` and `/pt/publicacoes`, with English articles at `/insights/<slug>`. Confirm before build.
+None. Phase 3 is closed.
 
 ---
 
@@ -473,8 +472,9 @@ Photos: hero strip, services, convictions (three). Distinct because: it is the o
 Not to be done during Phase 4 explorations. Carry out when a direction is approved and built into the real pages.
 
 **URLs and redirects** (5.4)
+- Confirmed URLs: EN `/approach`, `/services`, `/services/<slug>`, `/insights`, articles at `/insights/<slug>`, `/about`, `/contact`; PT `/pt/abordagem`, `/pt/servicos`, `/pt/servicos/<slug>`, `/pt/publicacoes`, `/pt/sobre`, `/pt/contacto`.
 - Create `/services`, `/services/enablement`, `/services/build`, `/services/ai-diligence`, `/services/token-economics` and `/insights`; keep `/approach`, `/about`, `/contact`.
-- Add 301 redirects in `vercel.json`: `/programmes` → `/services`; `/blog` → `/insights`; `/blog/:slug` → `/insights/:slug`; `/work` → `/services/build` (proposed target); `/ai-flix` → `/` (proposed target). PT equivalents: `/pt/programas` → `/pt/servicos`, `/pt/trabalho` → `/pt/servicos/build` (proposed).
+- Add 301 redirects in `vercel.json`: `/programmes` → `/services`; `/blog` → `/insights`; `/blog/:slug` → `/insights/:slug`; `/work` → `/services/build`; `/ai-flix` → `/`. PT equivalents: `/pt/programas` → `/pt/servicos`, `/pt/trabalho` → `/pt/servicos/build`. The `/work` and `/ai-flix` targets and the PT redirects are accepted proposals, to be confirmed at build time.
 - Update `sitemap.xml`, hreflang pairs (5.4 table), canonicals, every internal link and `.nav-lang` target, `llms.txt`, then regenerate `llms-full.txt` with `python3 tools/build_llms_full.py`.
 - Re-point the CLAUDE.md invariants that name `programmes.html` (shared FAQ answers, FAQPage JSON-LD) to whichever new page carries the FAQ.
 
@@ -485,7 +485,7 @@ Not to be done during Phase 4 explorations. Carry out when a direction is approv
 - Convert the live Georgia and Calibri text in `01` and `04` (and the reversed arrangement) to outlined paths with identical geometry, proportions and V notch, so the logo renders the same on every device. Keep only the two fills as variables. Never redraw or re-space.
 
 **Homepage insights**
-- The three newest articles are selected by date at build, not by runtime JavaScript. Proposed: a small script in `tools/` (like `build_llms_full.py`) that reads article dates and writes the three newest (title, date, one-line summary) between marker comments in the EN and PT homepages; run it after publishing an article. On the PT homepage, untranslated entries carry "(EN)".
+- The three newest articles are selected by date at build, not by runtime JavaScript. Accepted proposal, to be confirmed at build time: a small script in `tools/` (like `build_llms_full.py`) that reads article dates and writes the three newest (title, date, one-line summary) between marker comments in the EN and PT homepages; run it after publishing an article. On the PT homepage, untranslated entries carry "(EN)".
 
 **PT Publicações**
 - `/pt/publicacoes` lists every article; untranslated ones show "(EN)" after the title and link to the English article.
