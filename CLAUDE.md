@@ -45,6 +45,7 @@ Per-page titles and meta descriptions, canonical URLs on solvenadvisory.ai, EN/P
 - Commit after each completed step with a descriptive message.
 - Only use design skills that the prompt names explicitly. If a design skill activates without being named, say so and stop.
 - docs/, CLAUDE.md, tools/, .claude/ and .impeccable/ are excluded from deployment via .vercelignore; keep it that way.
+- The design skill for this project is Impeccable (/impeccable commands). Never use the animate, delight or overdrive commands: they conflict with the zero-motion rule.
 
 ## Figma
 - Figma access is a Starter plan with a View seat: read tools (get_design_context, get_screenshot, get_metadata, get_variable_defs, etc.) are limited to about 20 calls per month. Never call Figma read tools unless the prompt explicitly asks for it.

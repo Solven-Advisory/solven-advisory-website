@@ -19,8 +19,10 @@
 - 2026-10-14 · Redirects /work to /services/build and /ai-flix to /, and the build-time "newest three insights" script in tools/, accepted as build-phase notes, to be confirmed at build.
 - 2026-10-14 · CLAUDE.md updated: three co-founders, no names or photos on the site for now.
 - 2026-10-14 · Phase 3 closed: design brief has no open questions.
+- 2026-10-14 · Design skill: Impeccable chosen over Taste Skill after a Ledger bake-off (better fidelity and steering). Taste Skill removed.
 
 ## Tried
+- 2026-10-14 · Bake-off on Ledger sections 1-4 with a fully locked brief: both skills produced near-identical pages, so the brief left too little room for design judgment.
 
 ## Rejected
 - Old site look (cream + Georgia italic + sage, eyebrows, numbering, watermark, fade-ins): reads as AI-generated.
