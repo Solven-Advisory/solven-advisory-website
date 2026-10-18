@@ -151,10 +151,10 @@ def preview_links(s):
 
 # ---------------------------------------------------------------- building blocks
 
-def hero(title, lead, cta=True, calcada=True, extra=""):
+def hero(title, lead, cta=True, calcada=True, extra="", fill=False):
     cal = '    <div class="hero__calcada" aria-hidden="true"><i></i><i></i></div>\n' if calcada else ""
     button = '\n        <p class="hero__cta"><a class="btn btn--primary" href="/contact#calendar">Book a call</a></p>' if cta else ""
-    cls = "hero hero--page" + ("" if calcada else " hero--plain")
+    cls = "hero hero--page" + ("" if calcada else " hero--plain") + (" hero--fill" if fill else "")
     return f"""  <section class="{cls}" aria-labelledby="hero-title">
 {cal}    <div class="wrap grid">
       <h1 class="h1 hero__title" id="hero-title">{title}</h1>
@@ -793,7 +793,7 @@ add("404", "Page not found · Solven Advisory", "There is nothing at this addres
           <a class="btn btn--primary" href="/">Back to the start</a>
           <a class="text-link" href="/services">Services</a>
           <a class="text-link" href="/contact#calendar">Book a call</a>
-        </p>"""), "/pt")
+        </p>""", fill=True), "/pt")
 
 
 # ---------------------------------------------------------------- homepage: ledger-v4 with links pointed inside the preview
