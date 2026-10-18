@@ -1,0 +1,18 @@
+/* Site v5: three pages. Loaded after site.css (a copy of site v4's). Only what the cut needs. */
+
+/* Service cards have no page behind them any more: no link, so no border or title change on hover.
+   The tiles still turn to the logo's greens under the pointer, as the owner chose for CX4. */
+.service--quiet:hover { border-color: var(--c-rule); }
+.service--quiet:hover .h3 { color: var(--c-text); }
+
+/* Who we are: the About page, cut to one short paragraph on the band */
+.who { background: var(--c-band); }
+.who .split__body p { font-size: var(--fs-lead); line-height: 1.5; }
+.who .split__body .who__note { margin-top: var(--s-5); font-size: var(--fs-small); line-height: 1.5; color: var(--c-muted); }
+
+/* Book a call: a short head, then the calendar as the page's one job */
+.hero--book { padding-bottom: var(--s-7); }
+.book { padding-top: var(--s-7); }
+.book .cal { min-height: 680px; }
+.book .cal__note a { color: var(--c-text); text-decoration: underline; text-decoration-color: var(--c-accent); text-underline-offset: 3px; }
+.book .cal__note a:hover { color: var(--c-accent); }
