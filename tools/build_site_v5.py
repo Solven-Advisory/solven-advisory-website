@@ -194,7 +194,7 @@ add("insights", "Insights · Notes on AI for investment firms · Solven Advisory
       </div>
     </div>
   </section>
-""" + close(art="farol"),
+""" + close(art="maat"),
     "/pt/publicacoes", nav="insights",
     ld=[x for x in [p for p in v4.PAGES if p["path"] == "insights"][0]["ld"]])
 
