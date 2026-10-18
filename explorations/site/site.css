@@ -333,6 +333,10 @@ a, button, summary { transition: color var(--t), background-color var(--t), bord
   .hero--plain .hero__side { grid-column: 1 / span 7; padding-left: 0; margin-top: var(--s-5); }
 }
 .hero--plain { border-bottom: 1px solid var(--c-rule); }
+/* Not found: the hero fills the window above the footer, so no bare ground shows below it */
+@media (min-width: 960px) {
+  .hero--fill { display: flex; align-items: center; min-height: max(400px, calc(100svh - 80px - 342px)); }
+}
 
 /* ================================================================ Section head
    H2, then at most a short line, then the component 48px below. */
@@ -492,8 +496,9 @@ a, button, summary { transition: color var(--t), background-color var(--t), bord
 
 /* Two statements side by side, each an H2 and a short text */
 .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-7) var(--gutter); }
-.pair__item p { margin-top: var(--s-4); max-width: 30em; text-wrap: pretty; }
+.pair__item p { margin-top: var(--s-5); max-width: 30em; text-wrap: pretty; }
 .pair__item p + p { margin-top: 1em; }
+.pair__item .h3 + p { margin-top: var(--s-4); }
 .pair__item .text-link { display: inline-block; margin-top: var(--s-5); }
 
 /* Statement left, text right (as the closing band) */
@@ -641,6 +646,7 @@ a, button, summary { transition: color var(--t), background-color var(--t), bord
 .form { padding: var(--s-6); background: var(--c-ground); border: 1px solid var(--c-rule); border-radius: var(--r); }
 .form__row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5); }
 .field + .field, .form__row + .field, .field + .form__row { margin-top: var(--s-5); }
+.form__row > .field { margin-top: 0; }
 .field label { display: block; margin-bottom: var(--s-2); font-size: 16px; font-weight: 500; line-height: 1.4; }
 .field input, .field select, .field textarea {
   display: block;
