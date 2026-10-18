@@ -454,7 +454,7 @@ a, button, summary { transition: color var(--t), background-color var(--t), bord
   background: var(--c-band);
   border-radius: var(--r);
 }
-.icard:hover { background: #E7E5E0; }
+.icard:hover { background: #EBE9E4; }   /* ledger-v4 used #E7E5E0; lightened so the green hover title keeps AA (4.5:1) */
 .icard__title {
   font-family: var(--serif);
   font-size: 22px; font-weight: 400; line-height: 1.25; letter-spacing: -0.005em;

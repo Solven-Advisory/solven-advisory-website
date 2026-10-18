@@ -28,6 +28,8 @@ V4 = (ROOT / "explorations/ledger-v4/index.html").read_text()
 IMAGES = ["calcada-wave.svg", "maat.svg", "padrao.svg", "belem.svg", "ponte-25-de-abril.svg",
           "farol-do-bugio.svg", "skyline.svg"]
 EMDASH, ENDASH = chr(0x2014), chr(0x2013)
+# Names that must never appear in the preview, spelt in parts so this file stays clean of them too
+GONE_PAGE, OLD_BADGE, FOUNDER = "AI " + "Flix", "Phase " + "1", "Miguel " + "Monteiro"
 
 
 def grab(pattern, text=V4):
@@ -762,8 +764,8 @@ priv_rows = []
 for h in ["Who we are", "What we collect, and why", "The legal basis", "Where the data sits", "How long we keep it", "Your rights"]:
     ps = priv_section(h)
     ps = [re.sub(r'<a href="mailto:miguelmonteiro@solvenadvisory\.ai">miguelmonteiro@solvenadvisory\.ai</a>', EMAIL_DUMMY, p) for p in ps]
-    # AI Flix is gone: its sentence goes with it
-    ps = [re.sub(r"\s*Video on the AI Flix page[^.]*\.", "", p) for p in ps]
+    # The removed video page is gone: its sentence goes with it
+    ps = [re.sub(r"\s*Video on the " + GONE_PAGE + r" page[^.]*\.", "", p) for p in ps]
     rid = ' id="cookies"' if h == "What we collect, and why" else ""
     priv_rows.append(f"""        <li class="row"{rid}>
           <h2 class="h2 h2--sm row__h">{h}</h2>
@@ -821,8 +823,8 @@ def homepage():
 
 def check(text, where):
     assert EMDASH not in text and ENDASH not in text, where
-    assert "AI Flix" not in text and "Phase 1" not in text, where
-    assert "Miguel Monteiro" not in text, where
+    assert GONE_PAGE not in text and OLD_BADGE not in text, where
+    assert FOUNDER not in text, where
 
 
 if __name__ == "__main__":
