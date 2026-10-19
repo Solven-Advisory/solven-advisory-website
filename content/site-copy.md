@@ -1,0 +1,446 @@
+# Site copy: English and Portuguese
+
+Every piece of text on the site v5 pages, except the insight articles (content/insights/), lives here.
+Each entry has a name (### ...), sometimes a note on where it appears (> ...), then the English
+(EN:) and the Portuguese (PT:). Edit either line, then rebuild:
+
+    python3 tools/build_site_v5.py
+
+Rules:
+- A text may run over several lines; the lines are joined with a space. A blank line ends it.
+- Write the email address as it is; the page turns it into a link. Other links: [text](https://...).
+- **bold** and *italic* work. Never use an em dash.
+- Keep the ### names as they are: the build reads them. If an entry is missing, misnamed, or has
+  no EN or PT line, the build stops and says which one.
+- Headings (# and ##) and notes (>) are only for finding your way; the build ignores them.
+
+# Every page
+
+Header, footer and the closing band that ends Home and Insights.
+
+## Navigation (header, footer, buttons)
+
+### nav.home
+> Footer link
+EN: Home
+PT: Início
+
+### nav.insights
+> Header and footer link, and the 404 page link
+EN: Insights
+PT: Publicações
+
+### nav.book
+> Every Book a call button and link
+EN: Book a call
+PT: Marcar uma chamada
+
+## Footer
+
+### footer.city
+EN: Lisbon, Portugal
+PT: Lisboa, Portugal
+
+### footer.privacy
+EN: Privacy
+PT: Privacidade
+
+### footer.cookies
+EN: Cookie settings
+PT: Definições de cookies
+
+## Closing band (Home and Insights)
+
+### close.title
+EN: The edge is where the advantage is.
+PT: É na fronteira que está a vantagem.
+
+### close.text
+EN: What comes next in AI is still unwritten. We work at that edge every month, so your firm and its portfolio can step onto new ground without losing their footing.
+PT: O que vem a seguir na IA ainda está por escrever. Trabalhamos nessa fronteira todos os meses, para que a vossa casa e o seu portefólio possam pisar terreno novo sem perder o equilíbrio.
+
+### close.write
+> Link beside the button; opens an email
+EN: Write to us
+PT: Enviar-nos um email
+
+## Hidden labels (read by screen readers and shown as tooltips, not on the page)
+
+### label.skip
+> First link on every page, visible only when tabbing with the keyboard
+EN: Skip to content
+PT: Saltar para o conteúdo
+
+### label.logo
+> The logo link
+EN: Solven Advisory, home
+PT: Solven Advisory, início
+
+### label.menu
+> Phone menu button
+EN: Menu
+PT: Menu
+
+### label.menu_close
+> Phone menu button when open
+EN: Close
+PT: Fechar
+
+### label.nav
+> Name of the header navigation
+EN: Main
+PT: Principal
+
+### label.footer_nav
+> Name of the footer navigation
+EN: Footer
+PT: Rodapé
+
+### label.language
+> Name of the EN/PT switch
+EN: Language
+PT: Idioma
+
+### label.linkedin
+> LinkedIn icon
+EN: Solven Advisory on LinkedIn
+PT: Solven Advisory no LinkedIn
+
+### label.email
+> Envelope icon
+EN: Email Solven Advisory
+PT: Enviar um email à Solven Advisory
+
+### label.dummy_text
+> Tooltip on yellow placeholder text
+EN: Dummy text: replace before launch
+PT: Texto provisório: substituir antes do lançamento
+
+### label.dummy_date
+> Tooltip on yellow placeholder dates
+EN: Dummy date: replace before launch
+PT: Data provisória: substituir antes do lançamento
+
+
+# Home
+
+## Browser tab, search results and link previews
+
+### home.tab_title
+EN: Solven Advisory · AI enablement and implementation for investment firms
+PT: Solven Advisory · Formação e implementação de IA para casas de investimento
+
+### home.description
+EN: Solven Advisory trains private equity teams on AI, builds it into their workflows, and runs AI projects in their portfolio companies that lift EBITDA. Augmentation without cognitive atrophy.
+PT: A Solven Advisory forma equipas de private equity em IA, integra-a nos seus fluxos de trabalho e conduz, nas empresas do portefólio, projetos de IA que fazem crescer o EBITDA. Ampliação sem atrofia cognitiva.
+
+### home.ld_description
+> Description for search engines (structured data), not shown on the page
+EN: Solven Advisory trains private equity teams on AI, builds AI systems on their workflows, runs AI projects in their portfolio companies that lift EBITDA, and manages token economics.
+PT: A Solven Advisory forma equipas de private equity em IA, constrói sistemas de IA sobre os seus fluxos de trabalho, conduz, nas empresas do portefólio, projetos de IA que fazem crescer o EBITDA, e gere a economia de tokens.
+
+### home.ld_topics
+> Topics for search engines (structured data), separated by commas
+EN: AI enablement, Private equity workflows, Portfolio value creation, Token economics, Anthropic Claude, OpenAI ChatGPT
+PT: Formação em IA, Fluxos de trabalho de private equity, Criação de valor no portefólio, Economia de tokens, Anthropic Claude, OpenAI ChatGPT
+
+## Hero
+
+### home.hero.title
+EN: Sharper judgment for the age of AI.
+PT: Critério mais apurado para a era da IA.
+
+### home.hero.text
+EN: Solven trains private equity teams on AI, builds it into their workflows, and runs projects across their portfolio companies that lift EBITDA. The people making the call still own the reasoning behind it.
+PT: A Solven forma equipas de private equity em IA, integra-a nos seus fluxos de trabalho e conduz, nas empresas do portefólio, projetos que fazem crescer o EBITDA. Quem toma a decisão continua a ser dono do raciocínio que a sustenta.
+
+## Services
+
+### home.services.title
+EN: Four ways we work with a firm.
+PT: Quatro formas de trabalharmos com uma casa de investimento.
+
+### home.service1.name
+EN: Enablement
+PT: Formação
+
+### home.service1.text
+EN: Hands-on sessions on the leading AI platforms for the whole firm, analyst to managing partner, run monthly because the frontier moves weekly.
+PT: Sessões práticas nas principais plataformas de IA para toda a casa, do analista ao managing partner, todos os meses, porque a fronteira avança todas as semanas.
+
+### home.service2.name
+EN: Build
+PT: Implementação
+
+### home.service2.text
+EN: Agents and workflow systems on the fund's own work: contract redlining, IC memo interrogation, portfolio reporting.
+PT: Agentes e sistemas sobre o trabalho do próprio fundo: revisão de contratos, escrutínio de memorandos de comité de investimento, reporting do portefólio.
+
+### home.service3.name
+EN: Portfolio
+PT: Portefólio
+
+### home.service3.text
+EN: For any portfolio company, in any sector: we find what is holding back EBITDA and fix it, with AI where it helps and without it where it does not.
+PT: Em qualquer empresa do portefólio, de qualquer setor: descobrimos o que está a travar o EBITDA e resolvemo-lo, com IA onde ajuda e sem ela onde não ajuda.
+
+### home.service4.name
+EN: Token Economics
+PT: Economia de tokens
+
+### home.service4.text
+EN: Where the compute spend goes, what it returns, and how to pace it so the year's budget lasts the year.
+PT: Para onde vai a despesa de compute, o que rende e como a dosear para que o orçamento do ano dure o ano inteiro.
+
+## Convictions (dark band)
+
+### home.thesis
+EN: Augmentation without cognitive atrophy.
+PT: Ampliação sem atrofia cognitiva.
+
+### home.conviction1.title
+EN: Judgment is the product.
+PT: O critério é o produto.
+
+### home.conviction1.text
+EN: In an investment firm the deliverable is a defensible decision; AI should make that judgment sharper, never thinner.
+PT: Numa casa de investimento, o que se entrega é uma decisão defensável; a IA deve tornar esse critério mais apurado, nunca mais superficial.
+
+### home.conviction2.title
+EN: Fluency is firm-wide.
+PT: A fluência é de toda a casa.
+
+### home.conviction2.text
+EN: From the newest analyst to the managing partner, everyone should know where AI belongs in their own work, and where it does not.
+PT: Do analista mais recente ao managing partner, todos devem saber onde a IA tem lugar no seu próprio trabalho, e onde não tem.
+
+### home.conviction3.title
+EN: The portfolio is where it pays.
+PT: É no portefólio que compensa.
+
+### home.conviction3.text
+EN: Whatever its sector, every portfolio company has a part of the business holding it back. We start from that problem, not from the technology, and sometimes the right answer is not AI at all.
+PT: Seja qual for o setor, cada empresa do portefólio tem uma parte do negócio que a está a travar. Partimos desse problema, não da tecnologia, e por vezes a resposta certa nem sequer é IA.
+
+## Insights
+
+### home.insights.title
+> Also the title of the Insights page
+EN: Insights.
+PT: Publicações.
+
+### home.insights.text
+EN: Short notes on AI in investment firms: what we see in the work, and what it means for partners.
+PT: Notas curtas sobre IA em casas de investimento: o que vemos no trabalho, e o que isso significa para os partners.
+
+### insights.all
+> Button on the homepage, link under every article
+EN: All insights
+PT: Todas as publicações
+
+
+# Insights page and articles
+
+The articles themselves are in content/insights/ and content/insights/pt/.
+
+### insights.tab_title
+EN: Insights · Notes on AI for investment firms · Solven Advisory
+PT: Publicações · Notas sobre IA para casas de investimento · Solven Advisory
+
+### insights.description
+EN: Short notes from Solven Advisory on AI in private equity, real estate and venture firms: what we see in the work, and what it means for partners.
+PT: Notas curtas da Solven Advisory sobre IA em casas de private equity, imobiliário e venture capital: o que vemos no trabalho, e o que isso significa para os partners.
+
+### insights.ld_name
+> Name for search engines (structured data)
+EN: Solven Advisory insights
+PT: Publicações da Solven Advisory
+
+### article.tab_title
+> {title} is replaced by the article's title
+EN: {title} · Insights · Solven Advisory
+PT: {title} · Publicações · Solven Advisory
+
+### article.minutes
+> Article tags and cards; {n} is replaced by the number of minutes
+EN: {n} min read
+PT: {n} min de leitura
+
+### article.label
+> Hidden label of the article section
+EN: Article
+PT: Artigo
+
+### article.tags_label
+> Hidden label of the tags
+EN: About this insight
+PT: Sobre esta publicação
+
+### article.image_missing
+> Placeholder until a photograph is chosen
+EN: Image to be chosen
+PT: Imagem por escolher
+
+### article.image_missing_note
+> Tooltip on that placeholder
+EN: Placeholder: choose a photograph for this insight
+PT: Provisório: escolher uma fotografia para esta publicação
+
+
+# Book a call
+
+### book.tab_title
+EN: Book a call · Solven Advisory
+PT: Marcar uma chamada · Solven Advisory
+
+### book.description
+EN: Book thirty minutes with a Solven Advisory co-founder, by video or phone.
+PT: Marquem trinta minutos com um cofundador da Solven Advisory, por vídeo ou telefone.
+
+### book.title
+EN: Book a call.
+PT: Marcar uma chamada.
+
+### book.calendar_label
+> Hidden label of the calendar
+EN: Calendar
+PT: Calendário
+
+### book.fallback
+> Under the calendar; the link opens Cal.com in a new tab
+EN: If the calendar does not load, [open it in a new tab](https://cal.eu/miguelmonteirosolven/30min).
+PT: Se o calendário não carregar, [abram-no num novo separador](https://cal.eu/miguelmonteirosolven/30min).
+
+### book.write
+> Followed by the envelope icon
+EN: Prefer to write?
+PT: Preferem escrever?
+
+
+# Privacy
+
+### privacy.tab_title
+EN: Privacy · Solven Advisory
+PT: Privacidade · Solven Advisory
+
+### privacy.description
+EN: How Solven Advisory handles the personal data of the people who write to us or book a call, and which cookies run only after you accept them.
+PT: Como a Solven Advisory trata os dados pessoais de quem nos escreve ou marca uma chamada, e que cookies só funcionam depois de os aceitar.
+
+### privacy.title
+EN: Plain terms for personal data.
+PT: Termos claros sobre dados pessoais.
+
+### privacy.text
+EN: No marketing list, no advertising, and no cookie before you say yes. This page says what we do hold, why, and for how long.
+PT: Sem lista de marketing, sem publicidade e sem nenhum cookie antes de dizer que sim. Esta página diz o que guardamos, porquê e durante quanto tempo.
+
+### privacy.scope
+EN: This notice covers the personal data of people who visit this site, write to us, or book a call.
+PT: Este aviso abrange os dados pessoais de quem visita este site, nos escreve ou marca uma chamada.
+
+### privacy.updated
+> Followed by the date below
+EN: Last updated
+PT: Última atualização:
+
+### privacy.updated_date
+> Write the English date as day, month in full, year: the page reads it as the date
+EN: 29 July 2026
+PT: 29 de julho de 2026
+
+### privacy.label
+> Hidden label of the notice
+EN: Privacy notice
+PT: Aviso de privacidade
+
+## Section 1
+
+### privacy.s1.title
+EN: Who we are
+PT: Quem somos
+
+### privacy.s1.p1
+EN: Solven Advisory is an AI enablement and implementation consultancy based in Lisbon, Portugal. For anything in this notice, the controller you are dealing with is Solven Advisory, and the fastest route is miguelmonteiro@solvenadvisory.ai.
+PT: A Solven Advisory é uma consultora de formação e implementação de IA sediada em Lisboa, Portugal. Para tudo o que consta deste aviso, o responsável pelo tratamento é a Solven Advisory, e a forma mais rápida de nos contactar é miguelmonteiro@solvenadvisory.ai.
+
+## Section 2 (the footer's Cookie settings link lands here)
+
+### privacy.s2.title
+EN: What we collect, and why
+PT: O que recolhemos, e porquê
+
+### privacy.s2.p1
+EN: If you book a call, scheduling runs on Cal.com's EU-hosted infrastructure, which collects the name, email address, and time slot you provide in order to place the meeting in both calendars. If you simply email or phone us, we hold the correspondence the way any firm holds its mail.
+PT: Se marcar uma chamada, o agendamento corre na infraestrutura da Cal.com alojada na UE, que recolhe o nome, o endereço de email e o horário que indicar, para colocar a reunião em ambos os calendários. Se apenas nos enviar um email ou telefonar, guardamos a correspondência como qualquer empresa guarda o seu correio.
+
+### privacy.s2.p2
+EN: We run Vercel's cookieless analytics, which counts visits in aggregate, stores nothing on your device, and does not identify individuals. It runs whether or not you accept anything else.
+PT: Usamos a análise de audiências sem cookies da Vercel, que conta as visitas de forma agregada, não guarda nada no seu dispositivo e não identifica ninguém. Funciona independentemente do que aceitar ou recusar.
+
+### privacy.s2.p3
+EN: We would also like to understand how the site is actually read: which pages hold attention, where people stop, and which routes lead to a conversation. That requires cookies, so we ask before setting any. Nothing runs until you accept, declining takes a single click, and either choice is remembered. There is no advertising, no profiling for ad targeting, and no data sold or passed to brokers. There is no newsletter and no marketing list; when we say we reply to people, not leads, this notice is what that means in practice.
+PT: Gostaríamos também de perceber como o site é realmente lido: que páginas prendem a atenção, onde as pessoas param e que percursos levam a uma conversa. Isso exige cookies, por isso pedimos autorização antes de instalar qualquer um. Nenhum destes cookies é ativado antes de aceitar, recusar exige um único clique, e qualquer das escolhas fica guardada. Não há publicidade, nem definição de perfis para segmentação de anúncios, nem dados vendidos ou cedidos a corretores de dados. Não há newsletter nem lista de marketing; quando dizemos que respondemos a pessoas, e não a leads, este aviso é o que isso significa na prática.
+
+## Section 3
+
+### privacy.s3.title
+EN: The legal basis
+PT: O fundamento jurídico
+
+### privacy.s3.p1
+EN: We process booking details and correspondence because you asked us to: steps taken at your request before a possible contract (Article 6(1)(b) of the GDPR). We keep ordinary business correspondence on the basis of legitimate interest (Article 6(1)(f)). Analytics cookies rest on consent alone (Article 6(1)(a), together with Article 5(3) of the ePrivacy Directive as enacted in Portugal by Lei 41/2004). Consent is the entire basis there: withdraw it and the processing stops.
+PT: Tratamos os dados de marcação e a correspondência porque nos pediu que o fizéssemos: diligências pré-contratuais a seu pedido (artigo 6.º, n.º 1, alínea b), do RGPD). Conservamos a correspondência comercial corrente com base no interesse legítimo (artigo 6.º, n.º 1, alínea f)). Os cookies de análise assentam apenas no consentimento (artigo 6.º, n.º 1, alínea a), em conjugação com o artigo 5.º, n.º 3, da Diretiva 2002/58/CE, relativa à privacidade nas comunicações eletrónicas, transposta em Portugal pela Lei n.º 41/2004). Nesse caso, o consentimento é o único fundamento: se o retirar, o tratamento cessa.
+
+## Section 4
+
+### privacy.s4.title
+EN: Where the data sits
+PT: Onde ficam os dados
+
+### privacy.s4.p1
+EN: The site is hosted by Vercel. Scheduling runs on Cal.com (EU infrastructure). Our email runs on Microsoft 365. If you accept analytics, PostHog processes that data on its EU cloud in Frankfurt, and Microsoft Clarity processes it under Microsoft's terms, which permit transfers outside the EU covered by the Standard Contractual Clauses. Each of these providers acts as a processor for the data described above; none of them is given your details for any purpose beyond delivering the service.
+PT: O site está alojado na Vercel. O agendamento corre na Cal.com (infraestrutura na UE). O nosso email corre no Microsoft 365. Se aceitar a análise, a PostHog trata esses dados na sua cloud europeia, em Frankfurt, e o Microsoft Clarity trata-os nos termos da Microsoft, que permitem transferências para fora da UE ao abrigo das cláusulas contratuais-tipo. Cada um destes prestadores atua como subcontratante para os dados acima descritos; a nenhum deles são cedidos os seus dados para qualquer finalidade além da prestação do serviço.
+
+## Section 5
+
+### privacy.s5.title
+EN: How long we keep it
+PT: Durante quanto tempo os guardamos
+
+### privacy.s5.p1
+EN: Correspondence is kept for as long as a working relationship, or the reasonable prospect of one, exists, and afterwards only as long as ordinary business record-keeping requires. If you would like something deleted sooner, ask.
+PT: A correspondência é conservada enquanto existir uma relação de trabalho, ou uma perspetiva razoável de a vir a ter, e depois apenas durante o tempo que a conservação normal de registos comerciais exigir. Se preferir que algo seja apagado mais cedo, basta pedir.
+
+## Section 6
+
+### privacy.s6.title
+EN: Your rights
+PT: Os seus direitos
+
+### privacy.s6.p1
+EN: You can ask for access to the data we hold about you, have it corrected or deleted, restrict or object to its processing, and receive a copy in a portable format. Write to miguelmonteiro@solvenadvisory.ai and we will deal with it directly. You also have the right to complain to the Portuguese supervisory authority, the CNPD, at [cnpd.pt](https://www.cnpd.pt).
+PT: Pode pedir o acesso aos dados que temos sobre si, a sua retificação ou apagamento, a limitação do tratamento ou opor-se a ele, e receber uma cópia num formato portável. Escreva para miguelmonteiro@solvenadvisory.ai e tratamos do assunto diretamente. Tem também o direito de apresentar reclamação à autoridade de controlo portuguesa, a CNPD (Comissão Nacional de Proteção de Dados), em [cnpd.pt](https://www.cnpd.pt).
+
+
+# Page not found (404)
+
+### notfound.tab_title
+EN: Page not found · Solven Advisory
+PT: Página não encontrada · Solven Advisory
+
+### notfound.description
+EN: There is nothing at this address.
+PT: Não há nada neste endereço.
+
+### notfound.title
+EN: There is nothing at this address.
+PT: Não há nada neste endereço.
+
+### notfound.text
+EN: The page may have moved when the site did, or the address may have a typo in it. Either way, the work continues at the pages below.
+PT: A página pode ter mudado de sítio quando o site mudou, ou o endereço pode ter uma gralha. Seja como for, o trabalho continua nas páginas abaixo.
+
+### notfound.back
+EN: Back to the start
+PT: Voltar ao início
