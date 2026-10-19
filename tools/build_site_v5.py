@@ -3,7 +3,7 @@
     python3 tools/build_site_v5.py
 
   Home          /               the hint of everything: services, convictions, insights
-  Insights      /insights       the index and the three articles under it
+  Insights      /insights       the index and the articles under it, written in Markdown in content/insights/
   Book a call   /book           one line and the calendar
   plus Privacy and 404, which are legal and technical necessities, linked from the footer only.
 
@@ -15,10 +15,12 @@ with its own copy of site v4's stylesheet plus a few rules (site-v5.css). Site v
 import re
 import shutil
 import sys
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import build_site_v4 as v4  # noqa: E402
+import markdown_lite as md  # noqa: E402
 
 ROOT = v4.ROOT
 SITE = ROOT / "explorations/site-v5"
@@ -75,7 +77,7 @@ def page(p, main):
 </html>
 """
     h = v4.head(p).replace(f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">',
-                           f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">\n<link rel="stylesheet" href="{PREVIEW}/site-v5.css?v=2">')
+                           f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">\n<link rel="stylesheet" href="{PREVIEW}/site-v5.css?v=3">')
     return h + "\n" + body
 
 
@@ -101,6 +103,64 @@ PAGES = []
 
 def add(path, title, description, main, pt, **kw):
     PAGES.append(dict(path=path, title=title, description=description, main=main, pt=pt, **kw))
+
+
+# ---------------------------------------------------------------- Insights, read from Markdown
+
+INSIGHTS = ROOT / "content/insights"
+REQUIRED = ("title", "subtitle", "summary", "description", "topic", "date")
+WORDS_PER_MINUTE = 220
+
+
+def body_image(src, alt):
+    return f'<figure class="prose__image"><img src="{PREVIEW}/img/insights/{esc(src)}" alt="{esc(alt)}"></figure>'
+
+
+def load_insights():
+    """Every content/insights/<slug>.md, newest first. The file name is the address: /insights/<slug>."""
+    out = []
+    for f in sorted(INSIGHTS.glob("*.md")):
+        if f.name == "README.md":
+            continue
+        meta, body = md.front_matter(f.read_text())
+        missing = [k for k in REQUIRED if not meta.get(k)]
+        if missing:
+            raise SystemExit(f"{f.relative_to(ROOT)}: the header block is missing {', '.join(missing)}")
+        if meta.get("image") and not meta.get("image_alt"):
+            raise SystemExit(f"{f.relative_to(ROOT)}: the image needs a description (image_alt)")
+        d = date.fromisoformat(meta["date"])
+        out.append(dict(meta, slug=f.stem, body=md.to_html(body, image=body_image), label=f"{d.day} {d:%b %Y}",
+                        placeholder=meta.get("date_is_placeholder", "no") == "yes",
+                        minutes=int(meta.get("minutes") or max(1, round(md.words(body) / WORDS_PER_MINUTE)))))
+    return sorted(out, key=lambda a: a["date"], reverse=True)
+
+
+ARTICLES = load_insights()
+
+
+def when(a):
+    return v4.date_html(a["date"], a["label"], a["placeholder"])
+
+
+def icard(a, topic=False):
+    meta = (f"{esc(a['topic'])} · " if topic else "") + f"{when(a)} · {a['minutes']} min read"
+    return f"""        <article class="icard">
+          <h3 class="icard__title"><a href="/insights/{a['slug']}">{md.inline(a['title'])}</a></h3>
+          <p class="icard__sum">{md.inline(a['summary'])}</p>
+          <p class="icard__meta">{meta}</p>
+        </article>"""
+
+
+def article_image(a):
+    """The insight's photograph, chosen for each article. Until one is chosen, a marked placeholder."""
+    if not a.get("image"):
+        print(f"  note: content/insights/{a['slug']}.md has no image yet; the page shows a placeholder")
+        return f"""      <figure class="article__image article__image--empty">
+        {dummy("Image to be chosen", "Placeholder: choose a photograph for this insight")}
+      </figure>"""
+    return f"""      <figure class="article__image">
+        <img src="{PREVIEW}/img/insights/{esc(a['image'])}" alt="{esc(a['image_alt'])}">
+      </figure>"""
 
 
 # ---------------------------------------------------------------- Home
@@ -159,7 +219,7 @@ HOME = f"""  <section class="hero" aria-labelledby="hero-title">
         <a class="btn" href="/insights">All insights</a>
       </div>
       <div class="insights__cards">
-{chr(10).join(v4.icard(a) for a in v4.ARTICLES)}
+{chr(10).join(icard(a) for a in ARTICLES[:3])}
       </div>
     </div>
   </section>
@@ -189,18 +249,39 @@ add("insights", "Insights · Notes on AI for investment firms · Solven Advisory
     + f"""  <section class="section" aria-label="All insights">
     <div class="wrap">
       <div class="insights__cards icards--wide">
-{chr(10).join(v4.icard(a, topic=True) for a in v4.ARTICLES)}
+{chr(10).join(icard(a, topic=True) for a in ARTICLES)}
       </div>
     </div>
   </section>
 """ + close(art="maat"),
     "/pt/publicacoes", nav="insights",
-    ld=[x for x in [p for p in v4.PAGES if p["path"] == "insights"][0]["ld"]])
+    ld=[{"@context": "https://schema.org", "@type": "Blog", "name": "Solven Advisory insights", "url": f"{v4.ORIGIN}/insights", "publisher": v4.ORG,
+         "blogPost": [{"@type": "BlogPosting", "headline": a["title"], "url": f"{v4.ORIGIN}/insights/{a['slug']}"} for a in ARTICLES]}])
 
-for p in v4.PAGES:
-    if p["path"].startswith("insights/"):
-        main = re.sub(r'  <section class="section band" aria-labelledby="more-title">.*?</section>\n', "", p["main"], flags=re.S)
-        add(p["path"], p["title"], p["description"], main, p["pt"], nav="insights", og="article", published=p["published"], ld=p["ld"])
+# Each insight: title and subtitle on top, then the image, the tags, and the text across the page.
+for a in ARTICLES:
+    slug = a["slug"]
+    add(f"insights/{slug}", f"{a['title']} · Insights · Solven Advisory", a["description"],
+        v4.hero(md.inline(a["title"]), md.inline(a["subtitle"]), cta=False, calcada=False)
+        + f"""  <section class="section article" aria-label="Article">
+    <div class="wrap">
+{article_image(a)}
+      <ul class="article__tags" aria-label="About this insight">
+        <li>{a['minutes']} min read</li>
+        <li>{esc(a['topic'])}</li>
+        <li>{when(a)}</li>
+      </ul>
+      <article class="prose prose--wide">
+{a['body']}
+      </article>
+      <p class="article__foot"><a class="btn btn--primary" href="/book">Book a call</a><a class="text-link" href="/insights">All insights</a></p>
+    </div>
+  </section>
+""",
+        "/pt/publicacoes", nav="insights", og="article", published=a["date"],
+        ld=[{"@context": "https://schema.org", "@type": "BlogPosting", "headline": a["title"], "description": a["description"],
+             "datePublished": a["date"], "author": v4.ORG, "publisher": v4.ORG, "inLanguage": "en-GB",
+             "mainEntityOfPage": f"{v4.ORIGIN}/insights/{slug}", "url": f"{v4.ORIGIN}/insights/{slug}", "image": f"{v4.ORIGIN}/assets/og.png"}])
 
 # ---------------------------------------------------------------- Book a call
 
@@ -240,6 +321,8 @@ add("404", nf["title"], nf["description"], nfm, "/pt")
 if __name__ == "__main__":
     SITE.mkdir(parents=True, exist_ok=True)
     shutil.copytree(ROOT / "explorations/site/img", SITE / "img", dirs_exist_ok=True)
+    if (INSIGHTS / "images").is_dir():
+        shutil.copytree(INSIGHTS / "images", SITE / "img/insights", dirs_exist_ok=True)
     shutil.copyfile(ROOT / "explorations/site/site.css", SITE / "site.css")
     shutil.copyfile(ROOT / "explorations/site/site.js", SITE / "site.js")
     for p in PAGES:
