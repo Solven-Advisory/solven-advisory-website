@@ -17,8 +17,22 @@
 .who .split__body p { font-size: var(--fs-lead); line-height: 1.5; }
 .who .split__body .who__note { margin-top: var(--s-5); font-size: var(--fs-small); line-height: 1.5; color: var(--c-muted); }
 
-/* Book a call: a short head, then the calendar as the page's one job */
-.hero--book { padding-bottom: var(--s-7); }
+/* One hero for Home, Insights and Book a call (owner request): the same height and the same title.
+   Home's was the window less 144px; it is now a little shorter, capped at 620px, and the two title-only
+   heroes grow to match. Privacy, the articles and 404 keep their own heads. */
+.hero--title .hero__title { font-size: calc(var(--fs-h1) * 1.2); }
+@media (min-width: 960px) {
+  .hero:not(.hero--page), .hero.hero--title {
+    display: flex;
+    align-items: center;
+    height: clamp(480px, calc(100svh - 280px), 620px);
+    min-height: 0;
+    padding: var(--s-8) 0;
+  }
+  .hero--title .hero__title { max-width: none; font-size: clamp(64px, 6vw, 92px); }
+}
+
+/* Book a call: the hero, then the calendar as the page's one job */
 .book { padding-top: var(--s-7); }
 .book .cal { min-height: 680px; }
 .book .cal__note a { color: var(--c-text); text-decoration: underline; text-decoration-color: var(--c-accent); text-underline-offset: 3px; }

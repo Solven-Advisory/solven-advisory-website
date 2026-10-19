@@ -184,9 +184,20 @@ add("", "Solven Advisory · AI enablement and implementation for investment firm
 
 # ---------------------------------------------------------------- Insights and articles
 
+def title_hero(title):
+    """Insights and Book a call: the homepage's hero, at its height and title size, with the title only."""
+    return f"""  <section class="hero hero--page hero--title" aria-labelledby="hero-title">
+    <div class="hero__calcada" aria-hidden="true"><i></i><i></i></div>
+    <div class="wrap grid">
+      <h1 class="h1 hero__title" id="hero-title">{title}</h1>
+    </div>
+  </section>
+"""
+
+
 add("insights", "Insights · Notes on AI for investment firms · Solven Advisory",
     "Short notes from Solven Advisory on AI in private equity, real estate and venture firms: what we see in the work, and what it means for partners.",
-    v4.hero("Insights.", "Short notes on AI in investment firms: what we see in the work, and what it means for partners.", cta=False)
+    title_hero("Insights.")
     + f"""  <section class="section" aria-label="All insights">
     <div class="wrap">
       <div class="insights__cards icards--wide">
@@ -207,16 +218,7 @@ for p in v4.PAGES:
 
 add("book", "Book a call · Solven Advisory",
     "Book thirty minutes with a Solven Advisory co-founder, by video or phone.",
-    """  <section class="hero hero--page hero--book" aria-labelledby="hero-title">
-    <div class="hero__calcada" aria-hidden="true"><i></i><i></i></div>
-    <div class="wrap grid">
-      <h1 class="h1 hero__title" id="hero-title">Book a call.</h1>
-      <div class="hero__side">
-        <p class="lead hero__lead">Thirty minutes with a co-founder, by video or phone. Bring the workflow that fills your team's week.</p>
-      </div>
-    </div>
-  </section>
-  <section class="section book" id="calendar" aria-label="Calendar">
+    title_hero("Book a call.") + """  <section class="section book" id="calendar" aria-label="Calendar">
     <div class="wrap">
       <div class="cal" id="cal-inline"></div>
       <p class="cal__note">If the calendar does not load, <a href="https://cal.eu/miguelmonteirosolven/30min" target="_blank" rel="noopener">open it in a new tab</a>. Prefer to write? """ + EMAIL + """</p>
