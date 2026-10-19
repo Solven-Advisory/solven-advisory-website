@@ -38,8 +38,8 @@ LINKEDIN = ('<a class="icon-link" href="https://www.linkedin.com/company/solven-
             '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">'
             '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10.5V17M11.5 17v-6.5M11.5 13.3c0-1.7 1.1-2.8 2.6-2.8s2.4 1.1 2.4 2.8V17"/>'
             '<circle cx="8" cy="7.4" r=".4" fill="currentColor"/></svg></a>')
-# The partner programmes, to confirm with a verification link before launch (as with the old Anthropic badge)
-PARTNERS = dummy("Partner of Anthropic and OpenAI", "Dummy text: confirm the programme names and add verification links before launch")
+# The partner line in the closing section of every page
+PARTNERS = "Partner of Anthropic and OpenAI"
 
 # ---------------------------------------------------------------- header and footer: three pages
 

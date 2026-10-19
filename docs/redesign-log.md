@@ -26,6 +26,7 @@
 - 2026-10-14 · Design skill: Impeccable chosen over Taste Skill after a Ledger bake-off (better fidelity and steering). Taste Skill removed.
 
 ## Tried
+- 2026-10-19 · Site v5, owner request: "Partner of Anthropic and OpenAI" is no longer a dummy; the closing section on every page shows it as plain text, without a verification link.
 - 2026-10-19 · Site v5, owner request: footer contact on three lines: Lisbon, Portugal; the phone number; then LinkedIn and email as line icons side by side (LinkedIn drawn to match the envelope, 22px, 1.5 stroke, hover to the reversed logo green).
 - 2026-10-19 · Site v5, owner request: footer contact puts LinkedIn, the phone number and the email envelope on one line under 'Lisbon, Portugal' (16px apart, no wrapping; checked at 1440, 960 and 390).
 - 2026-10-19 · Site v5, owner request: the dummy email becomes an envelope icon (footer, Book a call note) linking mailto:miguelmonteiro@solvenadvisory.ai, the address the live site uses; the address is not printed except in the privacy notice, where a legal text needs it written out. 'Write to us' in the closing points there too.
