@@ -28,7 +28,7 @@ PT: Início
 ### nav.insights
 > Header and footer link, and the 404 page link
 EN: Insights
-PT: Publicações
+PT: Visão
 
 ### nav.book
 > Every Book a call button and link
@@ -53,11 +53,11 @@ PT: Definições de cookies
 
 ### close.title
 EN: The edge is where the advantage is.
-PT: É na fronteira que está a vantagem.
+PT: É na fronteira que está a diferença.
 
 ### close.text
 EN: What comes next in AI is still unwritten. We work at that edge every month, so your firm and its portfolio can step onto new ground without losing their footing.
-PT: O que vem a seguir na IA ainda está por escrever. Trabalhamos nessa fronteira todos os meses, para que a vossa casa e o seu portefólio possam pisar terreno novo sem perder o equilíbrio.
+PT: O futuro da IA ainda está por escrever. Trabalhamos nessa vanguarda todos os meses, para que a sua empresa e as suas participadas possam explorar novos horizontes sem perder o equilíbrio.
 
 ### close.write
 > Link beside the button; opens an email
@@ -128,37 +128,37 @@ PT: Data provisória: substituir antes do lançamento
 
 ### home.tab_title
 EN: Solven Advisory · AI enablement and implementation for investment firms
-PT: Solven Advisory · Formação e implementação de IA para casas de investimento
+PT: Solven Advisory · Formação e implementação de IA em empresas de investimento
 
 ### home.description
 EN: Solven Advisory trains private equity teams on AI, builds it into their workflows, and runs AI projects in their portfolio companies that lift EBITDA. Augmentation without cognitive atrophy.
-PT: A Solven Advisory forma equipas de private equity em IA, integra-a nos seus fluxos de trabalho e conduz, nas empresas do portefólio, projetos de IA que fazem crescer o EBITDA. Ampliação sem atrofia cognitiva.
+PT: A Solven Advisory forma equipas de capital de investimento em IA, integra-a nos seus fluxos de trabalho e implementa projetos de IA nas empresas do seu portfólio que aumentam o EBITDA. Ampliar capacidades, preservando o pensamento crítico.
 
 ### home.ld_description
 > Description for search engines (structured data), not shown on the page
-EN: Solven Advisory trains private equity teams on AI, builds AI systems on their workflows, runs AI projects in their portfolio companies that lift EBITDA, and manages token economics.
-PT: A Solven Advisory forma equipas de private equity em IA, constrói sistemas de IA sobre os seus fluxos de trabalho, conduz, nas empresas do portefólio, projetos de IA que fazem crescer o EBITDA, e gere a economia de tokens.
+EN: Solven Advisory trains private equity teams on AI, builds AI systems on their workflows, runs AI projects in their portfolio companies that lift EBITDA.
+PT: A Solven Advisory forma equipas de capital de investimento em IA, integra-a nos seus fluxos de trabalho e implementa projetos de IA nas empresas do seu portfólio que aumentam o EBITDA.
 
 ### home.ld_topics
 > Topics for search engines (structured data), separated by commas
 EN: AI enablement, Private equity workflows, Portfolio value creation, Token economics, Anthropic Claude, OpenAI ChatGPT
-PT: Formação em IA, Fluxos de trabalho de private equity, Criação de valor no portefólio, Economia de tokens, Anthropic Claude, OpenAI ChatGPT
+PT: Formação em IA, Workflows em private equity, Criação de valor no portfólio, Economia de tokens, Anthropic Claude, OpenAI ChatGPT
 
 ## Hero
 
 ### home.hero.title
 EN: Sharper judgment for the age of AI.
-PT: Critério mais apurado para a era da IA.
+PT: Um critério mais apurado, na era da IA.
 
 ### home.hero.text
 EN: Solven trains private equity teams on AI, builds it into their workflows, and runs projects across their portfolio companies that lift EBITDA. The people making the call still own the reasoning behind it.
-PT: A Solven forma equipas de private equity em IA, integra-a nos seus fluxos de trabalho e conduz, nas empresas do portefólio, projetos que fazem crescer o EBITDA. Quem toma a decisão continua a ser dono do raciocínio que a sustenta.
+PT: A Solven forma equipas de private equity em IA, integra-a nos seus processos e implementa projetos que aumentam o EBITDA das participadas. As decisões, e o raciocínio por trás delas, continuam nas mãos de quem decide.
 
 ## Services
 
 ### home.services.title
 EN: Four ways we work with a firm.
-PT: Quatro formas de trabalharmos com uma casa de investimento.
+PT: Como podemos trabalhar juntos.
 
 ### home.service1.name
 EN: Enablement
@@ -166,7 +166,7 @@ PT: Formação
 
 ### home.service1.text
 EN: Hands-on sessions on the leading AI platforms for the whole firm, analyst to managing partner, run monthly because the frontier moves weekly.
-PT: Sessões práticas nas principais plataformas de IA para toda a casa, do analista ao managing partner, todos os meses, porque a fronteira avança todas as semanas.
+PT: Sessões práticas nas principais plataformas de IA para toda a empresa, desde os analistas até aos sócios-gerentes, todos os meses, porque a inovação acontece todas as semanas.
 
 ### home.service2.name
 EN: Build
@@ -174,15 +174,15 @@ PT: Implementação
 
 ### home.service2.text
 EN: Agents and workflow systems on the fund's own work: contract redlining, IC memo interrogation, portfolio reporting.
-PT: Agentes e sistemas sobre o trabalho do próprio fundo: revisão de contratos, escrutínio de memorandos de comité de investimento, reporting do portefólio.
+PT: Agentes e workflows aplicados ao fundo: revisão de contratos, análise de memorandos de consultores independentes e elaboração de relatórios sobre o portfólio
 
 ### home.service3.name
 EN: Portfolio
-PT: Portefólio
+PT: Portfólio
 
 ### home.service3.text
 EN: For any portfolio company, in any sector: we find what is holding back EBITDA and fix it, with AI where it helps and without it where it does not.
-PT: Em qualquer empresa do portefólio, de qualquer setor: descobrimos o que está a travar o EBITDA e resolvemo-lo, com IA onde ajuda e sem ela onde não ajuda.
+PT: Para qualquer empresa do nosso portfólio, em qualquer setor: identificamos o que está a limitar o EBITDA e resolvemos o problema, recorrendo à IA quando é útil e prescindindo dela quando não é.
 
 ### home.service4.name
 EN: Token Economics
@@ -190,13 +190,13 @@ PT: Economia de tokens
 
 ### home.service4.text
 EN: Where the compute spend goes, what it returns, and how to pace it so the year's budget lasts the year.
-PT: Para onde vai a despesa de compute, o que rende e como a dosear para que o orçamento do ano dure o ano inteiro.
+PT: Para onde vai a despesa da IA, o que rende e como a dosear para que o orçamento do ano dure o ano inteiro.
 
 ## Convictions (dark band)
 
 ### home.thesis
 EN: Augmentation without cognitive atrophy.
-PT: Ampliação sem atrofia cognitiva.
+PT: Ampliar capacidades, preservando o pensamento crítico.
 
 ### home.conviction1.title
 EN: Judgment is the product.
@@ -204,34 +204,34 @@ PT: O critério é o produto.
 
 ### home.conviction1.text
 EN: In an investment firm the deliverable is a defensible decision; AI should make that judgment sharper, never thinner.
-PT: Numa casa de investimento, o que se entrega é uma decisão defensável; a IA deve tornar esse critério mais apurado, nunca mais superficial.
+PT: Numa empresa de investimento, o resultado esperado é uma decisão fundamentada; a IA deve tornar esse julgamento mais preciso, nunca mais superficial.
 
 ### home.conviction2.title
 EN: Fluency is firm-wide.
-PT: A fluência é de toda a casa.
+PT: A fluência fica presente em toda a empresa
 
 ### home.conviction2.text
 EN: From the newest analyst to the managing partner, everyone should know where AI belongs in their own work, and where it does not.
-PT: Do analista mais recente ao managing partner, todos devem saber onde a IA tem lugar no seu próprio trabalho, e onde não tem.
+PT: Do analista mais recente ao sócio-gerente, todos devem saber onde a IA tem lugar no seu próprio trabalho, e onde não tem.
 
 ### home.conviction3.title
 EN: The portfolio is where it pays.
-PT: É no portefólio que compensa.
+PT: É no portfólio que compensa.
 
 ### home.conviction3.text
-EN: Whatever its sector, every portfolio company has a part of the business holding it back. We start from that problem, not from the technology, and sometimes the right answer is not AI at all.
-PT: Seja qual for o setor, cada empresa do portefólio tem uma parte do negócio que a está a travar. Partimos desse problema, não da tecnologia, e por vezes a resposta certa nem sequer é IA.
+EN: Whatever its sector, every portfolio company has a part of the business holding it back. We start from that problem, not from the technology.
+PT: Seja qual for o setor, cada empresa do portfólio tem uma parte do negócio que a está a travar. Partimos desse problema, não da tecnologia.
 
 ## Insights
 
 ### home.insights.title
 > Also the title of the Insights page
 EN: Insights.
-PT: Publicações.
+PT: Visão.
 
 ### home.insights.text
 EN: Short notes on AI in investment firms: what we see in the work, and what it means for partners.
-PT: Notas curtas sobre IA em casas de investimento: o que vemos no trabalho, e o que isso significa para os partners.
+PT: Notas curtas sobre IA em empresas de investimento: o que vemos no trabalho, e o que isso significa para os partners.
 
 ### insights.all
 > Button on the homepage, link under every article
@@ -245,11 +245,11 @@ The articles themselves are in content/insights/ and content/insights/pt/.
 
 ### insights.tab_title
 EN: Insights · Notes on AI for investment firms · Solven Advisory
-PT: Publicações · Notas sobre IA para casas de investimento · Solven Advisory
+PT: Publicações · Notas sobre IA para empresas de investimento · Solven Advisory
 
 ### insights.description
 EN: Short notes from Solven Advisory on AI in private equity, real estate and venture firms: what we see in the work, and what it means for partners.
-PT: Notas curtas da Solven Advisory sobre IA em casas de private equity, imobiliário e venture capital: o que vemos no trabalho, e o que isso significa para os partners.
+PT: Notas curtas da Solven Advisory sobre IA em fundos de private equity, imobiliário e venture capital: o que vemos no nosso trabalho, e o que isso pode trazer para os sócios.
 
 ### insights.ld_name
 > Name for search engines (structured data)
@@ -259,7 +259,7 @@ PT: Publicações da Solven Advisory
 ### article.tab_title
 > {title} is replaced by the article's title
 EN: {title} · Insights · Solven Advisory
-PT: {title} · Publicações · Solven Advisory
+PT: {title} · Visão · Solven Advisory
 
 ### article.minutes
 > Article tags and cards; {n} is replaced by the number of minutes
@@ -295,7 +295,7 @@ PT: Marcar uma chamada · Solven Advisory
 
 ### book.description
 EN: Book thirty minutes with a Solven Advisory co-founder, by video or phone.
-PT: Marquem trinta minutos com um cofundador da Solven Advisory, por vídeo ou telefone.
+PT: Marque uma reunião de trinta minutos com um dos cofundadores da Solven Advisory, por vídeo ou por telefone.
 
 ### book.title
 EN: Book a call.
@@ -314,7 +314,7 @@ PT: Se o calendário não carregar, [abram-no num novo separador](https://cal.eu
 ### book.write
 > Followed by the envelope icon
 EN: Prefer to write?
-PT: Preferem escrever?
+PT: Prefere escrever?
 
 
 # Privacy
