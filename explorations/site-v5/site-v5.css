@@ -56,3 +56,6 @@
 .mail-icon { display: inline-flex; align-items: center; justify-content: center; padding: 8px; margin: -8px; color: inherit; vertical-align: middle; }
 .mail-icon:hover { color: var(--c-accent); }
 .footer .mail-icon:hover { color: var(--c-logo-mark-rev); }
+
+/* Footer: LinkedIn, phone and the email envelope on one line */
+.footer__reach { display: flex; align-items: center; gap: var(--s-4); white-space: nowrap; }

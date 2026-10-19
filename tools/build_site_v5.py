@@ -58,9 +58,7 @@ FOOTER = re.sub(r'<ul>\s*<li><a href="/approach">.*?</ul>', """<ul>
         </ul>""", FOOTER, flags=re.S)
 FOOTER = re.sub(r'<ul class="footer__contact">.*?</ul>', f"""<ul class="footer__contact">
         <li>Lisbon, Portugal</li>
-        <li>{EMAIL}</li>
-        <li><a href="tel:+351967130877">+351 967 130 877</a></li>
-        <li><a href="https://www.linkedin.com/company/solven-advisory">LinkedIn</a></li>
+        <li class="footer__reach"><a href="https://www.linkedin.com/company/solven-advisory">LinkedIn</a><a href="tel:+351967130877">+351 967 130 877</a>{EMAIL}</li>
       </ul>""", FOOTER, flags=re.S)
 
 
@@ -83,7 +81,7 @@ def page(p, main):
 </html>
 """
     h = v4.head(p).replace(f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">',
-                           f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">\n<link rel="stylesheet" href="{PREVIEW}/site-v5.css?v=5">')
+                           f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">\n<link rel="stylesheet" href="{PREVIEW}/site-v5.css?v=6">')
     return h + "\n" + body
 
 
