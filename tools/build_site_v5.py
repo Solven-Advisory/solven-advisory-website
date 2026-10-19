@@ -77,7 +77,7 @@ def page(p, main):
 </html>
 """
     h = v4.head(p).replace(f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">',
-                           f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">\n<link rel="stylesheet" href="{PREVIEW}/site-v5.css?v=3">')
+                           f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">\n<link rel="stylesheet" href="{PREVIEW}/site-v5.css?v=4">')
     return h + "\n" + body
 
 
@@ -264,8 +264,8 @@ for a in ARTICLES:
     add(f"insights/{slug}", f"{a['title']} · Insights · Solven Advisory", a["description"],
         v4.hero(md.inline(a["title"]), md.inline(a["subtitle"]), cta=False, calcada=False)
         + f"""  <section class="section article" aria-label="Article">
-    <div class="wrap">
 {article_image(a)}
+    <div class="wrap">
       <ul class="article__tags" aria-label="About this insight">
         <li>{a['minutes']} min read</li>
         <li>{esc(a['topic'])}</li>
