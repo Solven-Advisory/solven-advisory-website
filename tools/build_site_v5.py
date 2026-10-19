@@ -38,8 +38,9 @@ LINKEDIN = ('<a class="icon-link" href="https://www.linkedin.com/company/solven-
             '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">'
             '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10.5V17M11.5 17v-6.5M11.5 13.3c0-1.7 1.1-2.8 2.6-2.8s2.4 1.1 2.4 2.8V17"/>'
             '<circle cx="8" cy="7.4" r=".4" fill="currentColor"/></svg></a>')
-# The partner line in the closing section of every page
-PARTNERS = "Partner of Anthropic and OpenAI"
+# No partner line: Solven is Registered in the Claude Partner Network (Anthropic: "Partnership begins at Select")
+# and enrolled without a tier in the OpenAI Partner Network, so no page names either programme until a tier or
+# written approval from the lab allows it (docs/partner-section-research.md).
 
 # ---------------------------------------------------------------- header and footer: three pages
 
@@ -109,7 +110,7 @@ CLOSE = ("The edge is where the advantage is.",
 
 def close(art=None):
     c = v4.close(*CLOSE, art=art)
-    c = rep(c, v4.PARTNER, PARTNERS)
+    c = rep(c, f"\n      <p class=\"close__note\">{v4.PARTNER}</p>", "")
     return rep(c, '<a class="text-link" href="/contact">Write to us</a>', f'<a class="text-link" href="mailto:{MAIL}">Write to us</a>')
 
 

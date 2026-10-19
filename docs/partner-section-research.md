@@ -1,5 +1,7 @@
 # Partner section · research
 
+**Outcome (2026-10-19, owner):** Solven is Registered in the Claude Partner Network and enrolled without a tier in the OpenAI Partner Network. Decision: no partner section and no mention of either programme on the site, v5 or live, until Solven reaches a tier (Anthropic Select) or each lab approves the wording in writing (marketing@anthropic.com, partnercomms@openai.com). The research below stays as the basis for that later section. Why mentioning it now is a risk: "Partnership begins at Select" (Anthropic); OpenAI bars non-partners from "partnered with"; both treat their names as trademarks needing approval; Registered firms are not in the public directory, so a buyer cannot verify the claim; and EU law (Directive 2005/29/EC, Annex I, point 4) always treats a false claim of approval or endorsement as unfair.
+
 Written 2026-10-19 for the site v5 partner section (branch redesign/site-v5-partners). Phase 1 of the owner's brief: what the programmes allow, how other firms present partnerships, how to announce ours, and how a partner section fits the v5 design. Every claim about the programmes cites a primary source; where only the partner portal has the answer, it is listed as a question at the end.
 
 ## 1. Official rules
