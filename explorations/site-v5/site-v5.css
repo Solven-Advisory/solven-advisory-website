@@ -62,3 +62,14 @@
 
 /* Portuguese pages: the review marker in their own language */
 :lang(pt) .dummy::after { content: " (provisório)"; }
+
+/* Convictions on the dark band: no rules. Both title and text set flush left (ragged right), never justified:
+   in columns this narrow, justification opens uneven word gaps. On desktop the three columns share two rows
+   (subgrid), so every text starts on the same line even when one title wraps to two lines. */
+.conviction { border-top: 0; padding-top: 0; }
+.conviction .h3 { text-wrap: balance; }
+@media (min-width: 960px) {
+  .convictions:not(.convictions--4):not(.convictions--2) { row-gap: var(--s-3); }
+  .convictions:not(.convictions--4):not(.convictions--2) .conviction { display: grid; grid-row: span 2; grid-template-rows: subgrid; }
+  .convictions:not(.convictions--4):not(.convictions--2) .conviction p { margin-top: 0; }
+}

@@ -188,7 +188,7 @@ def footer(t, lang, path, alt):
 
 def head(p, t):
     h = v4.head(p).replace(f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">',
-                           f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">\n<link rel="stylesheet" href="{PREVIEW}/site-v5.css?v=8">')
+                           f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">\n<link rel="stylesheet" href="{PREVIEW}/site-v5.css?v=9">')
     h = rep(h, '<html lang="en">', f'<html lang="{t.html}">')
     other = "pt_PT" if p["lang"] == "en" else "en_GB"
     h = rep(h, '<meta property="og:locale" content="en_GB">',
