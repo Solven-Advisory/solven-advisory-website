@@ -28,7 +28,11 @@ PREVIEW = "/explorations/site-v5"
 v4.PREVIEW = PREVIEW            # head() and page() take the stylesheet and script from here
 rep, dummy, esc = v4.rep, v4.dummy, v4.esc
 
-EMAIL = f'<a href="mailto:hello@example.com">{dummy("hello@example.com")}</a>'
+MAIL = "miguelmonteiro@solvenadvisory.ai"     # the address the live site uses
+# An envelope that opens the visitor's mail app; the address itself is not printed on the page
+EMAIL = (f'<a class="mail-icon" href="mailto:{MAIL}" aria-label="Email Solven Advisory" title="Email Solven Advisory">'
+         '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">'
+         '<rect x="3" y="5.5" width="18" height="13" rx="1"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg></a>')
 # The partner programmes, to confirm with a verification link before launch (as with the old Anthropic badge)
 PARTNERS = dummy("Partner of Anthropic and OpenAI", "Dummy text: confirm the programme names and add verification links before launch")
 
@@ -79,7 +83,7 @@ def page(p, main):
 </html>
 """
     h = v4.head(p).replace(f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">',
-                           f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">\n<link rel="stylesheet" href="{PREVIEW}/site-v5.css?v=4">')
+                           f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">\n<link rel="stylesheet" href="{PREVIEW}/site-v5.css?v=5">')
     return h + "\n" + body
 
 
@@ -102,7 +106,7 @@ CLOSE = ("The edge is where the advantage is.",
 def close(art=None):
     c = v4.close(*CLOSE, art=art)
     c = rep(c, v4.PARTNER, PARTNERS)
-    return rep(c, '<a class="text-link" href="/contact">Write to us</a>', '<a class="text-link" href="mailto:hello@example.com">Write to us</a>')
+    return rep(c, '<a class="text-link" href="/contact">Write to us</a>', f'<a class="text-link" href="mailto:{MAIL}">Write to us</a>')
 
 
 PAGES = []
@@ -318,6 +322,10 @@ pm = re.sub(r"If you use the contact form, we receive the details you type: name
             r"The form is delivered to our inbox by FormSubmit, a form-forwarding service; we use the details only to reply to you\. ", "", pm)
 pm = pm.replace("We process contact and booking details", "We process booking details and correspondence")
 pm = pm.replace(" Form delivery passes through FormSubmit.", "")
+# A legal notice prints the address itself, so here it is text, not the envelope
+pm = pm.replace('<a href="mailto:hello@example.com"><span class="dummy" title="Dummy text: replace before launch">hello@example.com</span></a>',
+                f'<a href="mailto:{MAIL}">{MAIL}</a>')
+assert "example.com" not in pm
 pm = pm.replace("who visit this site, write to us, or book a call.", "who visit this site, write to us, or book a call.")
 assert "FormSubmit" not in pm and "contact form" not in pm
 add("privacy", priv["title"], priv["description"], pm, "/pt")

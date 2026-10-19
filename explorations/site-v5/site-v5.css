@@ -51,3 +51,8 @@
 }
 .prose__image { margin: var(--s-6) 0; }
 .prose__image img { display: block; width: 100%; height: auto; border-radius: var(--r); }
+
+/* Email: an envelope that opens the visitor's mail app, with a 38px target around the 22px mark */
+.mail-icon { display: inline-flex; align-items: center; justify-content: center; padding: 8px; margin: -8px; color: inherit; vertical-align: middle; }
+.mail-icon:hover { color: var(--c-accent); }
+.footer .mail-icon:hover { color: var(--c-logo-mark-rev); }
