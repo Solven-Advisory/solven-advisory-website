@@ -52,10 +52,10 @@
 .prose__image { margin: var(--s-6) 0; }
 .prose__image img { display: block; width: 100%; height: auto; border-radius: var(--r); }
 
-/* Email: an envelope that opens the visitor's mail app, with a 38px target around the 22px mark */
-.mail-icon { display: inline-flex; align-items: center; justify-content: center; padding: 8px; margin: -8px; color: inherit; vertical-align: middle; }
-.mail-icon:hover { color: var(--c-accent); }
-.footer .mail-icon:hover { color: var(--c-logo-mark-rev); }
+/* Icon links (email envelope, LinkedIn): a 38px target around the 22px mark */
+.icon-link { display: inline-flex; align-items: center; justify-content: center; padding: 8px; margin: -8px; color: inherit; vertical-align: middle; }
+.icon-link:hover { color: var(--c-accent); }
+.footer .icon-link:hover { color: var(--c-logo-mark-rev); }
 
-/* Footer: LinkedIn, phone and the email envelope on one line */
-.footer__reach { display: flex; align-items: center; gap: var(--s-4); white-space: nowrap; }
+/* Footer contact: Lisbon, then the phone, then the LinkedIn and email icons side by side */
+.footer__icons { display: flex; align-items: center; gap: var(--s-5); padding-top: var(--s-1); }

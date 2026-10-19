@@ -30,9 +30,14 @@ rep, dummy, esc = v4.rep, v4.dummy, v4.esc
 
 MAIL = "miguelmonteiro@solvenadvisory.ai"     # the address the live site uses
 # An envelope that opens the visitor's mail app; the address itself is not printed on the page
-EMAIL = (f'<a class="mail-icon" href="mailto:{MAIL}" aria-label="Email Solven Advisory" title="Email Solven Advisory">'
+EMAIL = (f'<a class="icon-link" href="mailto:{MAIL}" aria-label="Email Solven Advisory" title="Email Solven Advisory">'
          '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">'
          '<rect x="3" y="5.5" width="18" height="13" rx="1"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg></a>')
+# LinkedIn as the same kind of line icon, beside the envelope
+LINKEDIN = ('<a class="icon-link" href="https://www.linkedin.com/company/solven-advisory" aria-label="Solven Advisory on LinkedIn" title="Solven Advisory on LinkedIn">'
+            '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">'
+            '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10.5V17M11.5 17v-6.5M11.5 13.3c0-1.7 1.1-2.8 2.6-2.8s2.4 1.1 2.4 2.8V17"/>'
+            '<circle cx="8" cy="7.4" r=".4" fill="currentColor"/></svg></a>')
 # The partner programmes, to confirm with a verification link before launch (as with the old Anthropic badge)
 PARTNERS = dummy("Partner of Anthropic and OpenAI", "Dummy text: confirm the programme names and add verification links before launch")
 
@@ -58,7 +63,8 @@ FOOTER = re.sub(r'<ul>\s*<li><a href="/approach">.*?</ul>', """<ul>
         </ul>""", FOOTER, flags=re.S)
 FOOTER = re.sub(r'<ul class="footer__contact">.*?</ul>', f"""<ul class="footer__contact">
         <li>Lisbon, Portugal</li>
-        <li class="footer__reach"><a href="https://www.linkedin.com/company/solven-advisory">LinkedIn</a><a href="tel:+351967130877">+351 967 130 877</a>{EMAIL}</li>
+        <li><a href="tel:+351967130877">+351 967 130 877</a></li>
+        <li class="footer__icons">{LINKEDIN}{EMAIL}</li>
       </ul>""", FOOTER, flags=re.S)
 
 
@@ -81,7 +87,7 @@ def page(p, main):
 </html>
 """
     h = v4.head(p).replace(f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">',
-                           f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">\n<link rel="stylesheet" href="{PREVIEW}/site-v5.css?v=6">')
+                           f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">\n<link rel="stylesheet" href="{PREVIEW}/site-v5.css?v=7">')
     return h + "\n" + body
 
 
