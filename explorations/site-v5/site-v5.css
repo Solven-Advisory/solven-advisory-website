@@ -12,11 +12,6 @@
 .service--quiet:hover { border-color: var(--c-rule); }
 .service--quiet:hover .h3 { color: var(--c-text); }
 
-/* Who we are: the About page, cut to one short paragraph on the band */
-.who { background: var(--c-band); }
-.who .split__body p { font-size: var(--fs-lead); line-height: 1.5; }
-.who .split__body .who__note { margin-top: var(--s-5); font-size: var(--fs-small); line-height: 1.5; color: var(--c-muted); }
-
 /* One hero for Home, Insights and Book a call (owner request): the same height and the same title.
    Home's was the window less 144px; it is now a little shorter, capped at 620px, and the two title-only
    heroes grow to match. Privacy, the articles and 404 keep their own heads. */

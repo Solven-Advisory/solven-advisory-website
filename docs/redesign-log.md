@@ -26,6 +26,7 @@
 - 2026-10-14 · Design skill: Impeccable chosen over Taste Skill after a Ledger bake-off (better fidelity and steering). Taste Skill removed.
 
 ## Tried
+- 2026-10-19 · Site v5, owner request: 'Who we are' removed from the homepage (to be written later, nothing in its place). The partner line it carried is not on the homepage for now; the closing still omits it.
 - 2026-10-19 · Site v5, owner request: Home, Insights and Book a call share one hero, the same height (clamp(480px, 100svh - 280px, 620px) on desktop: 620px at 1440x900, so home is a little shorter and the other two taller) and the same title size and weight as the homepage. The right column (the one-line lead) is gone from Insights and Book a call, which now carry the title only. Under 960px each hero is still as tall as its content, so the title-only ones are shorter on phones. Privacy, articles and 404 unchanged.
 - 2026-10-19 · Site v5, owner request: the pale grey band (#EFEDE9) becomes the warmer beige of jackandjill.ai ("stone", #EBE9E1), overridden in site-v5.css so site v4 is unchanged. Insight cards now lighten on hover to #F2F2EB (their "clay") instead of darkening, since the old hover matched the new band; green hover title stays AA at 4.9:1.
 - 2026-10-18 · Site v5, owner request: Farol do Bugio removed from the insights page; its closing now carries the MAAT, as the homepage does. Insights 1,539px at 1440, 2,494px at 375.

@@ -2,7 +2,7 @@
 
     python3 tools/build_site_v5.py
 
-  Home          /               the hint of everything: services, convictions, who we are, insights
+  Home          /               the hint of everything: services, convictions, insights
   Insights      /insights       the index and the three articles under it
   Book a call   /book           one line and the calendar
   plus Privacy and 404, which are legal and technical necessities, linked from the footer only.
@@ -148,18 +148,6 @@ HOME = f"""  <section class="hero" aria-labelledby="hero-title">
           <p>Staying current is a standing discipline, not a one-off project, which is why our work is monthly.</p>
         </li>
       </ul>
-    </div>
-  </section>
-
-  <section class="section who" id="about" aria-labelledby="who-title">
-    <div class="wrap grid split">
-      <div class="split__head">
-        <h2 class="h2" id="who-title">Who we are.</h2>
-      </div>
-      <div class="split__body">
-        <p>Three co-founders in Lisbon: two from finance and AI engineering, one senior partner who has built and run a business through to exit. Between us, trading desks, M&amp;A, search-fund and venture investing, and applied AI research.</p>
-        <p class="who__note">{dummy("Member of the Anthropic Partner Network")}</p>
-      </div>
     </div>
   </section>
 
