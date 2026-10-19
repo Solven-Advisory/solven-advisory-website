@@ -175,7 +175,7 @@ def article_image(a):
 SERVICES = [
     ("Enablement", "Hands-on sessions on the leading AI platforms for the whole firm, analyst to managing partner, run monthly because the frontier moves weekly."),
     ("Build", "Agents and workflow systems on the fund's own work: contract redlining, IC memo interrogation, portfolio reporting."),
-    ("Portfolio", "AI projects inside portfolio companies, in sales, operations and service as much as finance, each scoped to lift EBITDA."),
+    ("Portfolio", "For any portfolio company, in any sector: we find what is holding back EBITDA and fix it, with AI where it helps and without it where it does not."),
     ("Token Economics", "Where the compute spend goes, what it returns, and how to pace it so the year's budget lasts the year."),
 ]
 DESCRIPTION = ("Solven Advisory trains private equity teams on AI, builds it into their workflows, and runs AI projects in their "
@@ -214,7 +214,7 @@ HOME = f"""  <section class="hero" aria-labelledby="hero-title">
         </li>
         <li class="conviction">
           <h3 class="h3">The portfolio is where it pays.</h3>
-          <p>In a portfolio company, AI earns its place in the numbers: across sales, operations and service, not only finance, and measured in EBITDA.</p>
+          <p>Whatever its sector, every portfolio company has a part of the business holding it back. We start from that problem, not from the technology, and sometimes the right answer is not AI at all.</p>
         </li>
       </ul>
     </div>
