@@ -29,6 +29,8 @@ v4.PREVIEW = PREVIEW            # head() and page() take the stylesheet and scri
 rep, dummy, esc = v4.rep, v4.dummy, v4.esc
 
 EMAIL = f'<a href="mailto:hello@example.com">{dummy("hello@example.com")}</a>'
+# The partner programmes, to confirm with a verification link before launch (as with the old Anthropic badge)
+PARTNERS = dummy("Partner of Anthropic and OpenAI", "Dummy text: confirm the programme names and add verification links before launch")
 
 # ---------------------------------------------------------------- header and footer: three pages
 
@@ -93,8 +95,13 @@ def links(s):
     return s.replace("/explorations/site/img/", f"{PREVIEW}/img/")
 
 
+CLOSE = ("The edge is where the advantage is.",
+         "What comes next in AI is still unwritten. We work at that edge every month, so your firm and its portfolio can step onto new ground without losing their footing.")
+
+
 def close(art=None):
-    c = v4.close(art=art)
+    c = v4.close(*CLOSE, art=art)
+    c = rep(c, v4.PARTNER, PARTNERS)
     return rep(c, '<a class="text-link" href="/contact">Write to us</a>', '<a class="text-link" href="mailto:hello@example.com">Write to us</a>')
 
 
@@ -166,11 +173,13 @@ def article_image(a):
 # ---------------------------------------------------------------- Home
 
 SERVICES = [
-    ("Enablement", "Hands-on Claude sessions for the whole firm, analyst to managing partner, run monthly because the frontier moves weekly."),
-    ("Build", "Agents and workflow systems on the real work: contract redlining, IC memo interrogation, portfolio reporting."),
-    ("AI Diligence", "An independent read on whether a target's AI is genuine capability or marketing, before the term sheet is signed."),
+    ("Enablement", "Hands-on sessions on the leading AI platforms for the whole firm, analyst to managing partner, run monthly because the frontier moves weekly."),
+    ("Build", "Agents and workflow systems on the fund's own work: contract redlining, IC memo interrogation, portfolio reporting."),
+    ("Portfolio", "AI projects inside portfolio companies, in sales, operations and service as much as finance, each scoped to lift EBITDA."),
     ("Token Economics", "Where the compute spend goes, what it returns, and how to pace it so the year's budget lasts the year."),
 ]
+DESCRIPTION = ("Solven Advisory trains private equity teams on AI, builds it into their workflows, and runs AI projects in their "
+               "portfolio companies that lift EBITDA. Augmentation without cognitive atrophy.")
 cards = v4.cards([(n, t, "", None) for n, t in SERVICES]).replace("service service--static", "service service--quiet")
 
 HOME = f"""  <section class="hero" aria-labelledby="hero-title">
@@ -178,7 +187,7 @@ HOME = f"""  <section class="hero" aria-labelledby="hero-title">
     <div class="wrap grid">
       <h1 class="h1 hero__title" id="hero-title">Sharper judgment for the age of AI.</h1>
       <div class="hero__side">
-        <p class="lead hero__lead">Solven trains private equity teams on AI and builds it into their workflows, so the people making the call still own the reasoning behind it.</p>
+        <p class="lead hero__lead">Solven trains private equity teams on AI, builds it into their workflows, and runs projects across their portfolio companies that lift EBITDA. The people making the call still own the reasoning behind it.</p>
         <p class="hero__cta"><a class="btn btn--primary" href="/book">Book a call</a></p>
       </div>
     </div>
@@ -201,11 +210,11 @@ HOME = f"""  <section class="hero" aria-labelledby="hero-title">
         </li>
         <li class="conviction">
           <h3 class="h3">Fluency is firm-wide.</h3>
-          <p>From the newest analyst to the managing partner, everyone should know where Claude belongs in their own work.</p>
+          <p>From the newest analyst to the managing partner, everyone should know where AI belongs in their own work, and where it does not.</p>
         </li>
         <li class="conviction">
-          <h3 class="h3">The frontier is the job.</h3>
-          <p>Staying current is a standing discipline, not a one-off project, which is why our work is monthly.</p>
+          <h3 class="h3">The portfolio is where it pays.</h3>
+          <p>In a portfolio company, AI earns its place in the numbers: across sales, operations and service, not only finance, and measured in EBITDA.</p>
         </li>
       </ul>
     </div>
@@ -224,11 +233,12 @@ HOME = f"""  <section class="hero" aria-labelledby="hero-title">
     </div>
   </section>
 
-""" + rep(close(art="maat"), f'      <p class="close__note">{v4.PARTNER}</p>\n', "")
+""" + close(art="maat")
 
-add("", "Solven Advisory · AI enablement and implementation for investment firms",
-    "Solven Advisory trains private equity teams on AI and builds it into their workflows, so the people making the call still own the reasoning behind it. Augmentation without cognitive atrophy.",
-    HOME, "/pt", ld=v4.homepage()[1]["ld"])
+HOME_LD = v4.homepage()[1]["ld"]
+HOME_LD[0].update(description="Solven Advisory trains private equity teams on AI, builds AI systems on their workflows, runs AI projects in their portfolio companies that lift EBITDA, and manages token economics.",
+                  knowsAbout=["AI enablement", "Private equity workflows", "Portfolio value creation", "Token economics", "Anthropic Claude", "OpenAI ChatGPT"])
+add("", "Solven Advisory · AI enablement and implementation for investment firms", DESCRIPTION, HOME, "/pt", ld=HOME_LD)
 
 # ---------------------------------------------------------------- Insights and articles
 
