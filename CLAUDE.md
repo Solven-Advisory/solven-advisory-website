@@ -1,7 +1,7 @@
 # Solven Advisory Website
 
 ## Project
-Website for Solven Advisory, Lda (solvenadvisory.ai): a boutique AI enablement and implementation consultancy in Lisbon, member of the Anthropic Partner Network. Clients: private equity firms first, also real estate and venture firms, across Iberia and Europe. Readers are PE partners, associates and analysts, portfolio-company executives, and future hires. They skim, so pages read like an elevator pitch: key ideas only, then links to depth.
+Website for Solven Advisory, Lda (solvenadvisory.ai): a boutique AI enablement and implementation consultancy in Lisbon. Clients: private equity firms first, also real estate and venture firms, across Iberia and Europe. Readers are PE partners, associates and analysts, portfolio-company executives, and future hires. They skim, so pages read like an elevator pitch: key ideas only, then links to depth.
 
 ## Stack
 - Plain HTML, CSS and JS. No framework, no build step, no package.json. Deployed on Vercel (clean URLs).
@@ -64,8 +64,9 @@ private equity, real estate, and venture firms. Core thesis: "augmentation
 without cognitive atrophy". The analyst produces the work first; the model
 enters as critic, red-teamer, and verifier, never as author. Offer: monthly
 Claude enablement programmes (four-session arc), build work (agents on real
-workflows), AI due diligence on targets, and token economics. Solven is a
-member of the Anthropic Partner Network.
+workflows), AI due diligence on targets, and token economics. Solven is
+Registered in the Claude Partner Network and enrolled without a tier in the
+OpenAI Partner Network; the site names neither (see the to-dos below).
 Solven has three co-founders (two young co-founders with finance and AI/engineering backgrounds, one senior co-founder and former business owner). No names or photos on the site for now.
 
 ### Stack and deployment
@@ -184,5 +185,8 @@ Solven has three co-founders (two young co-founders with finance and AI/engineer
   branded search). `solvenadvisory.pt` and `solven.pt` were unregistered as of
   2026-07-28; owner intends to register.
 - Solven has three co-founders (two young co-founders with finance and AI/engineering backgrounds, one senior co-founder and former business owner). No names or photos on the site for now.
-- The "Anthropic Partner Network · Phase 1" badge is plain text; it needs a
-  verification link only the owner can supply.
+- No partner claims (decided 2026-10-19): Solven is Registered in the Claude
+  Partner Network (Anthropic: "Partnership begins at Select") and enrolled
+  without a tier in the OpenAI Partner Network. No page, meta, JSON-LD or
+  llms file may name either programme until Solven reaches a tier or each lab
+  approves the wording in writing. See docs/partner-section-research.md.
