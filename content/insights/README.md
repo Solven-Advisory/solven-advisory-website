@@ -51,3 +51,17 @@ Every file starts with this block. All lines are required except the last three.
 
 The title comes from the header block, so the text never starts with a single `#`.
 House rules still apply: no em dashes, British spelling.
+
+## The Portuguese version
+
+Each insight can have a European Portuguese translation in `content/insights/pt/`. Its file name is
+its Portuguese address (`pt/fazer-cada-token-valer-o-que-custa.md` becomes
+`/pt/publicacoes/fazer-cada-token-valer-o-que-custa`), and its header block has one extra line, `en:`,
+naming the English file it translates:
+
+    en: making-every-token-earn-its-place
+
+The PT toggle on the English article goes to its translation; an English insight without one
+toggles to the Portuguese index. Write in European Portuguese, never Brazilian: equipa, utilizador,
+registo, perceber, «guillemets», "a fazer" rather than "fazendo". The build stops if it finds a
+common Brazilian form.

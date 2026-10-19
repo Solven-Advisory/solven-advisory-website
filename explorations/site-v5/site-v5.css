@@ -59,3 +59,6 @@
 
 /* Footer contact: Lisbon, then the phone, then the LinkedIn and email icons side by side */
 .footer__icons { display: flex; align-items: center; gap: var(--s-5); padding-top: var(--s-1); }
+
+/* Portuguese pages: the review marker in their own language */
+:lang(pt) .dummy::after { content: " (provisório)"; }
