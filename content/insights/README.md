@@ -8,7 +8,7 @@ After adding or editing a file, rebuild the site:
 
 ## The header block
 
-Every file starts with this block. All lines are required except the last three.
+Every file starts with this block. All lines are required except the last four.
 
     ---
     title: How to tell whether the AI is real
@@ -20,6 +20,7 @@ Every file starts with this block. All lines are required except the last three.
     image: ai-diligence.jpg
     image_alt: What the photograph shows, for readers who cannot see it.
     date_is_placeholder: no
+    updated: 2026-11-04
     ---
 
 - **image**: a real photograph, chosen for each insight. Put the file in `content/insights/images/`
@@ -27,6 +28,7 @@ Every file starts with this block. All lines are required except the last three.
   placeholder.
 - **image_alt**: required once there is an image.
 - **date_is_placeholder**: `yes` marks the date as a dummy on the page, until the real one is known.
+- **updated**: the day of the last material revision, for search engines (`dateModified`). Leave it out until there is one.
 - The reading time is counted from the text. To set it by hand, add `minutes: 6`.
 
 ## The text

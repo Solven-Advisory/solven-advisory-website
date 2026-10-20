@@ -269,6 +269,15 @@ def close(t, art=None):
 
 
 PAGES = []
+ORG = dict(v4.ORG, logo=f"{v4.ORIGIN}/assets/apple-touch-icon.png")     # the publisher of every page and insight
+
+
+def crumbs(t, *trail):
+    """BreadcrumbList from the language's home down to this page: trail is (name, path) pairs."""
+    steps = [(t.raw("nav.home"), t.home)] + list(trail)
+    return {"@context": "https://schema.org", "@type": "BreadcrumbList", "inLanguage": t.ld_lang,
+            "itemListElement": [{"@type": "ListItem", "position": i, "name": name, "item": v4.ORIGIN + (path if path != "/" else "/")}
+                                for i, (name, path) in enumerate(steps, 1)]}
 
 
 def add(lang, path, alt, title, description, main, **kw):
@@ -329,10 +338,10 @@ def when(a):
     return v4.date_html(a["date"], a["label"], a["placeholder"])
 
 
-def icard(a, t, topic=False):
+def icard(a, t, topic=False, h=3):
     meta = (f"{esc(a['topic'])} · " if topic else "") + f"{when(a)} · {t['article.minutes'].replace('{n}', str(a['minutes']))}"
     return f"""        <article class="icard">
-          <h3 class="icard__title"><a href="{t.insights}/{a['slug']}">{md.inline(a['title'])}</a></h3>
+          <h{h} class="icard__title"><a href="{t.insights}/{a['slug']}">{md.inline(a['title'])}</a></h{h}>
           <p class="icard__sum">{md.inline(a['summary'])}</p>
           <p class="icard__meta">{meta}</p>
         </article>"""
@@ -400,7 +409,10 @@ def home(t, lang):
 
 """ + close(t, art="maat")
     ld = json.loads(json.dumps(v4.homepage()[1]["ld"]))
-    ld[0].update(description=t.raw("home.ld_description"), knowsAbout=t.raw("home.ld_topics").split(", "))
+    ld[0].update(description=t.raw("home.ld_description"), knowsAbout=t.raw("home.ld_topics").split(", "),
+                 legalName="Solven Advisory, Lda")
+    ld.append({"@context": "https://schema.org", "@type": "WebSite", "@id": f"{v4.ORIGIN}/#website", "url": f"{v4.ORIGIN}/",
+               "name": "Solven Advisory", "inLanguage": ["en-GB", "pt-PT"], "publisher": {"@id": ORG["@id"]}})
     return t.raw("home.tab_title"), t.raw("home.description"), main, dict(ld=ld)
 
 
@@ -423,16 +435,15 @@ def insights_index(t, lang):
     main = title_hero(t["home.insights.title"]) + f"""  <section class="section" aria-label="{t.attr("insights.all")}">
     <div class="wrap">
       <div class="insights__cards icards--wide">
-{chr(10).join(icard(a, t, topic=True) for a in ARTICLES[lang])}
+{chr(10).join(icard(a, t, topic=True, h=2) for a in ARTICLES[lang])}
       </div>
     </div>
   </section>
 """ + close(t, art="maat")
-    blog = {"@context": "https://schema.org", "@type": "Blog", "name": t.raw("insights.ld_name"), "url": f"{v4.ORIGIN}{t.insights}", "publisher": v4.ORG,
+    blog = {"@context": "https://schema.org", "@type": "Blog", "name": t.raw("insights.ld_name"), "url": f"{v4.ORIGIN}{t.insights}", "publisher": ORG,
+            "inLanguage": t.ld_lang,
             "blogPost": [{"@type": "BlogPosting", "headline": a["title"], "url": f"{v4.ORIGIN}{t.insights}/{a['slug']}"} for a in ARTICLES[lang]]}
-    if lang == "pt":
-        blog["inLanguage"] = t.ld_lang
-    return t.raw("insights.tab_title"), t.raw("insights.description"), main, dict(ld=[blog])
+    return t.raw("insights.tab_title"), t.raw("insights.description"), main, dict(ld=[blog, crumbs(t, (t.raw("nav.insights"), t.insights))])
 
 
 both("insights", insights_index, nav="insights")
@@ -443,7 +454,7 @@ def article(a, lang, alt):
     t = COPY[lang]
     own = f"{t.insights}/{a['slug']}"
     ld = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": a["title"], "description": a["description"],
-          "datePublished": a["date"], "author": v4.ORG, "publisher": v4.ORG, "inLanguage": t.ld_lang,
+          "datePublished": a["date"], "dateModified": a.get("updated") or a["date"], "author": ORG, "publisher": ORG, "inLanguage": t.ld_lang,
           "mainEntityOfPage": f"{v4.ORIGIN}{own}", "url": f"{v4.ORIGIN}{own}", "image": f"{v4.ORIGIN}/assets/og.png"}
     if lang == "pt":
         ld["translationOfWork"] = {"@id": f"{v4.ORIGIN}/insights/{a['en']}"}
@@ -464,7 +475,8 @@ def article(a, lang, alt):
     </div>
   </section>
 """,
-        nav="insights", og="article", published=a["date"], ld=[ld])
+        nav="insights", og="article", published=a["date"],
+        ld=[ld, crumbs(t, (t.raw("nav.insights"), t.insights), (a["title"], own))])
 
 
 for a in ARTICLES["en"]:
@@ -487,7 +499,9 @@ def book(t, lang):
     </div>
   </section>
 """
-    return t.raw("book.tab_title"), t.raw("book.description"), main, dict(scripts=CAL_SCRIPT)
+    contact = {"@context": "https://schema.org", "@type": "ContactPage", "url": f"{v4.ORIGIN}{t.book}", "name": t.raw("book.tab_title"),
+               "inLanguage": t.ld_lang, "about": {"@id": ORG["@id"]}}
+    return t.raw("book.tab_title"), t.raw("book.description"), main, dict(scripts=CAL_SCRIPT, ld=[contact, crumbs(t, (t.raw("nav.book"), t.book))])
 
 
 both("book", book, nav="book")
@@ -509,7 +523,7 @@ def privacy(t, lang):
     </div>
   </section>
 """
-    return t.raw("privacy.tab_title"), t.raw("privacy.description"), main, {}
+    return t.raw("privacy.tab_title"), t.raw("privacy.description"), main, dict(ld=[crumbs(t, (t.raw("footer.privacy"), t.privacy))])
 
 
 def privacy_sections(t):
