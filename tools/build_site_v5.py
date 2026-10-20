@@ -33,6 +33,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import build_site_v4 as v4  # noqa: E402
 import markdown_lite as md  # noqa: E402
+import svg_paths  # noqa: E402
 
 ROOT = v4.ROOT
 PROD = "--prod" in sys.argv[1:]
@@ -204,6 +205,12 @@ def head(p, t):
     elif PROD:
         h = rep(h, '\n<meta name="robots" content="noindex, nofollow">', "")
     h = rep(h, '<html lang="en">', f'<html lang="{t.html}">')
+    # The typefaces are self-hosted (site-v5.css): no Google Fonts, the two latin files preloaded
+    h = rep(h, """<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300..700&family=Source+Sans+3:wght@400;500&display=swap">""",
+            "\n".join(f'<link rel="preload" href="/assets/fonts/{f}-latin.woff2" as="font" type="font/woff2" crossorigin>'
+                      for f in ("source-sans-3-v20", "source-serif-4-v15")))
     other = "pt_PT" if p["lang"] == "en" else "en_GB"
     h = rep(h, '<meta property="og:locale" content="en_GB">',
             f'<meta property="og:locale" content="{t.locale}">\n<meta property="og:locale:alternate" content="{other}">')
@@ -797,10 +804,10 @@ def build_prod():
     for name in STATIC:
         shutil.copyfile(ROOT / name, SITE / name)
     write_pages()
-    # Only the drawings the pages and stylesheets use
+    # Only the drawings the pages and stylesheets use, their paths written compactly (tools/svg_paths.py)
     files = [f for f in SITE.rglob("*") if f.suffix in (".html", ".css")]
     for name in sorted({n for f in files for n in re.findall(rf"{ASSETS}/img/([\w.-]+\.svg)", f.read_text())}):
-        shutil.copyfile(ROOT / "explorations/site/img" / name, out / "img" / name)
+        (out / "img" / name).write_text(svg_paths.minify((ROOT / "explorations/site/img" / name).read_text()))
     for f in sorted(files, key=lambda f: f.suffix != ".css"):    # stylesheets first: the pages stamp their hash
         f.write_text(stamp(f.read_text()))
     sitemap()

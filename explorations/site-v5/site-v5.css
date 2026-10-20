@@ -1,5 +1,18 @@
 /* Site v5: three pages. Loaded after site.css (a copy of site v4's). Only what the cut needs. */
 
+/* The two typefaces, served from this site rather than Google Fonts (faster, and no visitor data goes to Google).
+   The files are Google Fonts' own variable woff2 subsets (Source Serif 4 v15 with its optical-size axis,
+   Source Sans 3 v20), under the SIL Open Font License (assets/fonts/OFL-*.txt). The latin files are preloaded
+   in each page's head; latin-ext is fetched only if a page uses a character from it. */
+@font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 300 700; font-display: swap;
+  src: url("/assets/fonts/source-serif-4-v15-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 300 700; font-display: swap;
+  src: url("/assets/fonts/source-serif-4-v15-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400 500; font-display: swap;
+  src: url("/assets/fonts/source-sans-3-v20-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400 500; font-display: swap;
+  src: url("/assets/fonts/source-sans-3-v20-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
 /* Band: the pale grey becomes a warmer beige (owner request, after jackandjill.ai's "stone").
    Text on it still passes AA: body 13.9:1, muted 5.2:1, green accent 4.5:1. */
 :root { --c-band: #EBE9E1; }
@@ -30,6 +43,15 @@
 /* Book a call: the hero, then the calendar as the page's one job */
 .book { padding-top: var(--s-7); }
 .book .cal { min-height: 680px; }
+/* Under 768px of width Cal.com stacks the month above the times, and the calendar grows with the width
+   (measured 2026-10-20: 1459px tall at 310px wide, 1836px at 754px). The space is held before it loads,
+   so nothing below jumps when it arrives (layout shift was 0.28 to 0.36 on phones and tablets). */
+.book .wrap { container-type: inline-size; }
+@container (max-width: 767.98px) { .book .cal { min-height: calc(1190px + 84cqw); } }
+/* Cal.com's wrapper is a wrapping flex box that centres its 300px-tall first frame in that space, then the
+   frame grows and jumps to the top: pin it to the top from the start, so it only grows downwards. */
+.book .cal cal-inline { align-content: flex-start !important; align-items: flex-start !important; }
+.book .cal iframe { align-self: flex-start !important; margin-top: 0 !important; margin-bottom: 0 !important; }
 .book .cal__note a { color: var(--c-text); text-decoration: underline; text-decoration-color: var(--c-accent); text-underline-offset: 3px; }
 .book .cal__note a:hover { color: var(--c-accent); }
 
