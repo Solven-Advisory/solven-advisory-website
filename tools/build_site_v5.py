@@ -1,7 +1,8 @@
 """Site v5 preview: the site cut to three pages, at the owner's request (2026-10-18), in English and
 European Portuguese (2026-10-19).
 
-    python3 tools/build_site_v5.py
+    python3 tools/build_site_v5.py           the preview, in explorations/site-v5/ (noindex)
+    python3 tools/build_site_v5.py --prod    the production site, in public/ (what Vercel serves)
 
   Home          /               /pt                       the hint of everything: services, convictions, insights
   Insights      /insights       /pt/publicacoes           the index and the articles under it, written in Markdown
@@ -20,6 +21,7 @@ the homepage, and the contact details sit in every footer. Reuses site v4's part
 (tools/build_site_v4.py: head, hero, cards, closing, articles); writes explorations/site-v5/,
 with its own copy of site v4's stylesheet plus a few rules (site-v5.css). Site v4 is unchanged.
 """
+import hashlib
 import json
 import re
 import shutil
@@ -32,9 +34,13 @@ import build_site_v4 as v4  # noqa: E402
 import markdown_lite as md  # noqa: E402
 
 ROOT = v4.ROOT
-SITE = ROOT / "explorations/site-v5"
+PROD = "--prod" in sys.argv[1:]
 PREVIEW = "/explorations/site-v5"
-v4.PREVIEW = PREVIEW            # head() and page() take the stylesheet and script from here
+# The preview lives inside the repo at PREVIEW and is never indexed. The production build writes public/,
+# Vercel's output directory: pages at their real addresses, the stylesheets, script and drawings under /assets/site.
+SITE = ROOT / ("public" if PROD else "explorations/site-v5")
+ASSETS = "/assets/site" if PROD else PREVIEW   # where the stylesheets, script and drawings are served
+v4.PREVIEW = ASSETS             # head() and page() take the stylesheet and script from here
 rep, dummy, esc = v4.rep, v4.dummy, v4.esc
 
 MAIL = "miguelmonteiro@solvenadvisory.ai"     # the address the live site uses
@@ -187,8 +193,15 @@ def footer(t, lang, path, alt):
 
 
 def head(p, t):
-    h = v4.head(p).replace(f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">',
-                           f'<link rel="stylesheet" href="{PREVIEW}/site.css?v=1">\n<link rel="stylesheet" href="{PREVIEW}/site-v5.css?v=9">')
+    h = v4.head(p).replace(f'<link rel="stylesheet" href="{ASSETS}/site.css?v=1">',
+                           f'<link rel="stylesheet" href="{ASSETS}/site.css?v=1">\n<link rel="stylesheet" href="{ASSETS}/site-v5.css?v=9">')
+    if p["path"] in ("404", "pt/404"):
+        # A missing page has no address of its own to declare
+        h = re.sub(r'\n<link rel="canonical" href="[^"]*">', "", h)
+        h = re.sub(r'\n<meta property="og:url" content="[^"]*">', "", h)
+        h = rep(h, '<meta name="robots" content="noindex, nofollow">', '<meta name="robots" content="noindex">')
+    elif PROD:
+        h = rep(h, '\n<meta name="robots" content="noindex, nofollow">', "")
     h = rep(h, '<html lang="en">', f'<html lang="{t.html}">')
     other = "pt_PT" if p["lang"] == "en" else "en_GB"
     h = rep(h, '<meta property="og:locale" content="en_GB">',
@@ -206,19 +219,23 @@ def head(p, t):
 
 def page(p):
     t = COPY[p["lang"]]
+    path, alt = p["path"], p["alt"]
+    if path in ("404", "pt/404"):
+        # A missing page has no counterpart: the language switch goes to each language's home
+        path, alt = ("", "pt") if p["lang"] == "en" else ("pt", "")
     body = f"""<body>
 
 <a class="skip" href="#content">{t["label.skip"]}</a>
 
-{header(t, p["lang"], p["path"], p["alt"], p.get("nav"))}
+{header(t, p["lang"], path, alt, p.get("nav"))}
 
 <main id="content">
 {p["main"]}
 </main>
 
-{footer(t, p["lang"], p["path"], p["alt"])}
+{footer(t, p["lang"], path, alt)}
 
-<script src="{PREVIEW}/site.js?v=1"></script>
+<script src="{ASSETS}/site.js?v=1"></script>
 {p.get("scripts", "")}</body>
 </html>
 """
@@ -229,8 +246,11 @@ def page(p):
 
 
 def links(s):
-    """Production paths to the preview, as in v4. The Portuguese pages live inside the preview too."""
+    """Production paths to the preview, as in v4. The Portuguese pages live inside the preview too.
+    The production build keeps the paths and only moves the drawings to ASSETS."""
     s = s.replace('href="/contact#calendar"', 'href="/book"')
+    if PROD:
+        return s.replace("/explorations/site/img/", f"{ASSETS}/img/")
     def fix(m):
         path = m.group(1)
         if re.match(r"/(assets|explorations)(/|$|#|\?)", path):
@@ -270,7 +290,7 @@ WORDS_PER_MINUTE = 220
 
 
 def body_image(src, alt):
-    return f'<figure class="prose__image"><img src="{PREVIEW}/img/insights/{esc(src)}" alt="{esc(alt)}"></figure>'
+    return f'<figure class="prose__image"><img src="{ASSETS}/img/insights/{esc(src)}" alt="{esc(alt)}"></figure>'
 
 
 def load_insights(folder, lang):
@@ -325,7 +345,7 @@ def article_image(a, t):
         {dummy(t["article.image_missing"], t.attr("article.image_missing_note"))}
       </figure>"""
     return f"""      <figure class="article__image">
-        <img src="{PREVIEW}/img/insights/{esc(a['image'])}" alt="{esc(a['image_alt'])}">
+        <img src="{ASSETS}/img/insights/{esc(a['image'])}" alt="{esc(a['image_alt'])}">
       </figure>"""
 
 
@@ -508,12 +528,16 @@ both("privacy", privacy)
 
 
 def not_found(t, lang):
+    # Production serves one 404.html for every missing address, so the English page carries a line in Portuguese
+    pt = COPY["pt"]
+    other = "" if lang == "pt" else f"""
+        <p class="nf__other" lang="pt-PT">{pt["notfound.title"]} <a class="text-link" href="{pt.home}">{pt["notfound.back"]}</a></p>"""
     main = v4.hero(t["notfound.title"], t["notfound.text"], cta=False, fill=True, extra=f"""
         <p class="nf__links">
           <a class="btn btn--primary" href="{t.home}">{t["notfound.back"]}</a>
           <a class="text-link" href="{t.insights}">{t["nav.insights"]}</a>
           <a class="text-link" href="{t.book}">{t["nav.book"]}</a>
-        </p>""")
+        </p>{other}""")
     return t.raw("notfound.tab_title"), t.raw("notfound.description"), main, {}
 
 
@@ -543,15 +567,62 @@ def check_pt(text, where):
         assert w not in text, (where, w)
 
 
-if __name__ == "__main__":
-    SITE.mkdir(parents=True, exist_ok=True)
-    shutil.copytree(ROOT / "explorations/site/img", SITE / "img", dirs_exist_ok=True)
-    if (INSIGHTS / "images").is_dir():
-        shutil.copytree(INSIGHTS / "images", SITE / "img/insights", dirs_exist_ok=True)
-    shutil.copyfile(ROOT / "explorations/site/site.css", SITE / "site.css")
-    shutil.copyfile(ROOT / "explorations/site/site.js", SITE / "site.js")
+# ---------------------------------------------------------------- production: public/
+
+STATIC = ["robots.txt", "site.webmanifest"]   # served as they are, from the repo root
+
+
+def page_file(path):
+    """Where a page is written. Production serves its one 404 page as /404.html."""
+    if PROD and path == "404":
+        return SITE / "404.html"
+    return SITE / path / "index.html"
+
+
+def stamp(text):
+    """Every file under /assets/site gets ?v=<hash of its content>: vercel.json caches /assets for a year."""
+    def one(m):
+        f = SITE / m.group(1).lstrip("/")
+        return f"{m.group(1)}?v={hashlib.sha256(f.read_bytes()).hexdigest()[:10]}"
+    return re.sub(rf"({ASSETS}/[\w./-]+?\.\w+)(\?v=\w+)?(?=[\"')\s])", one, text)
+
+
+def resolve(path):
+    """The file production serves at an address (clean URLs, no trailing slash), or None."""
+    path = re.split(r"[?#]", path)[0]
+    if path == "/":
+        return SITE / "index.html"
+    for f in (SITE / path.lstrip("/"), SITE / path.lstrip("/") / "index.html"):
+        if f.is_file():
+            return f
+    return None
+
+
+def check_links():
+    """Every internal link, asset and declared address in public/ must reach a file there:
+    nothing points at a redirect, at a page that is gone, or at the preview."""
+    bad = []
+    for f in sorted(SITE.rglob("*")):
+        if f.suffix not in (".html", ".css", ".xml", ".txt", ".webmanifest"):
+            continue
+        text = f.read_text()
+        assert "/explorations" not in text, f
+        if f.suffix == ".html" and f.name != "404.html":
+            assert 'name="robots"' not in text, f
+        refs = re.findall(r'(?:href|src|content)="(?:https://solvenadvisory\.ai)?(/[^"]*)"', text)
+        refs += re.findall(r'url\("?(/[^")]+)"?\)', text)
+        refs += re.findall(r"<loc>https://solvenadvisory\.ai(/[^<]*)</loc>", text)
+        refs += re.findall(r'href="https://solvenadvisory\.ai(/[^"]*)"', text)
+        bad += [f"{f.relative_to(SITE)}: {r}" for r in refs if not r.startswith("//") and not resolve(r)]
+    if bad:
+        raise SystemExit("Links to nothing in public/:\n  " + "\n  ".join(sorted(set(bad))))
+
+
+def write_pages():
     for p in PAGES:
-        out = SITE / p["path"] / "index.html"
+        if PROD and p["path"] == "pt/404":
+            continue    # production has one 404 page, in English with a line in Portuguese
+        out = page_file(p["path"])
         text = links(page(p))
         v4.check(text, out)
         if p["lang"] == "pt":
@@ -563,3 +634,41 @@ if __name__ == "__main__":
     unused = set(ENTRIES) - COPY["en"].used - COPY["pt"].used
     if unused:
         raise SystemExit(f"{COPY_FILE.name}: not used by any page: {', '.join(sorted(unused))}")
+
+
+def build_preview():
+    SITE.mkdir(parents=True, exist_ok=True)
+    shutil.copytree(ROOT / "explorations/site/img", SITE / "img", dirs_exist_ok=True)
+    if (INSIGHTS / "images").is_dir():
+        shutil.copytree(INSIGHTS / "images", SITE / "img/insights", dirs_exist_ok=True)
+    shutil.copyfile(ROOT / "explorations/site/site.css", SITE / "site.css")
+    shutil.copyfile(ROOT / "explorations/site/site.js", SITE / "site.js")
+    write_pages()
+
+
+def build_prod():
+    assert SITE == ROOT / "public"
+    if SITE.exists():
+        shutil.rmtree(SITE)     # generated, never edited: start clean so a removed page does not linger
+    shutil.copytree(ROOT / "assets", SITE / "assets")
+    out = SITE / ASSETS.lstrip("/")
+    (out / "img").mkdir(parents=True)
+    for name, src in (("site.css", "explorations/site/site.css"), ("site-v5.css", "explorations/site-v5/site-v5.css")):
+        (out / name).write_text((ROOT / src).read_text().replace("/explorations/site/img/", f"{ASSETS}/img/"))
+    shutil.copyfile(ROOT / "explorations/site/site.js", out / "site.js")
+    if (INSIGHTS / "images").is_dir():
+        shutil.copytree(INSIGHTS / "images", out / "img/insights")
+    for name in STATIC:
+        shutil.copyfile(ROOT / name, SITE / name)
+    write_pages()
+    # Only the drawings the pages and stylesheets use
+    files = [f for f in SITE.rglob("*") if f.suffix in (".html", ".css")]
+    for name in sorted({n for f in files for n in re.findall(rf"{ASSETS}/img/([\w.-]+\.svg)", f.read_text())}):
+        shutil.copyfile(ROOT / "explorations/site/img" / name, out / "img" / name)
+    for f in sorted(files, key=lambda f: f.suffix != ".css"):    # stylesheets first: the pages stamp their hash
+        f.write_text(stamp(f.read_text()))
+    check_links()
+
+
+if __name__ == "__main__":
+    build_prod() if PROD else build_preview()

@@ -1,0 +1,79 @@
+/* Site v5: three pages. Loaded after site.css (a copy of site v4's). Only what the cut needs. */
+
+/* Band: the pale grey becomes a warmer beige (owner request, after jackandjill.ai's "stone").
+   Text on it still passes AA: body 13.9:1, muted 5.2:1, green accent 4.5:1. */
+:root { --c-band: #EBE9E1; }
+/* The insight cards sit on the band and used to darken to #EBE9E4, now the band itself.
+   They lighten instead (jackandjill.ai's "clay"), which keeps the green hover title at 4.9:1. */
+.icard:hover { background: #F2F2EB; }
+
+/* Service cards have no page behind them any more: no link, so no border or title change on hover.
+   The tiles still turn to the logo's greens under the pointer, as the owner chose for CX4. */
+.service--quiet:hover { border-color: var(--c-rule); }
+.service--quiet:hover .h3 { color: var(--c-text); }
+
+/* One hero for Home, Insights and Book a call (owner request): the same height and the same title.
+   Home's was the window less 144px; it is now a little shorter, capped at 620px, and the two title-only
+   heroes grow to match. Privacy, the articles and 404 keep their own heads. */
+.hero--title .hero__title { font-size: calc(var(--fs-h1) * 1.2); }
+@media (min-width: 960px) {
+  .hero:not(.hero--page), .hero.hero--title {
+    display: flex;
+    align-items: center;
+    height: clamp(480px, calc(100svh - 280px), 620px);
+    min-height: 0;
+    padding: var(--s-8) 0;
+  }
+  .hero--title .hero__title { max-width: none; font-size: clamp(64px, 6vw, 92px); }
+}
+
+/* Book a call: the hero, then the calendar as the page's one job */
+.book { padding-top: var(--s-7); }
+.book .cal { min-height: 680px; }
+.book .cal__note a { color: var(--c-text); text-decoration: underline; text-decoration-color: var(--c-accent); text-underline-offset: 3px; }
+.book .cal__note a:hover { color: var(--c-accent); }
+
+/* Insights, written in Markdown (content/insights/): title and subtitle on top, then the image,
+   the tags (reading time, topic, date), and the text across the full width of the content. */
+/* The image runs edge to edge, straight under the head, so it has no radius. */
+.article__image { margin: 0; aspect-ratio: 16 / 7; max-height: 640px; width: 100%; overflow: hidden; background: var(--c-band); }
+.article__image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.article__image--empty { display: flex; align-items: center; justify-content: center; border-bottom: 1px dashed var(--c-field); font-size: var(--fs-small); color: var(--c-muted); }
+.article__tags { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-6); padding: 0; list-style: none; }
+.article__tags li { padding: var(--s-1) var(--s-3); border-radius: var(--r); background: var(--c-band); font-size: var(--fs-small); line-height: 1.5; color: var(--c-text); font-variant-numeric: tabular-nums; }
+.prose--wide, .article .article__foot { max-width: none; }
+.section.article { padding-top: 0; }
+.article .prose { margin-top: var(--s-7); }
+.prose h2 { font-weight: 600; }
+.prose h3 { margin: var(--s-6) 0 var(--s-3); font-size: var(--fs-h3); font-weight: 500; line-height: 1.3; color: var(--c-anchor); }
+@media (max-width: 639.98px) {
+  .article__image { aspect-ratio: 4 / 3; }
+}
+.prose__image { margin: var(--s-6) 0; }
+.prose__image img { display: block; width: 100%; height: auto; border-radius: var(--r); }
+
+/* Icon links (email envelope, LinkedIn): a 38px target around the 22px mark */
+.icon-link { display: inline-flex; align-items: center; justify-content: center; padding: 8px; margin: -8px; color: inherit; vertical-align: middle; }
+.icon-link:hover { color: var(--c-accent); }
+.footer .icon-link:hover { color: var(--c-logo-mark-rev); }
+
+/* Footer contact: Lisbon, then the phone, then the LinkedIn and email icons side by side */
+.footer__icons { display: flex; align-items: center; gap: var(--s-5); padding-top: var(--s-1); }
+
+/* Portuguese pages: the review marker in their own language */
+:lang(pt) .dummy::after { content: " (provisório)"; }
+
+/* Convictions on the dark band: no rules. Both title and text set flush left (ragged right), never justified:
+   in columns this narrow, justification opens uneven word gaps. On desktop the three columns share two rows
+   (subgrid), so every text starts on the same line even when one title wraps to two lines. */
+.conviction { border-top: 0; padding-top: 0; }
+.conviction .h3 { text-wrap: balance; }
+@media (min-width: 960px) {
+  .convictions:not(.convictions--4):not(.convictions--2) { row-gap: var(--s-3); }
+  .convictions:not(.convictions--4):not(.convictions--2) .conviction { display: grid; grid-row: span 2; grid-template-rows: subgrid; }
+  .convictions:not(.convictions--4):not(.convictions--2) .conviction p { margin-top: 0; }
+}
+
+/* 404: production serves one page for every missing address, so it carries a line in Portuguese under the links */
+.nf__other { margin-top: var(--s-6); padding-top: var(--s-4); border-top: 1px solid var(--c-rule); font-size: 16px; color: var(--c-muted); }
+.nf__other .text-link { margin-left: var(--s-2); }

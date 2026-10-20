@@ -73,3 +73,7 @@
   .convictions:not(.convictions--4):not(.convictions--2) .conviction { display: grid; grid-row: span 2; grid-template-rows: subgrid; }
   .convictions:not(.convictions--4):not(.convictions--2) .conviction p { margin-top: 0; }
 }
+
+/* 404: production serves one page for every missing address, so it carries a line in Portuguese under the links */
+.nf__other { margin-top: var(--s-6); padding-top: var(--s-4); border-top: 1px solid var(--c-rule); font-size: 16px; color: var(--c-muted); }
+.nf__other .text-link { margin-left: var(--s-2); }

@@ -1,0 +1,13 @@
+{
+  "name": "Solven Advisory",
+  "short_name": "Solven",
+  "description": "AI enablement and implementation for firms where judgment is the product.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F4F2EB",
+  "theme_color": "#2A2A28",
+  "icons": [
+    { "src": "/assets/logos/05_solven_favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
