@@ -5,3 +5,4 @@ tools/
 .claude/
 .impeccable/
 content/
+.public-build/

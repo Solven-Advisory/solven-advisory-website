@@ -1,0 +1,584 @@
+# Solven Advisory
+
+> Solven Advisory trains private equity teams on AI, builds it into their workflows, and runs AI projects in portfolio companies that lift EBITDA.
+
+Solven trains private equity teams on AI, builds it into their workflows, and runs projects across their portfolio companies that lift EBITDA. The people making the call still own the reasoning behind it.
+
+- Based in Lisbon, Portugal. Solven Advisory, Lda.
+- Book a 30-minute call: https://solvenadvisory.ai/book
+- LinkedIn: https://www.linkedin.com/company/solven-advisory
+- The site is in English and in European Portuguese (https://solvenadvisory.ai/pt).
+
+## Four ways we work with a firm
+
+- **Enablement**: Hands-on sessions on the major AI platforms for the whole firm, analyst to managing partner, run monthly because the frontier moves weekly.
+- **Build**: Agents and workflow systems on the fund's own work: contract redlining, IC memo interrogation, portfolio reporting.
+- **Portfolio**: For any portfolio company, in any sector: we find what is holding back EBITDA and fix it, with AI where it helps and without it where it does not.
+- **Token Economics**: Where the compute spend goes, what it returns, and how to pace it so the year's budget lasts the year.
+
+## Augmentation without cognitive atrophy
+
+- **Judgment is the product.** In an investment firm the deliverable is a defensible decision; AI should make that judgment sharper, never thinner.
+- **Fluency is firm-wide.** From the newest analyst to the managing partner, everyone should know where AI belongs in their own work, and where it does not.
+- **The portfolio is where it pays.** Whatever its sector, every portfolio company has a part of the business holding it back. We start from that problem, not from the technology.
+
+## Pages and insights
+
+- [Home](https://solvenadvisory.ai/): Solven Advisory trains private equity teams on AI, builds it into their workflows, and runs AI projects in portfolio companies that lift EBITDA.
+- [Insights](https://solvenadvisory.ai/insights): Short notes from Solven Advisory on AI in private equity, real estate and venture firms: what we see in the work, and what it means for partners.
+- [Book a call](https://solvenadvisory.ai/book): Book thirty minutes with a Solven Advisory co-founder, by video or phone.
+- [Privacy](https://solvenadvisory.ai/privacy): How Solven Advisory handles the personal data of the people who write to us or book a call. This site sets no cookies of its own.
+- [Editors of drafts they cannot defend](https://solvenadvisory.ai/insights/editors-of-drafts-they-cannot-defend): Why the real risk in AI rollouts is cognitive offloading, not adoption failure, and how inverting the workflow keeps investment analysis defensible.
+- [How to tell whether the AI is real](https://solvenadvisory.ai/insights/how-to-tell-whether-the-ai-is-real): A working method for AI diligence: where the model comes from, what surrounds it, what breaks when a provider changes terms, and what engineers can show live.
+- [Making every token earn its place](https://solvenadvisory.ai/insights/making-every-token-earn-its-place): Why AI spend behaves nothing like software licences, and how costing by workflow, from cost per memo to cost per data room, gives partners a P&L they can read.
+
+## Em português
+
+- [Início](https://solvenadvisory.ai/pt): A Solven Advisory forma equipas de capital de investimento em IA, integra-a nos seus fluxos de trabalho e implementa projetos de IA que aumentam o EBITDA.
+- [Insights](https://solvenadvisory.ai/pt/insights): Notas curtas da Solven Advisory sobre IA em private equity, imobiliário e venture capital: o que vemos no nosso trabalho e o que pode trazer aos sócios.
+- [Marcar uma chamada](https://solvenadvisory.ai/pt/marcar): Marque uma reunião de trinta minutos com um dos cofundadores da Solven Advisory, por vídeo ou por telefone.
+- [Privacidade](https://solvenadvisory.ai/pt/privacidade): Como a Solven Advisory trata os dados pessoais de quem nos escreve ou marca uma chamada. Este site não instala cookies próprios.
+- [Editores de rascunhos que não conseguem defender](https://solvenadvisory.ai/pt/insights/editores-de-rascunhos-que-nao-conseguem-defender): Porque é que o verdadeiro risco da IA é delegar o raciocínio, e não a adoção falhar, e como inverter o fluxo de trabalho mantém a análise defensável.
+- [Como saber se a IA é real](https://solvenadvisory.ai/pt/insights/como-saber-se-a-ia-e-real): Um método para a due diligence de IA: a origem do modelo, o que o rodeia, o que falha se o fornecedor mudar as condições e o que os engenheiros mostram ao vivo.
+- [Fazer cada token valer o que custa](https://solvenadvisory.ai/pt/insights/fazer-cada-token-valer-o-que-custa): Porque é que a despesa com IA não se comporta como licenças de software, e como custear por fluxo de trabalho dá aos partners um P&L que conseguem ler.
+
+# Insights in full
+
+## Editors of drafts they cannot defend
+
+https://solvenadvisory.ai/insights/editors-of-drafts-they-cannot-defend · AI adoption · 2026-10-02
+
+The real failure mode of an AI rollout is not that analysts refuse the tools; it is that they end up polishing arguments they never built.
+
+Every investment committee has a version of the same moment. A partner stops on a single figure,
+perhaps an exit multiple, a churn assumption, or a discount rate, and asks the analyst why it is
+what it is. The question is rarely about the number itself. It is a probe. If the analyst can walk
+backwards from that cell through the reasoning that produced it, the partner extends trust to the
+rest of the memo. If the analyst hesitates, the whole document is suddenly on the table.
+
+That exchange only works if the person defending the work is the person who did it. This is
+precisely the assumption that careless AI adoption quietly breaks.
+
+## The trap looks like productivity
+
+When a model can produce a polished first draft of an IC memo in minutes, the rational-seeming move
+is to let it, and to spend the saved hours editing. The output improves. The pace improves. Everyone
+involved can point to something that looks like progress.
+
+What has actually happened is the substitution of one cognitive act for a much weaker one. Producing
+an argument forces you to sit with the data, decide what matters, and commit to a position that
+could be wrong. Reviewing a plausible argument someone else produced demands far less, and it feels
+more complete than it is: a fluent draft reads as though the thinking has been done, so the reader's
+scepticism relaxes at exactly the moment it should sharpen. The analyst becomes an editor of a draft
+they cannot fully defend, and nothing on the page reveals it. Quality looks the same. The judgment
+underneath it thins out.
+
+> There is a difference between owning an argument and having approved one, and an investment
+> committee is designed to find it.
+
+## Why investment work is exposed
+
+Some professions can absorb this quietly. Investment work cannot, because its entire review
+structure presumes authorship. A memo passes from associate to principal to partner to committee,
+and at each stage the reviewer samples: they probe two or three load-bearing assumptions, watch how
+the author responds, and extend or withdraw trust accordingly. Sampling is efficient precisely
+because defending one number well is evidence that the author can defend the others.
+
+Break the authorship assumption and the sampling breaks with it. The analyst who edited a generated
+draft may survive the first probe, because models are good at making assumptions sound reasoned, and
+fail the second, or survive both and carry an undetected error into a signed term sheet. The erosion
+also compounds. Analysts learn judgment by producing work and having it taken apart; the partners
+who take memos apart learned to do it by having their own taken apart. A firm that lets its juniors
+skip the production step is not saving time. It is quietly cancelling the apprenticeship that
+produces its future partners.
+
+## Invert the workflow
+
+The answer is not less AI. It is a different sequence. The analyst produces the first pass, the
+position, the numbers, and the reasoning, before the model sees any of it. Then the model is brought
+in as an adversary rather than an author: to attack the thesis, hunt for disconfirming evidence,
+stress the assumptions the analyst is most attached to, and check the arithmetic and the sourcing.
+We call this AI as adversary, not author, and it is the principle behind everything we do.
+
+The inversion matters because the model is at its most valuable, and least corrosive, in the
+critic's chair. As an author it displaces the formative work; as an adversary it multiplies it. An
+analyst whose thesis has survived serious red-teaming walks into committee with better answers than
+either the unaided analyst or the prompt-and-polish one, and every answer is the analyst's own.
+
+## What a firm can do about it
+
+None of this survives on good intentions, because the prompt-and-polish route will always be faster
+on any given Tuesday. It has to be held in place by structure. Review norms can require that the
+human contribution be legible: a memo arrives with its formative work attached, and reviewers are
+entitled to ask which parts the analyst produced and which the model challenged. Partners can make
+provenance a normal question in committee, asked without ceremony, the way “why this number” is
+asked now. Senior-led calibration sessions surface drift in individual analysts before it compounds
+across the team: working a live deal problem together, unassisted first, then with the model as
+critic. And occasionally requiring a fully unassisted first pass does for the firm's bench what an
+audit does for its books: it verifies that the capability everyone assumes is there is actually
+still there.
+
+Firms that get this right will be faster and sharper than the firms that merely adopted the tools,
+because they will have kept the one asset the tools cannot replace. The firms that get it wrong will
+not notice for a while; their documents will look excellent. Then one afternoon in committee a
+partner stops on a number and asks why, and nobody in the room owns the answer.
+
+If that question is one your firm has started asking itself, [we are glad to talk it
+through](/contact#calendar).
+
+## How to tell whether the AI is real
+
+https://solvenadvisory.ai/insights/how-to-tell-whether-the-ai-is-real · AI diligence · 2026-09-09
+
+The questions that separate durable AI capability from rented capability, asked the way a deal team can actually ask them this quarter.
+
+Most decks a deal team reads this year will describe the target as AI-powered. The phrase has
+stopped carrying information. It no longer distinguishes a company that has built something durable
+from a company that has an API key and a good copywriter, which means the work of distinguishing
+them has moved into diligence, where it belongs.
+
+None of this requires a machine learning specialist on the deal team. It requires a handful of
+questions, asked in the right order and put to the right people, with as much attention to how the
+answers are given as to what they say.
+
+> The question is not whether the target uses AI. It is what would remain if you removed everything
+> the company rents.
+
+## Start with where the model comes from
+
+Ask the engineers, not the chief executive, and ask precisely. A "proprietary AI engine" in a deck
+very often means a rented frontier model with a carefully written prompt in front of it. That is not
+disqualifying; some of the best applied AI businesses are built on models anyone can rent. But it
+changes what you are pricing. You are no longer valuing a technology asset; you are valuing whatever
+has been built around a supplier.
+
+The tell is precision. A strong team will describe its stack without hedging: which models, where
+fine-tuning ends and prompting begins, what was built and what was bought. A team that is vague
+about its own architecture either does not want you to know or does not know itself. Both answers
+are useful, and both should move the price.
+
+## Then ask what sits around the model
+
+In most AI businesses the durable asset is not the model at all. It is the data the company alone
+collects, and the depth to which the product is threaded into a customer's working day. So ask for
+those directly. What data do you hold that a well-funded competitor could not buy, license, or
+scrape within a year? What does the product learn from each customer's usage that makes it better
+for the next one? How long would it take a customer to leave, and what would they lose on the way
+out? None of these is a technical question. Each is an argument about the multiple, and each belongs
+in the investment committee discussion rather than in a technical annexe.
+
+If the answers are thin, the AI can be entirely real and the business still replicable. Rented
+capability plus commodity data is a product, and possibly a good one, but it is not a moat, and it
+should not be priced as one.
+
+## Ask what breaks when the supplier moves
+
+A rented model is a supplier relationship, and model providers behave the way suppliers do: prices
+change, versions are retired, terms are rewritten. Ask which model versions the product depends on
+today. Ask what happened the last time one was deprecated, how long the migration took, and what it
+cost. A team that has switched providers once and can describe the exercise in detail has
+demonstrated something valuable. A team that has never considered the question is carrying a risk it
+has not priced, which means you would be.
+
+The same part of the conversation should cover unit economics. Inference is a marginal cost that
+scales with usage in a way traditional software's costs never did. Ask what it costs to serve a
+customer, per seat, per transaction, per document, whatever the unit is, and which direction that
+number is moving. A gross margin that depends on model prices staying where they are, or on
+customers never using the product heavily, is not a margin; it is a hope. The encouraging sign is a
+team that knows its inference cost per unit without looking it up, because it watches the number
+weekly.
+
+## Make them show rather than tell
+
+Slides can claim anything. So ask for a live session, on inputs the deal team chooses, rather than a
+recorded demo built on inputs the company chose. Ask to see the evaluation suite, the tests that
+tell them whether a model update has quietly degraded the product, because a team without one is
+finding out from its customers. Ask what the last three months of engineering time actually went
+into; if the honest answer is prompts and interface work, the claimed depth of the AI intellectual
+property needs revising downwards. And ask who gets woken up when the model misbehaves in
+production, and what the runbook tells them to do.
+
+None of this is hostile. Serious teams tend to enjoy these questions, because they finally get to
+talk about what they built. The teams that bristle are giving you information too.
+
+## The short version
+
+For a deal this quarter, the method compresses to five questions.
+
+- Where, precisely, does the model come from?
+- What do you hold that a competitor could not rent or buy?
+- What happened the last time your model provider changed something, and what did it cost you?
+- What does inference cost per customer, and which way is it moving?
+- Show us, live, on inputs we choose.
+
+Notice that none of these is exotic. They are supplier concentration, cost of goods, switching
+costs, and replicability. These are the questions investment committees have always asked, wearing
+new vocabulary. A deal team that asks them calmly will separate the targets that own their
+capability from the targets that rent it, and will price each accordingly. Expect that separation to
+be visible within the first meeting with the engineers.
+
+If you would like a second pair of eyes on a live deal, [we are happy to talk](/contact#calendar).
+
+## Making every token earn its place
+
+https://solvenadvisory.ai/insights/making-every-token-earn-its-place · Token economics · 2026-07-28
+
+AI costs are metered and shaped by usage, which makes them easy to burn on low-value work; the remedy is a workflow-level P&L, not a bigger budget.
+
+For two decades, software has been the best-behaved line in a firm's budget. A licence had a price,
+a seat count, and a renewal date. Finance could forecast the cost a year out and be right, because
+the cost had almost nothing to do with how much anyone used the product. The analyst who lived in
+the tool and the partner who opened it twice a quarter cost the firm exactly the same.
+
+AI spend does not behave like this, and the difference is structural, not teething trouble. Frontier
+models are metered. Every request consumes tokens, every token is billed, and the invoice at the end
+of the month is a precise record of how the firm actually worked. The cost no longer follows
+headcount. It follows behaviour: the analyst mid-diligence and the partner who reads the finished
+memo no longer cost the firm the same.
+
+That would be manageable if behaviour were disciplined by price at the point of use, but it is not.
+To the person typing, any single request feels free, because nothing about the moment of use signals
+otherwise. So usage flows towards whatever is easiest rather than whatever is worth the most. Entire
+data rooms are pasted into a context window when two documents would have answered the question. The
+most capable model is applied to formatting work a far smaller one handles. Ten drafts are requested
+where one would have been read. None of these decisions is careless on its own; in aggregate, they
+are the budget.
+
+## Why budgets die in spring
+
+The result is the pattern we built a practice around: a compute budget planned for the year that is
+substantially gone by the end of the first quarter. When it happens, firms tend to reach for one of
+two remedies, and both are wrong. Rationing access teaches the team that the tools are scarce, which
+quietly undoes the adoption the firm spent months building. Topping the budget up teaches the firm
+nothing at all, because next year's overrun is already in motion.
+
+The real problem is neither the size of the budget nor the enthusiasm of the team. It is that nobody
+can say what the spend bought. An invoice denominated in tokens answers the question of how much
+with great precision while saying nothing about for what. No other line in the firm's accounts would
+survive that standard.
+
+## The wrong unit
+
+Tokens are the correct unit for billing and the wrong unit for management. A partner has no
+intuition for what a million tokens ought to cost or produce, and no dashboard will build one,
+because the unit does not map to anything the firm makes decisions about. What a partner can price
+instantly is work: a memo reviewed, a data room summarised, a board pack drafted, a screen of
+comparables assembled. Those are the units the firm already thinks in, negotiates in, and staffs
+against.
+
+> A partner cannot price a token. Every partner can price a memo.
+
+Workflow-level costing is the translation between the two. Instead of a single undifferentiated AI
+line, spend is attributed to named workflows, and each workflow acquires a unit cost: what
+first-pass diligence costs per target screened, what an adversarial review costs per investment
+committee memo, what a data room summary costs per room. Set beside the analyst-hours the work
+displaces or the speed it adds, each line supports an actual decision: keep, improve, or stop.
+
+Attribution also changes what expensive means. A workflow with a high unit cost that saves a deal
+team two days per target is cheap. A workflow with a negligible unit cost that produces output
+nobody reads is pure waste, and there is more of the second kind than most firms expect, precisely
+because each instance is too small to notice. Without attribution, the worthless spend hides inside
+the aggregate, and the valuable spend gets caught in the same squeeze when the cuts eventually come.
+
+## Measure, attribute, prune
+
+The discipline itself is not complicated, though the order matters. Measurement comes first: usage
+made legible by team, by workflow, and by model, rather than arriving as one number on a monthly
+invoice. Attribution comes second, and it is the step firms skip: every token belongs to a named
+workflow, so the question in the budget review is never why AI is so expensive, but whether the
+memo-review workflow is worth what it costs. Pruning comes last, and it applies to workflows, not
+people. Some work moves to smaller models that produce the same output for a fraction of the spend.
+Some prompts get shorter and some context gets tighter. Some workflows are simply stopped, because a
+line that earns nothing should not survive the reading of the P&L that finally made it visible.
+
+Pruning cuts in both directions, and this is the part an austerity-minded reader will miss. A
+workflow that clearly earns its cost should be fed, not rationed. Our view is that the honest
+outcome of the exercise is rarely a smaller budget; it is the same budget doing fewer things
+properly, paced so that it lasts the year it was planned for. The measure of success is not a lower
+invoice. It is a partner who can look at the invoice and explain it.
+
+There is a reason this practice sits naturally beside our work on judgment. Cost discipline and
+analytical discipline are the same habit applied to different resources: knowing what a piece of
+work is for before commissioning it, and being able to defend it afterwards. A token P&L the
+partners can read is not a technical artefact; it is a governance document, and a firm where
+judgment is the product should insist on having one. If your firm's AI spend has become a number
+nobody can explain, [we are glad to talk it through](/contact#calendar).
+
+## Editores de rascunhos que não conseguem defender
+
+https://solvenadvisory.ai/pt/insights/editores-de-rascunhos-que-nao-conseguem-defender · Adoção de IA · 2026-10-02
+
+O verdadeiro risco de uma implementação de IA não é os analistas recusarem as ferramentas; é acabarem a polir argumentos que nunca construíram.
+
+Todos os comités de investimento conhecem uma versão do mesmo momento. Um partner detém-se num
+único número, talvez um múltiplo de saída, um pressuposto de churn ou uma taxa de desconto, e
+pergunta ao analista porque é que é aquele e não outro. A pergunta raramente é sobre o número em
+si. É um teste. Se o analista conseguir fazer o caminho de volta, daquela célula até ao raciocínio
+que a produziu, o partner estende a sua confiança ao resto do memorando. Se o analista hesitar, o
+documento inteiro passa, de repente, a estar em causa.
+
+Essa troca só funciona se quem defende o trabalho for quem o fez. É precisamente este o pressuposto
+que uma adoção descuidada da IA quebra, sem que ninguém dê por isso.
+
+## A armadilha parece produtividade
+
+Quando um modelo consegue produzir em minutos uma primeira versão polida de um memorando de comité
+de investimento, o passo que parece racional é deixá-lo fazê-lo e gastar as horas poupadas a
+editar. O resultado melhora. O ritmo melhora. Todos os envolvidos podem apontar para algo que
+parece progresso.
+
+O que de facto aconteceu foi a troca de um ato cognitivo por outro muito mais fraco. Produzir um
+argumento obriga a demorar-se nos dados, a decidir o que importa e a assumir uma posição que pode
+estar errada. Rever um argumento plausível produzido por outrem exige muito menos, e parece mais
+completo do que é: um rascunho fluente lê-se como se o raciocínio já estivesse feito, e por isso o
+ceticismo do leitor afrouxa exatamente no momento em que devia apertar. O analista torna-se editor
+de um rascunho que não consegue defender por inteiro, e nada na página o denuncia. A qualidade
+parece a mesma. O critério por baixo dela vai-se esvaziando.
+
+> Há uma diferença entre ser dono de um argumento e ter aprovado um, e um comité de investimento
+> existe para a encontrar.
+
+## Porque é que o trabalho de investimento está exposto
+
+Algumas profissões conseguem absorver isto em silêncio. O trabalho de investimento não consegue,
+porque toda a sua estrutura de revisão pressupõe autoria. Um memorando passa do associate para o
+principal, do principal para o partner e do partner para o comité, e em cada etapa quem revê faz
+uma amostragem: testa dois ou três pressupostos que sustentam a tese, observa como o autor
+responde, e concede ou retira a confiança em conformidade. A amostragem é eficiente precisamente
+porque defender bem um número é prova de que o autor consegue defender os outros.
+
+Quebre-se o pressuposto da autoria e a amostragem quebra com ele. O analista que editou um rascunho
+gerado pode aguentar a primeira pergunta, porque os modelos são bons a fazer com que os
+pressupostos pareçam fundamentados, e falhar a segunda; ou aguentar ambas e levar um erro não
+detetado até um term sheet assinado. A erosão também se acumula. Os analistas aprendem a ter
+critério ao produzir trabalho e ao vê-lo desmontado; os partners que hoje desmontam memorandos
+aprenderam a fazê-lo quando os seus eram desmontados. Uma casa que deixa os seus juniores saltar a
+etapa da produção não está a poupar tempo. Está, sem dar por isso, a cancelar o tirocínio que forma
+os seus futuros partners.
+
+## Inverter o fluxo de trabalho
+
+A resposta não é menos IA. É uma sequência diferente. O analista produz a primeira versão, a
+posição, os números e o raciocínio, antes de o modelo ver qualquer parte disso. Depois, o modelo
+entra como adversário e não como autor: para atacar a tese, procurar indícios que a contrariem,
+pôr à prova os pressupostos a que o analista está mais agarrado, e verificar as contas e as fontes.
+Chamamos-lhe IA como adversário, não como autor, e é o princípio por trás de tudo o que fazemos.
+
+A inversão importa porque é na cadeira do crítico que o modelo vale mais e corrói menos. Como
+autor, ocupa o lugar do trabalho formativo; como adversário, multiplica-o. Um analista cuja tese
+resistiu a um red-teaming a sério entra no comité com melhores respostas do que o analista sem
+ajuda e do que o que se limita a pedir e a polir, e cada uma dessas respostas é do próprio
+analista.
+
+## O que uma casa pode fazer
+
+Nada disto se aguenta com boas intenções, porque o caminho de pedir e polir será sempre o mais
+rápido numa terça-feira qualquer. Tem de ser mantido por estrutura. As normas de revisão podem
+exigir que o contributo humano seja legível: um memorando chega com o trabalho formativo em anexo,
+e quem revê tem o direito de perguntar que partes produziu o analista e quais contestou o modelo.
+Os partners podem fazer da proveniência uma pergunta normal em comité, feita sem cerimónia, tal
+como hoje se pergunta «porquê este número». Sessões de calibração conduzidas por seniores detetam
+desvios em analistas individuais antes que se espalhem pela equipa: trabalhar em conjunto um
+problema real de um negócio em curso, primeiro sem ajuda, depois com o modelo como crítico. E
+exigir, de vez em quando, uma primeira versão feita inteiramente sem ajuda faz pela equipa da casa
+o que uma auditoria faz pelas contas: confirma que a capacidade que todos dão por garantida
+continua, de facto, lá.
+
+As casas que acertarem nisto serão mais rápidas e mais certeiras do que as que se limitaram a
+adotar as ferramentas, porque terão guardado o único ativo que as ferramentas não substituem. As
+que errarem não vão dar por isso durante algum tempo; os seus documentos terão um aspeto
+excelente. Depois, numa tarde em comité, um partner detém-se num número e pergunta porquê, e
+ninguém na sala é dono da resposta.
+
+Se esta é uma pergunta que a vossa casa já começou a fazer a si própria, [teremos todo o gosto em
+conversar sobre ela](/pt/marcar).
+
+## Como saber se a IA é real
+
+https://solvenadvisory.ai/pt/insights/como-saber-se-a-ia-e-real · Due diligence de IA · 2026-09-09
+
+As perguntas que separam uma capacidade de IA duradoura de uma capacidade alugada, feitas como uma equipa de investimento as pode realmente fazer este trimestre.
+
+A maior parte dos decks que uma equipa de investimento vai ler este ano descreve a empresa-alvo
+como «assente em IA». A expressão deixou de transmitir informação. Já não distingue uma empresa que
+construiu algo duradouro de uma empresa que tem uma chave de API e um bom copywriter, o que
+significa que o trabalho de as distinguir passou para a due diligence, que é o seu lugar.
+
+Nada disto exige um especialista em machine learning na equipa. Exige um punhado de perguntas,
+feitas pela ordem certa e às pessoas certas, com tanta atenção à forma como as respostas são dadas
+como ao que dizem.
+
+> A pergunta não é se a empresa-alvo usa IA. É o que restaria se lhe tirássemos tudo o que a
+> empresa aluga.
+
+## Começar por saber de onde vem o modelo
+
+Perguntem aos engenheiros, não ao CEO, e perguntem com precisão. Um «motor de IA proprietário» num
+deck significa, muitas vezes, um modelo de fronteira alugado com um prompt cuidadosamente escrito à
+frente. Isso não é eliminatório; alguns dos melhores negócios de IA aplicada assentam em modelos
+que qualquer um pode alugar. Mas muda aquilo que estão a avaliar. Já não estão a avaliar um ativo
+tecnológico; estão a avaliar o que foi construído à volta de um fornecedor.
+
+O sinal está na precisão. Uma equipa forte descreve a sua stack sem rodeios: que modelos, onde
+acaba o fine-tuning e começa o prompting, o que foi construído e o que foi comprado. Uma equipa
+vaga sobre a sua própria arquitetura ou não quer que saibam, ou não sabe ela própria. As duas
+respostas são úteis, e as duas devem mexer no preço.
+
+## Depois, perguntar o que rodeia o modelo
+
+Na maioria dos negócios de IA, o ativo duradouro nem sequer é o modelo. São os dados que só aquela
+empresa recolhe, e a profundidade com que o produto está entranhado no dia de trabalho do cliente.
+Perguntem-no, então, diretamente. Que dados têm que um concorrente bem financiado não conseguisse
+comprar, licenciar ou recolher da web no espaço de um ano? O que aprende o produto com a utilização
+de cada cliente que o torna melhor para o seguinte? Quanto tempo demoraria um cliente a sair, e o
+que perderia pelo caminho? Nenhuma destas é uma pergunta técnica. Cada uma é um argumento sobre o
+múltiplo, e cada uma tem lugar na discussão em comité de investimento, não a um anexo técnico.
+
+Se as respostas forem fracas, a IA pode ser inteiramente real e o negócio, ainda assim,
+replicável. Capacidade alugada com dados banais dá um produto, possivelmente um bom produto, mas
+não uma vantagem defensável, e não deve ser avaliado como se o fosse.
+
+## Perguntar o que deixa de funcionar quando o fornecedor muda
+
+Um modelo alugado é uma relação com um fornecedor, e os fornecedores de modelos comportam-se como
+fornecedores: os preços mudam, as versões são descontinuadas, as condições são reescritas.
+Perguntem de que versões de modelo depende hoje o produto. Perguntem o que aconteceu da última vez
+que uma foi descontinuada, quanto tempo demorou a migração e quanto custou. Uma equipa que já mudou
+de fornecedor uma vez e consegue descrever o exercício em pormenor demonstrou algo valioso. Uma
+equipa que nunca pensou na questão carrega um risco que não avaliou, o que significa que seriam
+vocês a carregá-lo.
+
+A mesma parte da conversa deve cobrir a economia unitária. A inferência é um custo marginal que
+cresce com a utilização, de uma forma que os custos do software tradicional nunca cresceram.
+Perguntem quanto custa servir um cliente, por utilizador, por transação, por documento, seja qual
+for a unidade, e em que sentido esse número está a evoluir. Uma margem bruta que depende de os
+preços dos modelos ficarem onde estão, ou de os clientes nunca usarem o produto a fundo, não é uma
+margem; é uma esperança. O bom sinal é uma equipa que sabe de cor o custo de inferência por
+unidade, porque acompanha esse número todas as semanas.
+
+## Pedir que mostrem, em vez de contarem
+
+Os slides podem afirmar qualquer coisa. Por isso, peçam uma sessão ao vivo, com casos escolhidos
+pela equipa de investimento, e não uma demonstração gravada com casos escolhidos pela empresa.
+Peçam para ver a bateria de avaliação, os testes que lhes dizem se uma atualização do modelo
+degradou o produto sem ninguém notar, porque uma equipa sem ela está a descobri-lo pelos clientes.
+Perguntem em que foram realmente gastos os últimos três meses de engenharia; se a resposta honesta
+for prompts e trabalho de interface, a profundidade que se atribui à propriedade intelectual em IA
+tem de ser revista em baixa. E perguntem quem é acordado quando o modelo se porta mal em produção,
+e o que o runbook lhe manda fazer.
+
+Nada disto é hostil. As equipas sérias costumam gostar destas perguntas, porque finalmente podem
+falar do que construíram. As equipas que se põem na defensiva também vos estão a dar informação.
+
+## A versão curta
+
+Para um deal deste trimestre, o método resume-se a cinco perguntas.
+
+- De onde vem, exatamente, o modelo?
+- O que têm que um concorrente não conseguisse alugar nem comprar?
+- O que aconteceu da última vez que o vosso fornecedor de modelos mudou alguma coisa, e quanto vos custou?
+- Quanto custa a inferência por cliente, e em que sentido está a evoluir?
+- Mostrem-nos, ao vivo, com casos escolhidos por nós.
+
+Repare-se que nenhuma é exótica. São concentração de fornecedores, custo das mercadorias vendidas,
+custos de mudança e replicabilidade. São as perguntas que os comités de investimento sempre
+fizeram, com vocabulário novo. Uma equipa de investimento que as faça com calma vai separar as
+empresas-alvo que são donas da sua capacidade das que a alugam, e vai avaliar cada uma em
+conformidade. Contem que essa separação se torne visível logo na primeira reunião com os
+engenheiros.
+
+Se quiserem um segundo par de olhos sobre um deal em curso, [teremos todo o gosto em
+conversar](/pt/marcar).
+
+## Fazer cada token valer o que custa
+
+https://solvenadvisory.ai/pt/insights/fazer-cada-token-valer-o-que-custa · Economia de tokens · 2026-07-28
+
+Os custos de IA são cobrados ao consumo e moldados pela utilização, o que os torna fáceis de gastar em trabalho de pouco valor; o remédio é um P&L por fluxo de trabalho, não um orçamento maior.
+
+Durante duas décadas, o software foi a linha mais bem-comportada do orçamento de uma casa. Uma
+licença tinha um preço, um número de utilizadores e uma data de renovação. A área financeira
+conseguia prever o custo com um ano de antecedência e acertar, porque o custo quase nada tinha a
+ver com a intensidade com que alguém usava o produto. O analista que vivia dentro da ferramenta e o partner que
+a abria duas vezes por trimestre custavam à casa exatamente o mesmo.
+
+A despesa com IA não se comporta assim, e a diferença é estrutural, não um problema de arranque.
+Os modelos de fronteira são cobrados ao consumo. Cada pedido consome tokens, cada token é
+faturado, e a fatura no fim do mês é um registo preciso de como a casa realmente trabalhou. O custo
+deixou de acompanhar o número de pessoas. Acompanha o comportamento: o analista a meio de uma due
+diligence e o partner que lê o memorando final já não custam à casa o mesmo.
+
+Isto seria gerível se o comportamento fosse disciplinado pelo preço no momento da utilização, mas
+não é. Para quem está a escrever, cada pedido parece gratuito, porque nada nesse momento indica o
+contrário. Por isso, a utilização corre para o que é mais fácil, e não para o que vale mais. Data
+rooms inteiras são coladas numa janela de contexto quando dois documentos teriam respondido à
+pergunta. O modelo mais capaz é aplicado a trabalho de formatação que um modelo muito mais pequeno
+resolve. Pedem-se dez versões quando apenas uma seria lida. Nenhuma destas decisões é descuidada
+por si só; somadas, são o orçamento.
+
+## Porque é que os orçamentos morrem na primavera
+
+O resultado é o padrão em torno do qual construímos toda uma área de trabalho: um orçamento de compute planeado
+para o ano que, no fim do primeiro trimestre, já se foi em grande parte. Quando isso acontece, as
+casas tendem a recorrer a um de dois remédios, e ambos estão errados. Racionar o acesso ensina à
+equipa que as ferramentas são escassas, o que desfaz, sem ruído, a adoção que a casa levou meses a
+construir. Reforçar o orçamento não ensina nada à casa, porque a derrapagem do ano seguinte já está
+em marcha.
+
+O verdadeiro problema não é a dimensão do orçamento nem o entusiasmo da equipa. É que ninguém
+consegue dizer o que a despesa comprou. Uma fatura em tokens responde com grande precisão à
+pergunta «quanto?», sem dizer nada sobre «para quê?». Nenhuma outra linha das contas da casa
+passaria nesse crivo.
+
+## A unidade errada
+
+Os tokens são a unidade certa para faturar e a unidade errada para gerir. Um partner não tem
+intuição sobre quanto deveria custar, ou produzir, um milhão de tokens, e nenhum dashboard lha vai
+dar, porque a unidade não corresponde a nada sobre o qual a casa tome decisões. O que um partner
+consegue avaliar de imediato é trabalho: um memorando revisto, uma data room resumida, um board
+pack redigido, uma lista de comparáveis montada. São estas as unidades em que a casa já pensa,
+negoceia e dimensiona as suas equipas.
+
+> Um partner não consegue pôr preço a um token. Qualquer partner consegue pôr preço a um
+> memorando.
+
+O custeio por fluxo de trabalho é a tradução entre as duas. Em vez de uma única linha de IA
+indiferenciada, a despesa é atribuída a fluxos de trabalho com nome, e cada fluxo ganha um custo
+unitário: quanto custa a primeira triagem de due diligence por empresa-alvo analisada, quanto custa
+uma revisão adversarial por memorando de comité de investimento, quanto custa resumir cada data
+room. Lado a lado com as horas de analista que o trabalho substitui, ou com a rapidez que
+acrescenta, cada linha sustenta uma decisão concreta: manter, melhorar ou parar.
+
+A atribuição também muda o que significa caro. Um fluxo com um custo unitário elevado que poupa a
+uma equipa dois dias por empresa-alvo é barato. Um fluxo com um custo unitário irrisório que
+produz resultados que ninguém lê é puro desperdício, e há mais do segundo tipo do que a maioria das
+casas imagina, precisamente porque cada caso é demasiado pequeno para se notar. Sem atribuição, a
+despesa inútil esconde-se no agregado, e a despesa valiosa apanha o mesmo aperto quando os cortes
+acabam por chegar.
+
+## Medir, atribuir, podar
+
+A disciplina em si não é complicada, mas a ordem importa. Primeiro vem a medição: a utilização
+tornada legível por equipa, por fluxo de trabalho e por modelo, em vez de chegar como um único
+número numa fatura mensal. Depois vem a atribuição, e é o passo que as casas saltam: cada token
+pertence a um fluxo de trabalho com nome, pelo que a pergunta na revisão do orçamento nunca é
+porque é que a IA é tão cara, mas se o fluxo de revisão de memorandos vale o que custa. A poda vem
+no fim, e aplica-se a fluxos de trabalho, não a pessoas. Algum trabalho passa para modelos mais
+pequenos que produzem o mesmo resultado por uma fração da despesa. Alguns prompts encurtam e algum
+contexto fica mais enxuto. Alguns fluxos de trabalho param, simplesmente, porque uma linha que não
+rende nada não deve sobreviver à leitura do P&L que finalmente a tornou visível.
+
+A poda corta nos dois sentidos, e esta é a parte que um leitor com espírito de austeridade vai
+deixar escapar. Um fluxo que claramente justifica o seu custo deve ser alimentado, não racionado.
+Na nossa opinião, o desfecho honesto do exercício raramente é um orçamento mais pequeno; é o mesmo
+orçamento a fazer menos coisas, e bem feitas, ao ritmo certo para durar o ano para que foi
+planeado. A medida do sucesso não é uma fatura mais baixa. É um partner que consegue olhar para a
+fatura e explicá-la.
+
+Há uma razão para esta prática andar naturalmente de mãos dadas com o nosso trabalho sobre o critério.
+Disciplina de custos e disciplina analítica são o mesmo hábito aplicado a recursos diferentes:
+saber para que serve um trabalho antes de o encomendar, e conseguir defendê-lo depois. Um P&L de
+tokens que os partners conseguem ler não é um artefacto técnico; é um documento de governação, e
+uma casa onde o critério é o produto deve exigir ter um. Se a despesa com IA da vossa casa se
+tornou um número que ninguém consegue explicar, [teremos todo o gosto em conversar sobre
+isso](/pt/marcar).

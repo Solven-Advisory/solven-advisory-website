@@ -41,7 +41,11 @@ PROD = "--prod" in sys.argv[1:]
 PREVIEW = "/explorations/site-v5"
 # The preview lives inside the repo at PREVIEW and is never indexed. The production build writes public/,
 # Vercel's output directory: pages at their real addresses, the stylesheets, script and drawings under /assets/site.
-SITE = ROOT / ("public" if PROD else "explorations/site-v5")
+# It is built in STAGE first and moved to public/ only once every check has passed, so a build that stops
+# half way leaves the last good public/ in place (on 20 October one shipped without its drawings, sitemap and llms files).
+PUBLIC = ROOT / "public"
+STAGE = ROOT / ".public-build"
+SITE = STAGE if PROD else ROOT / "explorations/site-v5"
 ASSETS = "/assets/site" if PROD else PREVIEW   # where the stylesheets, script and drawings are served
 v4.PREVIEW = ASSETS             # head() and page() take the stylesheet and script from here
 rep, dummy, esc = v4.rep, v4.dummy, v4.esc
@@ -394,10 +398,12 @@ def icard(a, t, topic=False, h=3):
 
 def article_image(a, t):
     """The insight's photograph, chosen for each article. Until one is chosen, a marked placeholder."""
+    # Read every time, so the copy check counts the placeholder's text as used while every insight has its photograph
+    missing = dummy(t["article.image_missing"], t.attr("article.image_missing_note"))
     if not a.get("image"):
         print(f"  note: {a['slug']} has no image yet; the page shows a placeholder")
         return f"""      <figure class="article__image article__image--empty">
-        {dummy(t["article.image_missing"], t.attr("article.image_missing_note"))}
+        {missing}
       </figure>"""
     return f"""      <figure class="article__image">
         <img src="{ASSETS}/img/insights/{esc(a['image'])}" alt="{esc(a['image_alt'])}">
@@ -695,6 +701,11 @@ def check_pt(text, where):
 STATIC = ["robots.txt", "site.webmanifest"]   # served as they are, from the repo root
 
 
+def shown(f):
+    """A file's path as printed: under public/ in production, wherever the staging folder is."""
+    return f"public/{f.relative_to(SITE)}" if PROD else f.relative_to(ROOT)
+
+
 def page_file(path):
     """Where a page is written. Production serves its one 404 page as /404.html."""
     if PROD and path == "404":
@@ -706,6 +717,8 @@ def stamp(text):
     """Every file under /assets/site gets ?v=<hash of its content>: vercel.json caches /assets for a year."""
     def one(m):
         f = SITE / m.group(1).lstrip("/")
+        if not f.is_file():
+            raise SystemExit(f"public/ not replaced: {m.group(1)} is referenced but was not built")
         return f"{m.group(1)}?v={hashlib.sha256(f.read_bytes()).hexdigest()[:10]}"
     return re.sub(rf"({ASSETS}/[\w./-]+?\.\w+)(\?v=\w+)?(?=[\"')\s])", one, text)
 
@@ -905,7 +918,7 @@ def write_pages():
         assert "/explorations/site/" not in text.replace(PREVIEW + "/", ""), out
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(text)
-        print(out.relative_to(ROOT), len(text.encode()), "bytes")
+        print(shown(out), len(text.encode()), "bytes")
     unused = set(ENTRIES) - COPY["en"].used - COPY["pt"].used
     if unused:
         raise SystemExit(f"{COPY_FILE.name}: not used by any page: {', '.join(sorted(unused))}")
@@ -921,10 +934,32 @@ def build_preview():
     write_pages()
 
 
+# What a production build must contain besides the pages: if one is missing, the build stops
+OUTPUT = ["sitemap.xml", "llms.txt", "llms-full.txt", "robots.txt", "site.webmanifest", "404.html",
+          "assets/site/site.css", "assets/site/site-v5.css", "assets/site/site.js"]
+
+
+def check_output():
+    """The last checks before public/ is replaced: every required file is there, every stylesheet, script
+    and image under /assets/site carries its content hash, and no placeholder marked dummy is left."""
+    bad = [f"missing: {name}" for name in OUTPUT if not (SITE / name).is_file()]
+    for f in sorted(SITE.rglob("*")):
+        if f.suffix not in (".html", ".css"):
+            continue
+        text = f.read_text()
+        for ref, v in re.findall(rf"({ASSETS}/[\w./-]+?\.\w+)(\?v=\w*)?(?=[\"')\s])", text):
+            if not re.fullmatch(r"\?v=[0-9a-f]{10}", v):
+                bad.append(f"{f.relative_to(SITE)}: {ref}{v} has no content hash")
+        if f.suffix == ".html" and 'class="dummy"' in text:
+            left = sorted(set(re.findall(r'class="dummy"[^>]*>([^<]*)<', text)))
+            bad.append(f"{f.relative_to(SITE)}: placeholder left: {' · '.join(left) or 'class=dummy'}")
+    if bad:
+        raise SystemExit("public/ not replaced, the production build is incomplete:\n  " + "\n  ".join(bad))
+
+
 def build_prod():
-    assert SITE == ROOT / "public"
     if SITE.exists():
-        shutil.rmtree(SITE)     # generated, never edited: start clean so a removed page does not linger
+        shutil.rmtree(SITE)     # what a stopped build left behind
     shutil.copytree(ROOT / "assets", SITE / "assets")
     out = SITE / ASSETS.lstrip("/")
     (out / "img").mkdir(parents=True)
@@ -939,20 +974,21 @@ def build_prod():
     # Only the drawings the pages and stylesheets use, their paths written compactly (tools/svg_paths.py)
     files = [f for f in SITE.rglob("*") if f.suffix in (".html", ".css")]
     for name in sorted({n for f in files for n in re.findall(rf"{ASSETS}/img/([\w.-]+\.svg)", f.read_text())}):
-        (out / "img" / name).write_text(svg_paths.minify((ROOT / "explorations/site/img" / name).read_text()))
+        src = ROOT / "explorations/site/img" / name
+        if not src.is_file():
+            raise SystemExit(f"public/ not replaced: {ASSETS}/img/{name} is referenced but {src.relative_to(ROOT)} does not exist")
+        (out / "img" / name).write_text(svg_paths.minify(src.read_text()))
     for f in sorted(files, key=lambda f: f.suffix != ".css"):    # stylesheets first: the pages stamp their hash
         f.write_text(stamp(f.read_text()))
     sitemap()
     llms()
     check_links()
-    left = {}
-    for f in SITE.rglob("*.html"):
-        for text in set(re.findall(r'<span class="dummy" title="[^"]*">(.*?)</span>', f.read_text())):
-            left[text] = left.get(text, 0) + 1
-    if left:
-        print(f"warning: {len(left)} placeholders still in public/ (marked dummy on the page):")
-        for text, pages in sorted(left.items()):
-            print(f"  {text}  ({pages} pages)")
+    check_output()
+    # Every check passed: the new build replaces public/ (generated, never edited, so nothing in it is lost)
+    if PUBLIC.exists():
+        shutil.rmtree(PUBLIC)
+    SITE.rename(PUBLIC)
+    print("public/ replaced:", sum(1 for f in PUBLIC.rglob("*") if f.is_file()), "files")
 
 
 if __name__ == "__main__":

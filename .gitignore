@@ -53,3 +53,6 @@ pnpm-debug.log*
 **/.impeccable/live/deferred-svelte-component-accepts.json
 **/.impeccable/live/*.png
 # impeccable-ignore-end
+
+# The production build is staged here, then moved to public/ (tools/build_site_v5.py --prod)
+.public-build/
