@@ -205,8 +205,6 @@ def footer(t, lang, path, alt):
     # No cookie settings: the site sets no cookies of its own (privacy notice, section 2)
     f = rep(f, '<a href="/privacy">Privacy</a><span aria-hidden="true"> · </span><a href="/privacy#cookies">Cookie settings</a>',
             f'<a href="{t.privacy}">{t["footer.privacy"]}</a>')
-    f = rep(f, 'Solven Advisory, Lda<span aria-hidden="true"> · </span>',
-            f'Solven Advisory, Lda<span aria-hidden="true"> · </span>{t["footer.legal"]}<span aria-hidden="true"> · </span>')
     return toggle(furniture(f, t), lang, path, alt)
 
 

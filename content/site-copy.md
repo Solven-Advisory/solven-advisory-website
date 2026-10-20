@@ -43,12 +43,6 @@ PT: Marcar uma chamada
 
 ## Footer
 
-### footer.legal
-> After "© 2026 Solven Advisory, Lda" at the foot of every page
-EN: NIPC [[NIPC]] · [[Registered office address]]
-PT: NIPC [[NIPC]] · Sede: [[Morada da sede]]
-PT reviewed: 2026-10-20
-
 ### footer.city
 EN: Lisbon, Portugal
 PT: Lisboa, Portugal
@@ -60,13 +54,13 @@ PT: Privacidade
 ## Closing band (Home and Insights)
 
 ### close.title
-EN: Bring us one deal, one memo, one model.
-PT: Tragam-nos um negócio, um memorando, um modelo.
+EN: The edge is where the advantage is.
+PT: É na fronteira que está a diferença.
 PT reviewed: 2026-10-20
 
 ### close.text
-EN: Every engagement starts on the firm's own work, not a demo. A thirty-minute call is enough to see whether we are the right fit.
-PT: Cada colaboração começa no trabalho da própria casa, não numa demonstração. Uma chamada de trinta minutos chega para perceber se somos a escolha certa.
+EN: What comes next in AI is still unwritten. We work at that edge every month, so your firm can step onto new ground without losing their footing.
+PT: O futuro da IA ainda está por escrever. Trabalhamos nessa vanguarda todos os meses, para que a sua empresa possa explorar novos horizontes sem perder o equilíbrio.
 PT reviewed: 2026-10-20
 
 ### close.write
@@ -396,8 +390,8 @@ PT: Com quem trabalham?
 PT reviewed: 2026-10-20
 
 ### book.faq1.a
-EN: Private equity firms first, and also real estate and venture firms, across Iberia and the rest of Europe. Portfolio work is for their portfolio companies, in any sector.
-PT: Com sociedades de private equity em primeiro lugar, e também de imobiliário e de venture capital, na Península Ibérica e no resto da Europa. O trabalho de portfólio é para as empresas participadas, em qualquer setor.
+EN: Private equity, real estate and venture capital firms, and their portfolio. Across Iberia and the rest of Europe. 
+PT: Com sociedades de private equity, de imobiliário e de venture capital, e as suas participadas. Trabalhamos na Península Ibérica e no resto da Europa.
 PT reviewed: 2026-10-20
 
 ### book.faq2.q
@@ -436,8 +430,8 @@ PT: Ficamos presos a um único fornecedor de IA?
 PT reviewed: 2026-10-20
 
 ### book.faq5.a
-EN: No. The first session teaches how any large model works, from tokens, attention and probability to where hallucinations come from, and the verification habits we build are model-agnostic. If the market shifts, the fluency travels with your team.
-PT: Não. A primeira sessão ensina como funciona qualquer modelo de grande dimensão, dos tokens, atenção e probabilidade à origem das alucinações, e os hábitos de verificação que construímos são independentes do modelo. Se o mercado mudar, a fluência viaja com a vossa equipa.
+EN: No. We have experience working with different providers and choosing the best models to your firm's need, always considering its associated costs.
+PT: Não. Nós temos experiência com vários fornecedores de IA e escolhemos os melhores models consoante as necessidades da sua empresa, tendo sempre em conta os custos associados.
 PT reviewed: 2026-10-20
 
 ### book.faq6.q
@@ -518,8 +512,8 @@ EN: Who we are
 PT: Quem somos
 
 ### privacy.s1.p1
-EN: Solven Advisory is an AI enablement and implementation consultancy based in Lisbon, Portugal. For anything in this notice, the controller you are dealing with is Solven Advisory, Lda, NIPC [[NIPC]], with its registered office at [[registered office address]], and the fastest route is miguelmonteiro@solvenadvisory.ai.
-PT: A Solven Advisory é uma consultora de formação e implementação de IA sediada em Lisboa, Portugal. Para tudo o que consta deste aviso, o responsável pelo tratamento é a Solven Advisory, Lda, NIPC [[NIPC]], com sede em [[morada da sede]], e a forma mais rápida de nos contactar é miguelmonteiro@solvenadvisory.ai.
+EN: Solven Advisory is an AI enablement and implementation consultancy based in Lisbon, Portugal. For anything in this notice, the controller you are dealing with is Solven Advisory, Lda, and the fastest route is miguelmonteiro@solvenadvisory.ai.
+PT: A Solven Advisory é uma consultora de formação e implementação de IA sediada em Lisboa, Portugal. Para tudo o que consta deste aviso, o responsável pelo tratamento é a Solven Advisory, Lda, e a forma mais rápida de nos contactar é miguelmonteiro@solvenadvisory.ai.
 
 ## Section 2
 
