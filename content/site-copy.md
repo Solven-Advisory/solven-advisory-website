@@ -10,6 +10,8 @@ Rules:
 - A text may run over several lines; the lines are joined with a space. A blank line ends it.
 - Write the email address as it is; the page turns it into a link. Other links: [text](https://...).
 - **bold** and *italic* work. Never use an em dash.
+- [[text]] is a placeholder for a fact still to come: the page shows it marked as dummy text, and the
+  production build lists every placeholder left. Replace the whole [[...]] with the real text.
 - Keep the ### names as they are: the build reads them. If an entry is missing, misnamed, or has
   no EN or PT line, the build stops and says which one.
 - Headings (# and ##) and notes (>) are only for finding your way; the build ignores them.
@@ -36,6 +38,11 @@ EN: Book a call
 PT: Marcar uma chamada
 
 ## Footer
+
+### footer.legal
+> After "© 2026 Solven Advisory, Lda" at the foot of every page
+EN: NIPC [[NIPC]] · [[Registered office address]]
+PT: NIPC [[NIPC]] · Sede: [[Morada da sede]]
 
 ### footer.city
 EN: Lisbon, Portugal
@@ -362,8 +369,8 @@ EN: Who we are
 PT: Quem somos
 
 ### privacy.s1.p1
-EN: Solven Advisory is an AI enablement and implementation consultancy based in Lisbon, Portugal. For anything in this notice, the controller you are dealing with is Solven Advisory, and the fastest route is miguelmonteiro@solvenadvisory.ai.
-PT: A Solven Advisory é uma consultora de formação e implementação de IA sediada em Lisboa, Portugal. Para tudo o que consta deste aviso, o responsável pelo tratamento é a Solven Advisory, e a forma mais rápida de nos contactar é miguelmonteiro@solvenadvisory.ai.
+EN: Solven Advisory is an AI enablement and implementation consultancy based in Lisbon, Portugal. For anything in this notice, the controller you are dealing with is Solven Advisory, Lda, NIPC [[NIPC]], with its registered office at [[registered office address]], and the fastest route is miguelmonteiro@solvenadvisory.ai.
+PT: A Solven Advisory é uma consultora de formação e implementação de IA sediada em Lisboa, Portugal. Para tudo o que consta deste aviso, o responsável pelo tratamento é a Solven Advisory, Lda, NIPC [[NIPC]], com sede em [[morada da sede]], e a forma mais rápida de nos contactar é miguelmonteiro@solvenadvisory.ai.
 
 ## Section 2
 

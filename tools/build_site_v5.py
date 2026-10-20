@@ -112,6 +112,7 @@ class Copy:
     def __getitem__(self, key):
         h = md.inline(self.raw(key))
         h = h.replace(MAIL, f'<a href="mailto:{MAIL}">{MAIL}</a>')
+        h = re.sub(r"\[\[(.+?)\]\]", lambda m: dummy(m.group(1)), h)    # a fact still to come (site-copy.md, Rules)
         return re.sub(r'<a href="(https://[^"]+)">', r'<a href="\1" rel="noopener">', h)
 
     def items(self, prefix, *fields):
@@ -192,6 +193,8 @@ def footer(t, lang, path, alt):
     # No cookie settings: the site sets no cookies of its own (privacy notice, section 2)
     f = rep(f, '<a href="/privacy">Privacy</a><span aria-hidden="true"> · </span><a href="/privacy#cookies">Cookie settings</a>',
             f'<a href="{t.privacy}">{t["footer.privacy"]}</a>')
+    f = rep(f, 'Solven Advisory, Lda<span aria-hidden="true"> · </span>',
+            f'Solven Advisory, Lda<span aria-hidden="true"> · </span>{t["footer.legal"]}<span aria-hidden="true"> · </span>')
     return toggle(furniture(f, t), lang, path, alt)
 
 
@@ -821,6 +824,14 @@ def build_prod():
     sitemap()
     llms()
     check_links()
+    left = {}
+    for f in SITE.rglob("*.html"):
+        for text in set(re.findall(r'<span class="dummy" title="[^"]*">(.*?)</span>', f.read_text())):
+            left[text] = left.get(text, 0) + 1
+    if left:
+        print(f"warning: {len(left)} placeholders still in public/ (marked dummy on the page):")
+        for text, pages in sorted(left.items()):
+            print(f"  {text}  ({pages} pages)")
 
 
 if __name__ == "__main__":
