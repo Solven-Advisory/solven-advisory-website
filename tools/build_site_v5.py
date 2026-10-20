@@ -68,9 +68,17 @@ SETTINGS = {
 }
 
 
+def reviewed_date(text, where):
+    try:
+        return date.fromisoformat(text).isoformat()
+    except ValueError:
+        raise SystemExit(f"{where}: the review date must be written YYYY-MM-DD, not {text!r}")
+
+
 def read_copy(path):
     """content/site-copy.md: every text of the pages as "### name", then "EN: ..." and "PT: ...".
-    Lines under EN: or PT: continue the text until a blank line; # headings and > notes are ignored."""
+    Lines under EN: or PT: continue the text until a blank line; # headings and > notes are ignored.
+    "PT reviewed: <date>" under an entry records the owner's review of its Portuguese (pt_reviewed)."""
     entries, key, lang = {}, None, None
     for n, line in enumerate(path.read_text().splitlines(), 1):
         s = line.strip()
@@ -80,6 +88,9 @@ def read_copy(path):
                 raise SystemExit(f"{path.name} line {n}: {key} appears twice")
             entries[key] = {}
         elif not s or s.startswith("#") or s.startswith(">"):
+            lang = None
+        elif key and s.startswith("PT reviewed:"):
+            entries[key]["pt_reviewed"] = reviewed_date(s[len("PT reviewed:"):].strip(), f"{path.name} line {n}")
             lang = None
         elif key and s[:3] in ("EN:", "PT:"):
             lang = s[:2].lower()
@@ -338,6 +349,8 @@ def load_insights(folder, lang):
             raise SystemExit(f"{f.relative_to(ROOT)}: the header block is missing {', '.join(missing)}")
         if meta.get("image") and not meta.get("image_alt"):
             raise SystemExit(f"{f.relative_to(ROOT)}: the image needs a description (image_alt)")
+        if meta.get("reviewed"):
+            meta["reviewed"] = reviewed_date(meta["reviewed"], str(f.relative_to(ROOT)))
         label = day_label(meta["date"], t)
         out.append(dict(meta, slug=f.stem, body=md.to_html(body, image=body_image), label=label,
                         placeholder=meta.get("date_is_placeholder", "no") == "yes",
@@ -853,6 +866,35 @@ def llms():
         print(f"public/{name}", len(text.encode()), "bytes")
 
 
+def pt_unreviewed():
+    """The Portuguese the owner has not yet marked as reviewed: copy entries, then whole insights."""
+    keys = [k for k, v in ENTRIES.items() if not v.get("pt_reviewed")]
+    articles = [a for a in ARTICLES["pt"] if not a.get("reviewed")]
+    return keys, articles
+
+
+def pt_review_note():
+    keys, articles = pt_unreviewed()
+    if keys or articles:
+        groups = {}
+        for k in keys:
+            groups[k.split(".")[0]] = groups.get(k.split(".")[0], 0) + 1
+        print(f"warning: Portuguese not yet reviewed: {len(keys)} of {len(ENTRIES)} copy entries "
+              f"({', '.join(f'{g} {n}' for g, n in groups.items())}) and {len(articles)} of {len(ARTICLES['pt'])} insights. "
+              "List them with: python3 tools/build_site_v5.py --pt-review")
+
+
+def pt_review_list():
+    """--pt-review: every unreviewed Portuguese text beside its English, as a checklist for the owner."""
+    keys, articles = pt_unreviewed()
+    for k in keys:
+        print(f"### {k}\nEN: {ENTRIES[k]['en']}\nPT: {ENTRIES[k]['pt']}\n")
+    for a in articles:
+        print(f"content/insights/pt/{a['slug']}.md (translation of content/insights/{a['en']}.md)\n")
+    print(f"{len(keys)} copy entries and {len(articles)} insights to review. Mark each one reviewed with a line "
+          "'PT reviewed: YYYY-MM-DD' under its PT line, or 'reviewed: YYYY-MM-DD' in the insight's header block.")
+
+
 def write_pages():
     for p in PAGES:
         if PROD and p["path"] == "pt/404":
@@ -916,4 +958,8 @@ def build_prod():
 
 
 if __name__ == "__main__":
-    build_prod() if PROD else build_preview()
+    if "--pt-review" in sys.argv[1:]:
+        pt_review_list()
+    else:
+        build_prod() if PROD else build_preview()
+        pt_review_note()

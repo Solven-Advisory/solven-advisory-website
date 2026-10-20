@@ -76,3 +76,7 @@ The PT toggle on the English article goes to its translation; an English insight
 toggles to the Portuguese index, and declares no Portuguese counterpart (no hreflang pair). Write in European Portuguese, never Brazilian: equipa, utilizador,
 registo, perceber, «guillemets», "a fazer" rather than "fazendo". The build stops if it finds a
 common Brazilian form.
+
+Once the owner has read and approved a translation, add `reviewed: YYYY-MM-DD` to its header block.
+The build warns about every translation without one (and every unreviewed entry in
+`content/site-copy.md`); `python3 tools/build_site_v5.py --pt-review` lists them.
