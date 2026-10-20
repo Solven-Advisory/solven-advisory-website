@@ -291,13 +291,13 @@ PT: {title} · Insights · Solven Advisory
 PT reviewed: 2026-10-20
 
 ### article.byline
-> First of the article tags
+> First item of the line under the article's image
 EN: By Solven Advisory
 PT: Por Solven Advisory
 PT reviewed: 2026-10-20
 
 ### article.updated
-> Article tags, only when the insight has an updated: date; {date} is replaced by it
+> Last item of the line under the article's image, only when the insight has an updated: date; {date} is replaced by it
 EN: Updated {date}
 PT: Atualizado a {date}
 PT reviewed: 2026-10-20
@@ -315,7 +315,7 @@ PT: Mais insights.
 PT reviewed: 2026-10-20
 
 ### article.minutes
-> Article tags and cards; {n} is replaced by the number of minutes
+> The line under the article's image, and the cards; {n} is replaced by the number of minutes
 EN: {n} min read
 PT: {n} min de leitura
 
@@ -323,11 +323,6 @@ PT: {n} min de leitura
 > Hidden label of the article section
 EN: Article
 PT: Artigo
-
-### article.tags_label
-> Hidden label of the tags
-EN: About this insight
-PT: Sobre esta publicação
 
 ### article.image_missing
 > Placeholder until a photograph is chosen

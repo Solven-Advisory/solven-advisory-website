@@ -146,7 +146,7 @@ answers are given as to what they say.
 
 ## Start with where the model comes from
 
-Ask the engineers, not the chief executive, and ask precisely. A "proprietary AI engine" in a deck
+Ask the engineers, not the chief executive, and ask precisely. A “proprietary AI engine” in a deck
 very often means a rented frontier model with a carefully written prompt in front of it. That is not
 disqualifying; some of the best applied AI businesses are built on models anyone can rent. But it
 changes what you are pricing. You are no longer valuing a technology asset; you are valuing whatever

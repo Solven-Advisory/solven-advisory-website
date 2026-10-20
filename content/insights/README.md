@@ -33,7 +33,7 @@ Every file starts with this block. All lines are required except the last five.
   placeholder.
 - **image_alt**: required once there is an image.
 - **date_is_placeholder**: `yes` marks the date as a dummy on the page, until the real one is known.
-- **updated**: the day of the last material revision. The page shows it as a tag ("Updated 4 Nov 2026") and search
+- **updated**: the day of the last material revision. The page shows it at the end of the line under the image ("Updated 4 Nov 2026") and search
   engines read it (`dateModified`). Leave it out until there is one.
 - **service**: the service on the homepage this insight belongs to, exactly as named there (Enablement, Build,
   Portfolio, Token Economics). The article ends with a line linking to it. Leave it out for no link. The

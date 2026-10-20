@@ -352,7 +352,7 @@ Text-only in every direction: title, date, one-line summary. No images. The thre
 - Real, contextual, calm photography in natural colour: architecture (Lisbon stone, arcades, stairwells), workspaces (empty desks, meeting rooms in daylight), documents (printed memos, annotated pages, a pen on a term sheet), Lisbon light on façades and floors, hands at work (writing, turning a page, at a keyboard; faces out of frame).
 - People only as hands, backs, or small figures in a space; nobody looks at the camera. No headshots, no portraits, no team photos.
 - Never: gradients, 3D renders, abstract glass, ASCII or halftone treatments, AI-generated or AI-looking illustrations, icon-per-feature graphics, glows, colour overlays or tints, stock handshakes, screens showing chat interfaces.
-- One photo per section at most; at most four photos on the homepage. Insights never carry images.
+- One photo per section at most; at most four photos on the homepage. Each insight carries one photograph, full width under its head (owner, 2026-10-19 and 2026-10-20; see redesign-log.md); insight cards on the homepage and the insights index stay text only.
 - Sourcing, in order: (1) Phase 4 explorations use neutral captioned placeholder blocks only (section 6.7). (2) Before launch, curated stock photography that meets every rule above. (3) Over time, replace stock with the client's own Lisbon photography (architecture, light, workspaces). No headshots at any stage.
 
 ---

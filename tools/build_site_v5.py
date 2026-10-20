@@ -511,8 +511,12 @@ def related(a, lang, n=2):
     return sorted(others, key=lambda o: o["topic"] != a["topic"])[:n]
 
 
+# The house separator between the details under an article's image: a line breaks only after it, never inside an item
+SEP = '</span><span aria-hidden="true">&nbsp;· </span><span>'
+
+
 def article(a, lang, alt, unpaired=False):
-    """Each insight: title and subtitle on top, then the image, the tags, and the text across the page."""
+    """Each insight: title and subtitle on top, then the image, one line of details, and the text in one reading column."""
     t = COPY[lang]
     own = f"{t.insights}/{a['slug']}"
     ld = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": a["title"], "description": a["description"],
@@ -521,7 +525,7 @@ def article(a, lang, alt, unpaired=False):
     updated, label = "", t["article.updated"]     # read even when unused: no insight has an updated: date yet
     if a.get("updated"):
         stamp = f'<time datetime="{a["updated"]}">{day_label(a["updated"], t)}</time>'
-        updated = f'\n        <li>{label.replace("{date}", stamp)}</li>'
+        updated = f'{SEP}{label.replace("{date}", stamp)}'
     service = ""
     if a.get("service"):
         name = COPY[lang].items("home.service", "name")[SERVICES.index(a["service"])][0]
@@ -534,13 +538,8 @@ def article(a, lang, alt, unpaired=False):
         + f"""  <section class="section article" aria-label="{t.attr("article.label")}">
 {article_image(a, t)}
     <div class="wrap">
-      <ul class="article__tags" aria-label="{t.attr("article.tags_label")}">
-        <li>{t['article.byline']}</li>
-        <li>{t['article.minutes'].replace('{n}', str(a['minutes']))}</li>
-        <li>{esc(a['topic'])}</li>
-        <li>{when(a)}</li>{updated}
-      </ul>
-      <article class="prose prose--wide">
+      <p class="article__meta"><span>{t['article.byline']}{SEP}{esc(a['topic'])}{SEP}{when(a)}{SEP}{t['article.minutes'].replace('{n}', str(a['minutes']))}{updated}</span></p>
+      <article class="prose">
 {a['body']}
       </article>
       <p class="article__foot"><a class="btn btn--primary" href="{t.book}">{t["nav.book"]}</a><a class="text-link" href="{t.insights}">{t["insights.all"]}</a></p>{service}
