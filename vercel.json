@@ -18,7 +18,9 @@
     { "source": "/pt/abordagem", "destination": "/pt#approach", "permanent": true },
     { "source": "/pt/trabalho", "destination": "/pt#services", "permanent": true },
     { "source": "/pt/sobre", "destination": "/pt", "permanent": true },
-    { "source": "/pt/contacto", "destination": "/pt/marcar", "permanent": true }
+    { "source": "/pt/contacto", "destination": "/pt/marcar", "permanent": true },
+    { "source": "/pt/publicacoes", "destination": "/pt/insights", "permanent": true },
+    { "source": "/pt/publicacoes/:slug", "destination": "/pt/insights/:slug", "permanent": true }
   ],
   "headers": [
     {

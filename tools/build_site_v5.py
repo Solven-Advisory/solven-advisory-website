@@ -5,7 +5,7 @@ European Portuguese (2026-10-19).
     python3 tools/build_site_v5.py --prod    the production site, in public/ (what Vercel serves)
 
   Home          /               /pt                       the hint of everything: services, convictions, insights
-  Insights      /insights       /pt/publicacoes           the index and the articles under it, written in Markdown
+  Insights      /insights       /pt/insights              the index and the articles under it, written in Markdown
                                                           in content/insights/ (PT in content/insights/pt/)
   Book a call   /book           /pt/marcar                one line and the calendar
   plus Privacy (/privacy, /pt/privacidade) and 404 (/404, /pt/404), linked from the footer only.
@@ -51,7 +51,7 @@ MAIL = "miguelmonteiro@solvenadvisory.ai"     # the address the live site uses
 # written approval from the lab allows it (docs/partner-section-research.md).
 
 # Page addresses in each language: the key is the English path, the value the Portuguese one
-PT_PATH = {"": "pt", "insights": "pt/publicacoes", "book": "pt/marcar", "privacy": "pt/privacidade", "404": "pt/404"}
+PT_PATH = {"": "pt", "insights": "pt/insights", "book": "pt/marcar", "privacy": "pt/privacidade", "404": "pt/404"}
 
 # ---------------------------------------------------------------- the copy, read from content/site-copy.md
 
@@ -63,7 +63,7 @@ SETTINGS = {
                home="/", insights="/insights", book="/book", privacy="/privacy"),
     "pt": dict(html="pt-PT", locale="pt_PT", ld_lang="pt-PT",
                months=["jan.", "fev.", "mar.", "abr.", "mai.", "jun.", "jul.", "ago.", "set.", "out.", "nov.", "dez."],
-               home="/pt", insights="/pt/publicacoes", book="/pt/marcar", privacy="/pt/privacidade"),
+               home="/pt", insights="/pt/insights", book="/pt/marcar", privacy="/pt/privacidade"),
 }
 
 
@@ -214,7 +214,7 @@ def head(p, t):
     other = "pt_PT" if p["lang"] == "en" else "en_GB"
     h = rep(h, '<meta property="og:locale" content="en_GB">',
             f'<meta property="og:locale" content="{t.locale}">\n<meta property="og:locale:alternate" content="{other}">')
-    if p["path"] not in ("404", "pt/404"):
+    if p["path"] not in ("404", "pt/404") and not p.get("unpaired"):
         # The pair in both directions, English as the default (404 pages are never annotated)
         en, pt = (p["path"], p["alt"]) if p["lang"] == "en" else (p["alt"], p["path"])
         full = lambda x: v4.ORIGIN + ("/" + x if x else "/")
@@ -314,7 +314,7 @@ def body_image(src, alt):
 
 def load_insights(folder, lang):
     """Every <slug>.md in the folder, newest first. The file name is the address: /insights/<slug>
-    (/pt/publicacoes/<slug> for the Portuguese ones, which name their English original under en:)."""
+    (/pt/insights/<slug> for the Portuguese ones, which name their English original under en:)."""
     t = COPY[lang]
     out = []
     for f in sorted(folder.glob("*.md")):
@@ -340,7 +340,7 @@ for a in ARTICLES["pt"]:
         raise SystemExit(f"content/insights/pt/{a['slug']}.md: en: {a['en']} names no English insight")
 for a in ARTICLES["en"]:
     # An English insight without a translation yet toggles to the Portuguese index
-    a["pt"] = next((f"pt/publicacoes/{p['slug']}" for p in ARTICLES["pt"] if p["en"] == a["slug"]), "pt/publicacoes")
+    a["pt"] = next((f"pt/insights/{p['slug']}" for p in ARTICLES["pt"] if p["en"] == a["slug"]), None)
 
 
 def when(a):
@@ -419,7 +419,7 @@ def home(t, lang):
 """ + close(t, art="maat")
     ld = json.loads(json.dumps(v4.homepage()[1]["ld"]))
     ld[0].update(description=t.raw("home.ld_description"), knowsAbout=t.raw("home.ld_topics").split(", "),
-                 legalName="Solven Advisory, Lda")
+                 legalName="Solven Advisory, Lda", knowsLanguage=["en", "pt-PT"])
     ld.append({"@context": "https://schema.org", "@type": "WebSite", "@id": f"{v4.ORIGIN}/#website", "url": f"{v4.ORIGIN}/",
                "name": "Solven Advisory", "inLanguage": ["en-GB", "pt-PT"], "publisher": {"@id": ORG["@id"]}})
     return t.raw("home.tab_title"), t.raw("home.description"), main, dict(ld=ld)
@@ -458,7 +458,7 @@ def insights_index(t, lang):
 both("insights", insights_index, nav="insights")
 
 
-def article(a, lang, alt):
+def article(a, lang, alt, unpaired=False):
     """Each insight: title and subtitle on top, then the image, the tags, and the text across the page."""
     t = COPY[lang]
     own = f"{t.insights}/{a['slug']}"
@@ -484,12 +484,12 @@ def article(a, lang, alt):
     </div>
   </section>
 """,
-        nav="insights", og="article", og_image=f"{lang}/{a['slug']}", published=a["date"],
+        nav="insights", og="article", og_image=f"{lang}/{a['slug']}", published=a["date"], unpaired=unpaired,
         ld=[ld, crumbs(t, (t.raw("nav.insights"), t.insights), (a["title"], own))])
 
 
 for a in ARTICLES["en"]:
-    article(a, "en", a["pt"])
+    article(a, "en", a["pt"] or PT_PATH["insights"], unpaired=not a["pt"])
 for a in ARTICLES["pt"]:
     article(a, "pt", f"insights/{a['en']}")
 
@@ -642,7 +642,7 @@ def check_links():
     for r in json.loads((ROOT / "vercel.json").read_text())["redirects"]:
         targets = [r["destination"]]
         if ":slug" in r["destination"]:
-            targets = [r["destination"].replace(":slug", a["slug"]) for a in ARTICLES["en"]]
+            targets = [r["destination"].replace(":slug", a["slug"]) for a in ARTICLES["pt" if r["destination"].startswith("/pt/") else "en"]]
         bad += [f"vercel.json redirect {r['source']}: {d}" for d in targets if not resolve(d)]
         if ":" not in r["source"] and resolve(r["source"]):
             bad.append(f"vercel.json redirect {r['source']} hides a page that exists")
@@ -682,12 +682,13 @@ def sitemap():
         if p["path"] in ("404", "pt/404"):
             continue
         en, pt = (p["path"], p["alt"]) if p["lang"] == "en" else (p["alt"], p["path"])
-        rows.append(f"""  <url>
-    <loc>{full(p["path"])}</loc>
-    <lastmod>{changed(sources(p))}</lastmod>
+        pair = "" if p.get("unpaired") else f"""
     <xhtml:link rel="alternate" hreflang="en" href="{full(en)}"/>
     <xhtml:link rel="alternate" hreflang="pt-PT" href="{full(pt)}"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="{full(en)}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{full(en)}"/>"""
+        rows.append(f"""  <url>
+    <loc>{full(p["path"])}</loc>
+    <lastmod>{changed(sources(p))}</lastmod>{pair}
   </url>""")
     text = ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'

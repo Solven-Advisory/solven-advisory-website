@@ -62,12 +62,12 @@ House rules still apply: no em dashes, British spelling.
 
 Each insight can have a European Portuguese translation in `content/insights/pt/`. Its file name is
 its Portuguese address (`pt/fazer-cada-token-valer-o-que-custa.md` becomes
-`/pt/publicacoes/fazer-cada-token-valer-o-que-custa`), and its header block has one extra line, `en:`,
+`/pt/insights/fazer-cada-token-valer-o-que-custa`), and its header block has one extra line, `en:`,
 naming the English file it translates:
 
     en: making-every-token-earn-its-place
 
 The PT toggle on the English article goes to its translation; an English insight without one
-toggles to the Portuguese index. Write in European Portuguese, never Brazilian: equipa, utilizador,
+toggles to the Portuguese index, and declares no Portuguese counterpart (no hreflang pair). Write in European Portuguese, never Brazilian: equipa, utilizador,
 registo, perceber, «guillemets», "a fazer" rather than "fazendo". The build stops if it finds a
 common Brazilian form.

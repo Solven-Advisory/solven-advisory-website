@@ -245,7 +245,7 @@ The articles themselves are in content/insights/ and content/insights/pt/.
 
 ### insights.tab_title
 EN: Insights · Notes on AI for investment firms · Solven Advisory
-PT: Publicações · Notas sobre IA para empresas de investimento · Solven Advisory
+PT: Insights · Notas sobre IA para empresas de investimento · Solven Advisory
 
 ### insights.description
 EN: Short notes from Solven Advisory on AI in private equity, real estate and venture firms: what we see in the work, and what it means for partners.

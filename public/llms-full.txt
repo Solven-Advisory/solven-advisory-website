@@ -35,12 +35,12 @@ Solven trains private equity teams on AI, builds it into their workflows, and ru
 ## Em português
 
 - [Início](https://solvenadvisory.ai/pt): A Solven Advisory forma equipas de capital de investimento em IA, integra-a nos seus fluxos de trabalho e implementa projetos de IA que aumentam o EBITDA.
-- [Insights](https://solvenadvisory.ai/pt/publicacoes): Notas curtas da Solven Advisory sobre IA em private equity, imobiliário e venture capital: o que vemos no nosso trabalho e o que pode trazer aos sócios.
+- [Insights](https://solvenadvisory.ai/pt/insights): Notas curtas da Solven Advisory sobre IA em private equity, imobiliário e venture capital: o que vemos no nosso trabalho e o que pode trazer aos sócios.
 - [Marcar uma chamada](https://solvenadvisory.ai/pt/marcar): Marque uma reunião de trinta minutos com um dos cofundadores da Solven Advisory, por vídeo ou por telefone.
 - [Privacidade](https://solvenadvisory.ai/pt/privacidade): Como a Solven Advisory trata os dados pessoais de quem nos escreve ou marca uma chamada, e que cookies só funcionam depois de os aceitar.
-- [Editores de rascunhos que não conseguem defender](https://solvenadvisory.ai/pt/publicacoes/editores-de-rascunhos-que-nao-conseguem-defender): Porque é que o verdadeiro risco da IA é delegar o raciocínio, e não a adoção falhar, e como inverter o fluxo de trabalho mantém a análise defensável.
-- [Como saber se a IA é real](https://solvenadvisory.ai/pt/publicacoes/como-saber-se-a-ia-e-real): Um método para a due diligence de IA: a origem do modelo, o que o rodeia, o que falha se o fornecedor mudar as condições e o que os engenheiros mostram ao vivo.
-- [Fazer cada token valer o que custa](https://solvenadvisory.ai/pt/publicacoes/fazer-cada-token-valer-o-que-custa): Porque é que a despesa com IA não se comporta como licenças de software, e como custear por fluxo de trabalho dá aos partners um P&L que conseguem ler.
+- [Editores de rascunhos que não conseguem defender](https://solvenadvisory.ai/pt/insights/editores-de-rascunhos-que-nao-conseguem-defender): Porque é que o verdadeiro risco da IA é delegar o raciocínio, e não a adoção falhar, e como inverter o fluxo de trabalho mantém a análise defensável.
+- [Como saber se a IA é real](https://solvenadvisory.ai/pt/insights/como-saber-se-a-ia-e-real): Um método para a due diligence de IA: a origem do modelo, o que o rodeia, o que falha se o fornecedor mudar as condições e o que os engenheiros mostram ao vivo.
+- [Fazer cada token valer o que custa](https://solvenadvisory.ai/pt/insights/fazer-cada-token-valer-o-que-custa): Porque é que a despesa com IA não se comporta como licenças de software, e como custear por fluxo de trabalho dá aos partners um P&L que conseguem ler.
 
 # Insights in full
 
@@ -306,7 +306,7 @@ nobody can explain, [we are glad to talk it through](/contact#calendar).
 
 ## Editores de rascunhos que não conseguem defender
 
-https://solvenadvisory.ai/pt/publicacoes/editores-de-rascunhos-que-nao-conseguem-defender · Adoção de IA · 2026-10-02
+https://solvenadvisory.ai/pt/insights/editores-de-rascunhos-que-nao-conseguem-defender · Adoção de IA · 2026-10-02
 
 O verdadeiro risco de uma implementação de IA não é os analistas recusarem as ferramentas; é acabarem a polir argumentos que nunca construíram.
 
@@ -395,7 +395,7 @@ conversar sobre ela](/pt/marcar).
 
 ## Como saber se a IA é real
 
-https://solvenadvisory.ai/pt/publicacoes/como-saber-se-a-ia-e-real · Due diligence de IA · 2026-09-09
+https://solvenadvisory.ai/pt/insights/como-saber-se-a-ia-e-real · Due diligence de IA · 2026-09-09
 
 As perguntas que separam uma capacidade de IA duradoura de uma capacidade alugada, feitas como uma equipa de investimento as pode realmente fazer este trimestre.
 
@@ -492,7 +492,7 @@ conversar](/pt/marcar).
 
 ## Fazer cada token valer o que custa
 
-https://solvenadvisory.ai/pt/publicacoes/fazer-cada-token-valer-o-que-custa · Economia de tokens · 2026-07-28
+https://solvenadvisory.ai/pt/insights/fazer-cada-token-valer-o-que-custa · Economia de tokens · 2026-07-28
 
 Os custos de IA são cobrados ao consumo e moldados pela utilização, o que os torna fáceis de gastar em trabalho de pouco valor; o remédio é um P&L por fluxo de trabalho, não um orçamento maior.
 
