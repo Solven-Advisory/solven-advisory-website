@@ -14,7 +14,8 @@ Marketing site for Solven Advisory (solvenadvisory.ai). Plain HTML, CSS and JS; 
 | `content/site-copy.md`, `content/insights/` | All page copy (EN and PT) and the articles, in Markdown. |
 | `tools/build_site_v5.py` | Builds the site: `--prod` writes `public/`; without it, the preview in `explorations/site-v5/`. |
 | `legacy-site/` | The pre-v5 site, exactly as on `main`, kept only for comparison. Not deployed. See `legacy-site/README.md`. |
-| `explorations/`, `docs/` | Design explorations and working notes. Not deployed. |
+| `explorations/` | Only what the build reads: `site/site.css`, `site/site.js`, `site/img/` (the drawings), `site-v5/site-v5.css` and `ledger-v4/index.html` (the page skeleton `tools/build_site_v4.py` starts from). Not deployed. |
+| `docs/` | Design brief, redesign log and working notes. Not deployed. |
 
 ## Build and run
 
