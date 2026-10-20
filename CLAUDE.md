@@ -21,7 +21,7 @@ Prestigious, formal, polished: "good old-fashioned finance", with a quiet freshn
 ## Hard limits (never violate, even if a skill suggests otherwise)
 - Zero motion as a feature: no scroll-triggered reveals, fade-ins, text that bolds or assembles on scroll, split-letter effects, animated shapes, intro loaders, parallax, smooth-scroll hijacking, WebGL or animated backgrounds. Do not add GSAP, Framer Motion, Lenis or any animation library. Allowed: simple hover states and instant UI feedback. Always respect prefers-reduced-motion.
 - Must run smoothly on an ordinary laptop. Static, fast pages.
-- No team headshot grids. No founder names or photos.
+- No team headshot grids. No founder names or photos. One exception (owner, 2026-10-20): the Cal.com booking widget on /book (and /pt/marcar) may show the co-founder's name and profile photo, as Cal.com renders them. The rule still applies everywhere else, including the page around the widget, its copy, meta and structured data.
 - No client logos, case numbers or invented statistics. Use clearly marked placeholders where a future section needs them.
 - Remove "AI Flix" entirely.
 - Do not reproduce the old site's patterns: warm cream background (#F3EEE4-like), sage green (#6B8068) as a brand colour, Georgia anywhere outside the logo, italicised single words inside headlines, small uppercase tracked 'eyebrow' labels above headings, 01/02/03 or i/ii/iii numbering, faded giant logo watermark, scroll fade-ins. A serif headline typeface IS allowed, used upright, at one or two heading levels only, as defined in docs/design-brief.md.
