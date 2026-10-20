@@ -4,11 +4,10 @@
 Website for Solven Advisory, Lda (solvenadvisory.ai): a boutique AI enablement and implementation consultancy in Lisbon. Clients: private equity firms first, also real estate and venture firms, across Iberia and Europe. Readers are PE partners, associates and analysts, portfolio-company executives, and future hires. They skim, so pages read like an elevator pitch: key ideas only, then links to depth.
 
 ## Stack
-- Plain HTML, CSS and JS. No framework, no build step, no package.json. Deployed on Vercel (clean URLs).
-- Local dev server: `python3 tools/serve.py` (default http://127.0.0.1:8000). Pass a port number as an argument to run a second instance, e.g. `python3 tools/serve.py 8001`.
-- Pages: `.html` files at the repo root (index, programmes, approach, work, about, contact, privacy, 404) and articles in `blog/`.
-- Global styles: `solven.css`. The current motion layer lives in `solven.js` and will be removed in the redesign; do not extend it.
-- Portuguese: a hand-maintained copy of each page in `pt/` (index, programas, abordagem, trabalho, sobre, contacto), linked with hreflang tags and an EN/PT toggle. Any page change must be mirrored in its PT counterpart once a design is approved (not during explorations).
+- Plain HTML, CSS and JS. No framework, no package.json. Deployed on Vercel (clean URLs) from `public/`.
+- On this branch the site is site v5: `python3 tools/build_site_v5.py --prod` writes `public/` from `content/site-copy.md` and `content/insights/` (never hand-edit `public/`). Without `--prod` it writes the preview in `explorations/site-v5/`.
+- Local dev server: `python3 tools/serve.py` serves `public/` (default http://127.0.0.1:8000). Optional arguments: port, then folder, e.g. `python3 tools/serve.py 8001 legacy-site` or `python3 tools/serve.py 8010 .` for the explorations.
+- The pre-v5 site (root pages, `blog/`, `pt/`, `solven.css`, `solven.js`) is archived unchanged in `legacy-site/` for comparison only. Do not edit it.
 - Do not introduce a framework, bundler, npm dependencies or an animation library without explicit approval.
 
 ## Status

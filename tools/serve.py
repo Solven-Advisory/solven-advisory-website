@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Serve the site locally the way Vercel serves it in production.
 
-    python3 tools/serve.py           # http://127.0.0.1:8000
-    python3 tools/serve.py 3000      # pick a port
-    python3 tools/serve.py 3000 public   # serve the production build (tools/build_site_v5.py --prod)
+    python3 tools/serve.py                   # the site (public/, built by tools/build_site_v5.py --prod), http://127.0.0.1:8000
+    python3 tools/serve.py 3000              # pick a port
+    python3 tools/serve.py 8001 legacy-site  # the pre-v5 site, to compare side by side
+    python3 tools/serve.py 8010 .            # the whole repo, for the previews under /explorations
 
 Plain `python3 -m http.server` is not enough: internal links are
 extensionless (`vercel.json` sets cleanUrls), so `/about` would 404.
@@ -21,7 +22,7 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 from urllib.parse import urlsplit
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ROOT = os.path.join(REPO, sys.argv[2]) if len(sys.argv) > 2 else REPO
+ROOT = os.path.normpath(os.path.join(REPO, sys.argv[2] if len(sys.argv) > 2 else "public"))
 
 
 def vercel_redirects():
@@ -75,7 +76,8 @@ class Handler(SimpleHTTPRequestHandler):
         return None
 
     def not_found(self):
-        body = open(os.path.join(ROOT, "404.html"), "rb").read()
+        page = os.path.join(ROOT, "404.html")
+        body = open(page, "rb").read() if os.path.isfile(page) else b"Not found"
         self.send_response(404)
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
@@ -88,5 +90,5 @@ class Handler(SimpleHTTPRequestHandler):
 if __name__ == "__main__":
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8000
     handler = partial(Handler, directory=ROOT)
-    print(f"Solven Advisory on http://127.0.0.1:{port}  (Ctrl+C to stop)")
+    print(f"Solven Advisory ({os.path.relpath(ROOT, REPO)}/) on http://127.0.0.1:{port}  (Ctrl+C to stop)")
     HTTPServer(("127.0.0.1", port), handler).serve_forever()
