@@ -673,6 +673,73 @@ def sitemap():
     print("public/sitemap.xml", len(rows), "pages")
 
 
+def llms():
+    """llms.txt (the index for language models) and llms-full.txt (the same, then every insight in full),
+    both from the copy and the insights, so they say what the pages say and nothing else."""
+    full = lambda path: v4.ORIGIN + path if path != "/" else v4.ORIGIN + "/"
+    en, pt = COPY["en"], COPY["pt"]
+    plain = lambda text: re.sub(r"\s+", " ", text).strip()
+
+    def section(t, lang):
+        rows = [f"- [{t.raw('nav.home')}]({full(t.home)}): {t.raw('home.description')}",
+                f"- [{t.raw('nav.insights')}]({full(t.insights)}): {t.raw('insights.description')}",
+                f"- [{t.raw('nav.book')}]({full(t.book)}): {t.raw('book.description')}",
+                f"- [{t.raw('footer.privacy')}]({full(t.privacy)}): {t.raw('privacy.description')}"]
+        rows += [f"- [{a['title']}]({full(t.insights + '/' + a['slug'])}): {a['description']}" for a in ARTICLES[lang]]
+        return "\n".join(rows)
+
+    services = "\n".join(f"- **{en.raw(f'home.service{i}.name')}**: {en.raw(f'home.service{i}.text')}"
+                         for i in range(1, 9) if f"home.service{i}.name" in ENTRIES)
+    convictions = "\n".join(f"- **{en.raw(f'home.conviction{i}.title')}** {en.raw(f'home.conviction{i}.text')}"
+                            for i in range(1, 9) if f"home.conviction{i}.title" in ENTRIES)
+    index = f"""# Solven Advisory
+
+> {en.raw("home.description")}
+
+{en.raw("home.hero.text")}
+
+- Based in {en.raw("footer.city")}. Solven Advisory, Lda.
+- Book a 30-minute call: {full(en.book)}
+- LinkedIn: https://www.linkedin.com/company/solven-advisory
+- The site is in English and in European Portuguese ({full(pt.home)}).
+
+## {plain(en.raw("home.services.title")).rstrip(".")}
+
+{services}
+
+## {plain(en.raw("home.thesis")).rstrip(".")}
+
+{convictions}
+
+## Pages and insights
+
+{section(en, "en")}
+
+## Em português
+
+{section(pt, "pt")}
+"""
+    articles = []
+    for lang, folder in (("en", INSIGHTS), ("pt", INSIGHTS / "pt")):
+        t = COPY[lang]
+        for a in ARTICLES[lang]:
+            _, body = md.front_matter((folder / f"{a['slug']}.md").read_text())
+            articles.append(f"""## {a["title"]}
+
+{full(t.insights + "/" + a["slug"])} · {a["topic"]} · {a["date"]}
+
+{a["subtitle"]}
+
+{body.strip()}
+""")
+    full_text = index + "\n# Insights in full\n\n" + "\n".join(articles)
+    for name, text in (("llms.txt", index), ("llms-full.txt", full_text)):
+        v4.check(text, name)
+        assert "Partner Network" not in text and "/explorations" not in text, name
+        (SITE / name).write_text(text)
+        print(f"public/{name}", len(text.encode()), "bytes")
+
+
 def write_pages():
     for p in PAGES:
         if PROD and p["path"] == "pt/404":
@@ -723,6 +790,7 @@ def build_prod():
     for f in sorted(files, key=lambda f: f.suffix != ".css"):    # stylesheets first: the pages stamp their hash
         f.write_text(stamp(f.read_text()))
     sitemap()
+    llms()
     check_links()
 
 
