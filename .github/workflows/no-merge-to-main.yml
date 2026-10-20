@@ -1,0 +1,22 @@
+name: No merge to main
+
+# Fails any pull request into main or master whose branch carries .no-merge-to-main.
+# To make it block the merge button, add "No merge to main / guard" as a required status check
+# in GitHub: Settings > Branches > branch protection rule for main.
+on:
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Refuse branches marked .no-merge-to-main
+        run: |
+          if [ -f .no-merge-to-main ]; then
+            echo "::error::This branch carries .no-merge-to-main and must never be merged into ${{ github.base_ref }}."
+            exit 1
+          fi

@@ -8,6 +8,7 @@ Website for Solven Advisory, Lda (solvenadvisory.ai): a boutique AI enablement a
 - On this branch the site is site v5: `python3 tools/build_site_v5.py --prod` writes `public/` from `content/site-copy.md` and `content/insights/` (never hand-edit `public/`). Without `--prod` it writes the preview in `explorations/site-v5/`.
 - Local dev server: `python3 tools/serve.py` serves `public/` (default http://127.0.0.1:8000). Optional arguments: port, then folder, e.g. `python3 tools/serve.py 8001 legacy-site` or `python3 tools/serve.py 8010 .` for the explorations.
 - The pre-v5 site (root pages, `blog/`, `pt/`, `solven.css`, `solven.js`) is archived unchanged in `legacy-site/` for comparison only. Do not edit it.
+- This branch must never be merged into `main` (see README.md and `.no-merge-to-main`). Never remove that file or the guards without the owner asking.
 - Do not introduce a framework, bundler, npm dependencies or an animation library without explicit approval.
 
 ## Status

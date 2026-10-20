@@ -1,0 +1,12 @@
+#!/bin/sh
+# A fast-forward cannot be blocked by a hook, so this warns right after one (or any merge) that
+# leaves main or master carrying .no-merge-to-main. pre-push still stops it from being pushed.
+branch=$(git symbolic-ref --short -q HEAD)
+case "$branch" in main|master) ;; *) exit 0 ;; esac
+if git cat-file -e "HEAD:.no-merge-to-main" 2>/dev/null; then
+  echo "" >&2
+  echo "WARNING: $branch now contains a branch marked .no-merge-to-main." >&2
+  echo "Do not push. To undo this merge: git reset --hard ORIG_HEAD" >&2
+  echo "" >&2
+fi
+exit 0

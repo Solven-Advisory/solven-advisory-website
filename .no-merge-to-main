@@ -1,0 +1,13 @@
+This file marks a branch that must never be merged into main (or master).
+
+The branch that carries it makes site v5 the site and moves the old one to legacy-site/;
+merging it would replace the production site, because pushing to main deploys immediately.
+
+The guards that look for this file:
+  tools/git-hooks/pre-merge-commit   refuses a merge commit into main/master that brings it in
+  tools/git-hooks/pre-push           refuses a push to main/master of any commit that contains it
+  tools/git-hooks/post-merge         warns loudly after a fast-forward of main/master that brings it in
+  .github/workflows/no-merge-to-main.yml   fails every pull request into main/master that contains it
+
+Install the hooks once per clone: sh tools/git-hooks/install.sh
+How to remove all of it: README.md, "Never merge this branch into main".
