@@ -516,7 +516,7 @@ SEP = '</span><span aria-hidden="true">&nbsp;· </span><span>'
 
 
 def article(a, lang, alt, unpaired=False):
-    """Each insight: title and subtitle on top, then the image, one line of details, and the text in one reading column."""
+    """Each insight: title and subtitle on top, then the image, one line of details, and the text across the page."""
     t = COPY[lang]
     own = f"{t.insights}/{a['slug']}"
     ld = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": a["title"], "description": a["description"],
@@ -539,7 +539,7 @@ def article(a, lang, alt, unpaired=False):
 {article_image(a, t)}
     <div class="wrap">
       <p class="article__meta"><span>{t['article.byline']}{SEP}{esc(a['topic'])}{SEP}{when(a)}{SEP}{t['article.minutes'].replace('{n}', str(a['minutes']))}{updated}</span></p>
-      <article class="prose">
+      <article class="prose prose--wide">
 {a['body']}
       </article>
       <p class="article__foot"><a class="btn btn--primary" href="{t.book}">{t["nav.book"]}</a><a class="text-link" href="{t.insights}">{t["insights.all"]}</a></p>{service}

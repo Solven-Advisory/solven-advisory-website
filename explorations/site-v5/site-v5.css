@@ -56,8 +56,9 @@
 .book .cal__note a:hover { color: var(--c-accent); }
 
 /* Insights, written in Markdown (content/insights/): title and subtitle on top, then the image,
-   one muted line of details (byline, topic, date, reading time), and the text in the brief's reading
-   column (34em, about 66 characters; site.css), on the left of the grid like every other page. */
+   one muted line of details (byline, topic, date, reading time), and the text across the content width
+   (owner's choice, 2026-10-20, over the brief's 34em column), set in by one grid column and its gutter
+   on each side from 640px up, so the text sits centred under the image. Phones keep the page margins only. */
 /* The image runs edge to edge, straight under the head, so it has no radius. */
 .article__image { margin: 0; aspect-ratio: 16 / 7; max-height: 640px; width: 100%; overflow: hidden; background: var(--c-band); }
 .article__image img { display: block; width: 100%; height: 100%; object-fit: cover; }
@@ -70,6 +71,10 @@
 .article__service a:hover { color: var(--c-accent); }
 .section.article { padding-top: 0; }
 .article .prose { margin-top: var(--s-7); }
+.prose--wide, .article .article__foot { max-width: none; }
+@media (min-width: 640px) {
+  .section.article .wrap > * { margin-inline: calc((100% - (var(--cols) - 1) * var(--gutter)) / var(--cols) + var(--gutter)); }
+}
 .prose h3 { margin: var(--s-6) 0 var(--s-3); font-size: var(--fs-h3); font-weight: 500; line-height: 1.3; color: var(--c-anchor); }
 @media (max-width: 639.98px) {
   .article__image { aspect-ratio: 4 / 3; }
