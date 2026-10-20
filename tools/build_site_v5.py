@@ -189,8 +189,9 @@ def footer(t, lang, path, alt):
         <li class="footer__icons">{linkedin_icon(t)}{email_icon(t)}</li>
       </ul>""", f, flags=re.S)
     f = rep(f, '<nav class="footer__nav" aria-label="Footer">', f'<nav class="footer__nav" aria-label="{t.attr("label.footer_nav")}">')
+    # No cookie settings: the site sets no cookies of its own (privacy notice, section 2)
     f = rep(f, '<a href="/privacy">Privacy</a><span aria-hidden="true"> · </span><a href="/privacy#cookies">Cookie settings</a>',
-            f'<a href="{t.privacy}">{t["footer.privacy"]}</a><span aria-hidden="true"> · </span><a href="{t.privacy}#cookies">{t["footer.cookies"]}</a>')
+            f'<a href="{t.privacy}">{t["footer.privacy"]}</a>')
     return toggle(furniture(f, t), lang, path, alt)
 
 
@@ -244,6 +245,7 @@ def page(p):
 {footer(t, p["lang"], path, alt)}
 
 <script src="{ASSETS}/site.js?v=1"></script>
+<script defer src="/_vercel/insights/script.js"></script>
 {p.get("scripts", "")}</body>
 </html>
 """
@@ -518,7 +520,7 @@ both("book", book, nav="book")
 # ---------------------------------------------------------------- Privacy and 404
 
 def privacy(t, lang):
-    rows = "\n".join(f"""        <li class="row"{' id="cookies"' if i == 2 else ""}>
+    rows = "\n".join(f"""        <li class="row">
           <h2 class="h2 h2--sm row__h">{h}</h2>
           <div class="row__p">{"".join(f"<p>{x}</p>" for x in ps)}</div>
         </li>""" for i, (h, ps) in enumerate(privacy_sections(t), 1))
@@ -637,7 +639,8 @@ def check_links():
         refs += re.findall(r'url\("?(/[^")]+)"?\)', text)
         refs += re.findall(r"<loc>https://solvenadvisory\.ai(/[^<]*)</loc>", text)
         refs += re.findall(r'href="https://solvenadvisory\.ai(/[^"]*)"', text)
-        bad += [f"{f.relative_to(SITE)}: {r}" for r in refs if not r.startswith("//") and not resolve(r)]
+        # /_vercel/insights is served by Vercel itself (Web Analytics), not from public/
+        bad += [f"{f.relative_to(SITE)}: {r}" for r in refs if not r.startswith(("//", "/_vercel/")) and not resolve(r)]
     # The old addresses in vercel.json: each must land on a page, and none may hide a live one
     for r in json.loads((ROOT / "vercel.json").read_text())["redirects"]:
         targets = [r["destination"]]

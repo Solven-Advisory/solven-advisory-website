@@ -45,10 +45,6 @@ PT: Lisboa, Portugal
 EN: Privacy
 PT: Privacidade
 
-### footer.cookies
-EN: Cookie settings
-PT: Definições de cookies
-
 ## Closing band (Home and Insights)
 
 ### close.title
@@ -236,7 +232,7 @@ PT: Notas curtas sobre IA em empresas de investimento: o que vemos no trabalho, 
 ### insights.all
 > Button on the homepage, link under every article
 EN: All insights
-PT: Todas as publicações
+PT: Todos os insights
 
 
 # Insights page and articles
@@ -254,7 +250,7 @@ PT: Notas curtas da Solven Advisory sobre IA em private equity, imobiliário e v
 ### insights.ld_name
 > Name for search engines (structured data)
 EN: Solven Advisory insights
-PT: Publicações da Solven Advisory
+PT: Insights da Solven Advisory
 
 ### article.tab_title
 > {title} is replaced by the article's title
@@ -324,16 +320,16 @@ EN: Privacy · Solven Advisory
 PT: Privacidade · Solven Advisory
 
 ### privacy.description
-EN: How Solven Advisory handles the personal data of the people who write to us or book a call, and which cookies run only after you accept them.
-PT: Como a Solven Advisory trata os dados pessoais de quem nos escreve ou marca uma chamada, e que cookies só funcionam depois de os aceitar.
+EN: How Solven Advisory handles the personal data of the people who write to us or book a call. This site sets no cookies of its own.
+PT: Como a Solven Advisory trata os dados pessoais de quem nos escreve ou marca uma chamada. Este site não instala cookies próprios.
 
 ### privacy.title
 EN: Plain terms for personal data.
 PT: Termos claros sobre dados pessoais.
 
 ### privacy.text
-EN: No marketing list, no advertising, and no cookie before you say yes. This page says what we do hold, why, and for how long.
-PT: Sem lista de marketing, sem publicidade e sem nenhum cookie antes de dizer que sim. Esta página diz o que guardamos, porquê e durante quanto tempo.
+EN: No marketing list, no advertising, and no tracking cookies. This page says what we do hold, why, and for how long.
+PT: Sem lista de marketing, sem publicidade e sem cookies de rastreamento. Esta página diz o que guardamos, porquê e durante quanto tempo.
 
 ### privacy.scope
 EN: This notice covers the personal data of people who visit this site, write to us, or book a call.
@@ -346,8 +342,8 @@ PT: Última atualização:
 
 ### privacy.updated_date
 > Write the English date as day, month in full, year: the page reads it as the date
-EN: 29 July 2026
-PT: 29 de julho de 2026
+EN: 20 October 2026
+PT: 20 de outubro de 2026
 
 ### privacy.label
 > Hidden label of the notice
@@ -364,7 +360,7 @@ PT: Quem somos
 EN: Solven Advisory is an AI enablement and implementation consultancy based in Lisbon, Portugal. For anything in this notice, the controller you are dealing with is Solven Advisory, and the fastest route is miguelmonteiro@solvenadvisory.ai.
 PT: A Solven Advisory é uma consultora de formação e implementação de IA sediada em Lisboa, Portugal. Para tudo o que consta deste aviso, o responsável pelo tratamento é a Solven Advisory, e a forma mais rápida de nos contactar é miguelmonteiro@solvenadvisory.ai.
 
-## Section 2 (the footer's Cookie settings link lands here)
+## Section 2
 
 ### privacy.s2.title
 EN: What we collect, and why
@@ -375,12 +371,12 @@ EN: If you book a call, scheduling runs on Cal.com's EU-hosted infrastructure, w
 PT: Se marcar uma chamada, o agendamento corre na infraestrutura da Cal.com alojada na UE, que recolhe o nome, o endereço de email e o horário que indicar, para colocar a reunião em ambos os calendários. Se apenas nos enviar um email ou telefonar, guardamos a correspondência como qualquer empresa guarda o seu correio.
 
 ### privacy.s2.p2
-EN: We run Vercel's cookieless analytics, which counts visits in aggregate, stores nothing on your device, and does not identify individuals. It runs whether or not you accept anything else.
-PT: Usamos a análise de audiências sem cookies da Vercel, que conta as visitas de forma agregada, não guarda nada no seu dispositivo e não identifica ninguém. Funciona independentemente do que aceitar ou recusar.
+EN: We run Vercel's cookieless analytics, which counts visits in aggregate, stores nothing on your device, and does not identify individuals.
+PT: Usamos a análise de audiências sem cookies da Vercel, que conta as visitas de forma agregada, não guarda nada no seu dispositivo e não identifica ninguém.
 
 ### privacy.s2.p3
-EN: We would also like to understand how the site is actually read: which pages hold attention, where people stop, and which routes lead to a conversation. That requires cookies, so we ask before setting any. Nothing runs until you accept, declining takes a single click, and either choice is remembered. There is no advertising, no profiling for ad targeting, and no data sold or passed to brokers. There is no newsletter and no marketing list; when we say we reply to people, not leads, this notice is what that means in practice.
-PT: Gostaríamos também de perceber como o site é realmente lido: que páginas prendem a atenção, onde as pessoas param e que percursos levam a uma conversa. Isso exige cookies, por isso pedimos autorização antes de instalar qualquer um. Nenhum destes cookies é ativado antes de aceitar, recusar exige um único clique, e qualquer das escolhas fica guardada. Não há publicidade, nem definição de perfis para segmentação de anúncios, nem dados vendidos ou cedidos a corretores de dados. Não há newsletter nem lista de marketing; quando dizemos que respondemos a pessoas, e não a leads, este aviso é o que isso significa na prática.
+EN: This site sets no cookies of its own, so there is nothing to accept. The booking calendar is served by Cal.com, which sets one strictly necessary security cookie (Cloudflare's __cf_bm, kept for about 30 minutes) to filter automated traffic; it is not used to follow you. The typefaces are served from this site, so no request goes to Google. There is no advertising, no profiling, and no data sold or passed to brokers. There is no newsletter and no marketing list; when we say we reply to people, not leads, this notice is what that means in practice.
+PT: Este site não instala cookies próprios, por isso não há nada a aceitar. O calendário de marcações é servido pela Cal.com, que instala um único cookie de segurança estritamente necessário (o __cf_bm, da Cloudflare, guardado durante cerca de 30 minutos) para filtrar tráfego automatizado; não é usado para seguir a sua navegação. Os tipos de letra são servidos por este site, pelo que nenhum pedido segue para a Google. Não há publicidade, nem definição de perfis, nem dados vendidos ou cedidos a corretores de dados. Não há newsletter nem lista de marketing; quando dizemos que respondemos a pessoas, e não a leads, este aviso é o que isso significa na prática.
 
 ## Section 3
 
@@ -389,8 +385,8 @@ EN: The legal basis
 PT: O fundamento jurídico
 
 ### privacy.s3.p1
-EN: We process booking details and correspondence because you asked us to: steps taken at your request before a possible contract (Article 6(1)(b) of the GDPR). We keep ordinary business correspondence on the basis of legitimate interest (Article 6(1)(f)). Analytics cookies rest on consent alone (Article 6(1)(a), together with Article 5(3) of the ePrivacy Directive as enacted in Portugal by Lei 41/2004). Consent is the entire basis there: withdraw it and the processing stops.
-PT: Tratamos os dados de marcação e a correspondência porque nos pediu que o fizéssemos: diligências pré-contratuais a seu pedido (artigo 6.º, n.º 1, alínea b), do RGPD). Conservamos a correspondência comercial corrente com base no interesse legítimo (artigo 6.º, n.º 1, alínea f)). Os cookies de análise assentam apenas no consentimento (artigo 6.º, n.º 1, alínea a), em conjugação com o artigo 5.º, n.º 3, da Diretiva 2002/58/CE, relativa à privacidade nas comunicações eletrónicas, transposta em Portugal pela Lei n.º 41/2004). Nesse caso, o consentimento é o único fundamento: se o retirar, o tratamento cessa.
+EN: We process booking details and correspondence because you asked us to: steps taken at your request before a possible contract (Article 6(1)(b) of the GDPR). We keep ordinary business correspondence on the basis of legitimate interest (Article 6(1)(f)). Aggregate visit counts rest on the same legitimate interest, in knowing how the site is read. The calendar's security cookie is strictly necessary for a service you asked for, which Lei 41/2004 exempts from consent.
+PT: Tratamos os dados de marcação e a correspondência porque nos pediu que o fizéssemos: diligências pré-contratuais a seu pedido (artigo 6.º, n.º 1, alínea b), do RGPD). Conservamos a correspondência comercial corrente com base no interesse legítimo (artigo 6.º, n.º 1, alínea f)). As contagens agregadas de visitas assentam no mesmo interesse legítimo, o de saber como o site é lido. O cookie de segurança do calendário é estritamente necessário para um serviço que pediu, o que a Lei n.º 41/2004 isenta de consentimento.
 
 ## Section 4
 
@@ -399,8 +395,8 @@ EN: Where the data sits
 PT: Onde ficam os dados
 
 ### privacy.s4.p1
-EN: The site is hosted by Vercel. Scheduling runs on Cal.com (EU infrastructure). Our email runs on Microsoft 365. If you accept analytics, PostHog processes that data on its EU cloud in Frankfurt, and Microsoft Clarity processes it under Microsoft's terms, which permit transfers outside the EU covered by the Standard Contractual Clauses. Each of these providers acts as a processor for the data described above; none of them is given your details for any purpose beyond delivering the service.
-PT: O site está alojado na Vercel. O agendamento corre na Cal.com (infraestrutura na UE). O nosso email corre no Microsoft 365. Se aceitar a análise, a PostHog trata esses dados na sua cloud europeia, em Frankfurt, e o Microsoft Clarity trata-os nos termos da Microsoft, que permitem transferências para fora da UE ao abrigo das cláusulas contratuais-tipo. Cada um destes prestadores atua como subcontratante para os dados acima descritos; a nenhum deles são cedidos os seus dados para qualquer finalidade além da prestação do serviço.
+EN: The site is hosted by Vercel. Scheduling runs on Cal.com (EU infrastructure). Our email runs on Microsoft 365. Each of these providers acts as a processor for the data described above; none of them is given your details for any purpose beyond delivering the service.
+PT: O site está alojado na Vercel. O agendamento corre na Cal.com (infraestrutura na UE). O nosso email corre no Microsoft 365. Cada um destes prestadores atua como subcontratante para os dados acima descritos; a nenhum deles são cedidos os seus dados para qualquer finalidade além da prestação do serviço.
 
 ## Section 5
 
