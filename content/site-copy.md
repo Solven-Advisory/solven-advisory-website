@@ -28,7 +28,7 @@ PT: Início
 ### nav.insights
 > Header and footer link, and the 404 page link
 EN: Insights
-PT: Visão
+PT: Insights
 
 ### nav.book
 > Every Book a call button and link
@@ -227,7 +227,7 @@ PT: Seja qual for o setor, cada empresa do portfólio tem uma parte do negócio 
 ### home.insights.title
 > Also the title of the Insights page
 EN: Insights.
-PT: Visão.
+PT: Insights.
 
 ### home.insights.text
 EN: Short notes on AI in investment firms: what we see in the work, and what it means for partners.
@@ -259,7 +259,7 @@ PT: Publicações da Solven Advisory
 ### article.tab_title
 > {title} is replaced by the article's title
 EN: {title} · Insights · Solven Advisory
-PT: {title} · Visão · Solven Advisory
+PT: {title} · Insights · Solven Advisory
 
 ### article.minutes
 > Article tags and cards; {n} is replaced by the number of minutes

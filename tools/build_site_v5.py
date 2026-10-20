@@ -527,7 +527,8 @@ BRAZILIAN = [r"equipes?", r"você", r"contato", r"usuári\w*", r"registro", r"pe
              r"time", r"treinamento", r"capacitação", r"a gente", r"aba", r"baixar", r"governança",
              r"estou \w+ndo", r"estamos \w+ndo", r"está \w+ndo", r"estão \w+ndo"]
 # The furniture of the English pages, which must not survive into the Portuguese ones
-ENGLISH = ["Skip to content", ">Insights<", ">Book a call<", "min read", ">Privacy<", "Cookie settings", "Lisbon,",
+# ("Insights" is the owner's choice for the Portuguese label too, so it is not on the list)
+ENGLISH = ["Skip to content", ">Book a call<", "min read", ">Privacy<", "Cookie settings", "Lisbon,",
            'aria-label="Main"', 'aria-label="Footer"', 'aria-label="Language"', "Write to us", "All insights", "Dummy",
            '<html lang="en">', "Solven Advisory, home"]
 
