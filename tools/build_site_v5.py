@@ -22,6 +22,7 @@ the homepage, and the contact details sit in every footer. Reuses site v4's part
 with its own copy of site v4's stylesheet plus a few rules (site-v5.css). Site v4 is unchanged.
 """
 import hashlib
+import html
 import json
 import re
 import shutil
@@ -514,10 +515,43 @@ def book(t, lang):
       <p class="cal__note">{t["book.fallback"].replace(' rel="noopener">', ' target="_blank" rel="noopener">')} {t["book.write"]} {email_icon(t)}</p>
     </div>
   </section>
-"""
+""" + faq_section(t)
     contact = {"@context": "https://schema.org", "@type": "ContactPage", "url": f"{v4.ORIGIN}{t.book}", "name": t.raw("book.tab_title"),
                "inLanguage": t.ld_lang, "about": {"@id": ORG["@id"]}}
-    return t.raw("book.tab_title"), t.raw("book.description"), main, dict(scripts=CAL_SCRIPT, ld=[contact, crumbs(t, (t.raw("nav.book"), t.book))])
+    for i in faq_numbers(t):
+        for k in (f"book.faq{i}.q", f"book.faq{i}.a"):
+            # The FAQPage data must say exactly what the page says: plain text only, no links or emphasis
+            if html.unescape(re.sub(r"<[^>]+>", "", t[k])) != t.raw(k) or "<" in t[k]:
+                raise SystemExit(f"{COPY_FILE.name}: {k} must be plain text (no links, bold or italic)")
+    faq = {"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": t.ld_lang,
+           "mainEntity": [{"@type": "Question", "name": t.raw(f"book.faq{i}.q"),
+                           "acceptedAnswer": {"@type": "Answer", "text": t.raw(f"book.faq{i}.a")}} for i in faq_numbers(t)]}
+    return t.raw("book.tab_title"), t.raw("book.description"), main, dict(scripts=CAL_SCRIPT, ld=[contact, faq, crumbs(t, (t.raw("nav.book"), t.book))])
+
+
+def faq_numbers(t):
+    """book.faq1.q, book.faq2.q, ...: as many questions as the copy has."""
+    n = 1
+    while f"book.faq{n}.q" in t.entries:
+        n += 1
+    return range(1, n)
+
+
+def faq_section(t):
+    """The questions under the calendar, in the privacy notice's rows: the question on the left, the answer beside it."""
+    rows = "\n".join(f"""        <li class="row">
+          <h3 class="h3 row__h">{t[f"book.faq{i}.q"]}</h3>
+          <div class="row__p"><p>{t[f"book.faq{i}.a"]}</p></div>
+        </li>""" for i in faq_numbers(t))
+    return f"""  <section class="section" aria-labelledby="faq">
+    <div class="wrap">
+{v4.shead(t["book.faq.title"], "faq")}
+      <ul class="rows rows--wide">
+{rows}
+      </ul>
+    </div>
+  </section>
+"""
 
 
 both("book", book, nav="book")

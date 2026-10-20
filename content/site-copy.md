@@ -324,6 +324,76 @@ PT: Se o calendário não carregar, [abram-no num novo separador](https://cal.eu
 EN: Prefer to write?
 PT: Prefere escrever?
 
+## Questions (under the calendar; the FAQPage structured data uses the same text)
+
+### book.faq.title
+EN: Common questions.
+PT: Perguntas frequentes.
+
+### book.faq1.q
+EN: Who do you work with?
+PT: Com quem trabalham?
+
+### book.faq1.a
+EN: Private equity firms first, and also real estate and venture firms, across Iberia and the rest of Europe. Portfolio work is for their portfolio companies, in any sector.
+PT: Com sociedades de private equity em primeiro lugar, e também de imobiliário e de venture capital, na Península Ibérica e no resto da Europa. O trabalho de portfólio é para as empresas participadas, em qualquer setor.
+
+### book.faq2.q
+EN: How is an engagement priced?
+PT: Como é definido o preço?
+
+### book.faq2.a
+EN: Each engagement is scoped and priced individually: a six-person deal team and a forty-person firm are not the same engagement. Enablement runs monthly with no minimum commitment, so the decision you are making is a month's decision, not a year's.
+PT: Cada colaboração é dimensionada e orçamentada individualmente: uma equipa de seis pessoas e uma casa com quarenta não são a mesma colaboração. A formação é mensal e sem compromisso mínimo, pelo que a decisão que estão a tomar é a de um mês, não a de um ano.
+
+### book.faq3.q
+EN: How much of the team's time does it take?
+PT: Quanto tempo da equipa exige?
+
+### book.faq3.a
+EN: Enablement starts with four sessions in the first month, from how a model thinks through to building with it; from month two the cadence is monthly, on the areas the team finds most valuable. Sessions run on your own deals, models and memos, so the time goes into the actual work rather than beside it. Build and Portfolio work is scoped project by project, and the timeline is agreed before it starts.
+PT: A formação começa com quatro sessões no primeiro mês, de como um modelo pensa até à construção com ele; a partir do segundo mês, a cadência é mensal, aprofundando as áreas que a equipa considera mais valiosas. As sessões correm sobre os vossos próprios negócios, modelos e memorandos, pelo que o tempo é investido no trabalho real e não ao lado dele. O trabalho de implementação e de portfólio é dimensionado projeto a projeto, com o calendário acordado antes de começar.
+
+### book.faq4.q
+EN: What happens to our firm's data?
+PT: O que acontece aos dados da nossa casa?
+
+### book.faq4.a
+EN: The work runs on your actual deals, models and memos, so this question deserves a precise answer rather than a reassuring one. Data handling is settled during scoping, before any material is opened: whose accounts the work passes through, on what terms, and what, if anything, is retained afterwards. The answers are put in writing before work starts.
+PT: O trabalho corre sobre os vossos negócios, modelos e memorandos reais, pelo que esta pergunta merece uma resposta precisa e não apenas tranquilizadora. O tratamento de dados é definido durante o scoping, antes de qualquer material ser aberto: por que contas passa o trabalho, em que termos, e o que é retido depois, se alguma coisa for. As respostas ficam por escrito antes de o trabalho começar.
+
+### book.faq5.q
+EN: Are we locking ourselves into one AI vendor?
+PT: Ficamos presos a um único fornecedor de IA?
+
+### book.faq5.a
+EN: No. The first session teaches how any large model works, from tokens, attention and probability to where hallucinations come from, and the verification habits we build are model-agnostic. If the market shifts, the fluency travels with your team.
+PT: Não. A primeira sessão ensina como funciona qualquer modelo de grande dimensão, dos tokens, atenção e probabilidade à origem das alucinações, e os hábitos de verificação que construímos são independentes do modelo. Se o mercado mudar, a fluência viaja com a vossa equipa.
+
+### book.faq6.q
+EN: Is the work done in Portuguese or English?
+PT: O trabalho é feito em português ou em inglês?
+
+### book.faq6.a
+EN: Either, or both. We are based in Lisbon and work with firms from Lisbon to London, so sessions run in the language the room prefers. Written materials are in English, because the tools and the frontier are.
+PT: Uma das duas, ou ambas. Estamos sediados em Lisboa e trabalhamos com casas de Lisboa a Londres, pelo que as sessões decorrem na língua que a sala preferir. Os materiais escritos são em inglês, porque as ferramentas e a fronteira o são.
+
+### book.faq7.q
+EN: Will this make our analysts dependent on AI?
+PT: Isto vai tornar os nossos analistas dependentes da IA?
+
+### book.faq7.a
+EN: That risk is the reason Solven exists. The failure mode in most rollouts is not adoption failure; it is analysts becoming editors of drafts they cannot defend. Every session is built the other way round: the analyst produces a defensible first pass, then brings the model in as a critic, a red-teamer and a verifier. Used this way, it sharpens exactly the skills that unconstrained use erodes.
+PT: Esse risco é a razão de a Solven existir. O modo de falha da maioria dos rollouts não é a adoção falhar; é os analistas tornarem-se editores de rascunhos que não conseguem defender. Cada sessão é construída ao contrário: o analista produz primeiro uma análise defensável, e só depois traz o modelo como crítico, red-teamer e verificador. Usado assim, o modelo afia exatamente as competências que o uso sem critério corrói.
+
+### book.faq8.q
+EN: Why Solven rather than a large consultancy, or doing it in-house?
+PT: Porquê a Solven e não uma grande consultora, ou fazer isto internamente?
+
+### book.faq8.a
+EN: The work is specific: we work only with investment firms, on your deals and memos rather than a generic curriculum. The cadence is the product: the technology shifts weekly, so a one-off training project is stale within a quarter. And we design against cognitive offloading, so judgment gets sharper rather than thinner. If what a firm mainly needs is change management across a thousand seats, a large consultancy is the right call, and we will say so.
+PT: O trabalho é específico: trabalhamos apenas com casas de investimento, sobre os vossos negócios e memorandos, não sobre um currículo genérico. A cadência é o produto: a tecnologia muda semanalmente, e um projeto de formação pontual fica desatualizado num trimestre. E desenhamos contra o offloading cognitivo, para que o critério fique mais afiado e não mais fino. Se o que uma casa precisa sobretudo é de gestão da mudança em mil postos, uma grande consultora é a escolha certa, e di-lo-emos.
+
 
 # Privacy
 
