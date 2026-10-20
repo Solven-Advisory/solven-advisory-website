@@ -11,7 +11,7 @@ Solven trains private equity teams on AI, builds it into their workflows, and ru
 
 ## Four ways we work with a firm
 
-- **Enablement**: Hands-on sessions on the leading AI platforms for the whole firm, analyst to managing partner, run monthly because the frontier moves weekly.
+- **Enablement**: Hands-on sessions on the major AI platforms for the whole firm, analyst to managing partner, run monthly because the frontier moves weekly.
 - **Build**: Agents and workflow systems on the fund's own work: contract redlining, IC memo interrogation, portfolio reporting.
 - **Portfolio**: For any portfolio company, in any sector: we find what is holding back EBITDA and fix it, with AI where it helps and without it where it does not.
 - **Token Economics**: Where the compute spend goes, what it returns, and how to pace it so the year's budget lasts the year.

@@ -55,12 +55,12 @@ PT: Privacidade
 ## Closing band (Home and Insights)
 
 ### close.title
-EN: The edge is where the advantage is.
-PT: É na fronteira que está a diferença.
+EN: Bring us one deal, one memo, one model.
+PT: Tragam-nos um negócio, um memorando, um modelo.
 
 ### close.text
-EN: What comes next in AI is still unwritten. We work at that edge every month, so your firm and its portfolio can step onto new ground without losing their footing.
-PT: O futuro da IA ainda está por escrever. Trabalhamos nessa vanguarda todos os meses, para que a sua empresa e as suas participadas possam explorar novos horizontes sem perder o equilíbrio.
+EN: Every engagement starts on the firm's own work, not a demo. A thirty-minute call is enough to see whether we are the right fit.
+PT: Cada colaboração começa no trabalho da própria casa, não numa demonstração. Uma chamada de trinta minutos chega para perceber se somos a escolha certa.
 
 ### close.write
 > Link beside the button; opens an email
@@ -168,7 +168,7 @@ EN: Enablement
 PT: Formação
 
 ### home.service1.text
-EN: Hands-on sessions on the leading AI platforms for the whole firm, analyst to managing partner, run monthly because the frontier moves weekly.
+EN: Hands-on sessions on the major AI platforms for the whole firm, analyst to managing partner, run monthly because the frontier moves weekly.
 PT: Sessões práticas nas principais plataformas de IA para toda a empresa, desde os analistas até aos sócios-gerentes, todos os meses, porque a inovação acontece todas as semanas.
 
 ### home.service2.name
