@@ -1,17 +1,15 @@
 #!/bin/sh
-# Refuses a merge commit into main or master that brings in a branch carrying .no-merge-to-main.
-# (A fast-forward makes no merge commit, so it never reaches this hook: post-merge warns about
-# it and pre-push stops it from leaving the machine.)
+# Refuses a merge commit into main or master that brings in .no-merge-to-main: the merged index
+# holds the file and the branch being merged into does not. (A fast-forward makes no merge
+# commit, so it never reaches this hook: post-merge warns about it and pre-push stops it from
+# leaving the machine.)
 branch=$(git symbolic-ref --short -q HEAD)
 case "$branch" in main|master) ;; *) exit 0 ;; esac
 
-git_dir=$(git rev-parse --git-dir)
-[ -f "$git_dir/MERGE_HEAD" ] || exit 0
-while read -r sha; do
-  if git cat-file -e "$sha:.no-merge-to-main" 2>/dev/null; then
-    echo "pre-merge-commit: refused. The branch being merged carries .no-merge-to-main" >&2
-    echo "and must never be merged into $branch. Undo with: git merge --abort" >&2
-    exit 1
-  fi
-done < "$git_dir/MERGE_HEAD"
+if git ls-files --error-unmatch .no-merge-to-main >/dev/null 2>&1 &&
+   ! git cat-file -e "HEAD:.no-merge-to-main" 2>/dev/null; then
+  echo "pre-merge-commit: refused. The branch being merged carries .no-merge-to-main" >&2
+  echo "and must never be merged into $branch. Undo with: git merge --abort" >&2
+  exit 1
+fi
 exit 0
