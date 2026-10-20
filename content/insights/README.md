@@ -2,9 +2,13 @@
 
 Each insight is one Markdown file in this folder. The file name is its address:
 `making-every-token-earn-its-place.md` becomes `/insights/making-every-token-earn-its-place`.
-After adding or editing a file, rebuild the site:
+After adding an insight or changing its title or topic, make its share image (the card LinkedIn and
+others show), then rebuild the site:
 
-    python3 tools/build_site_v5.py
+    python3 tools/build_og_images.py
+    python3 tools/build_site_v5.py --prod
+
+The production build stops if an insight has no share image. For any other edit, the rebuild alone is enough.
 
 ## The header block
 

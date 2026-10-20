@@ -248,6 +248,8 @@ def page(p):
 </html>
 """
     text = head(p, t) + "\n" + body
+    # The share image: the insight's own card, else the language's home card (tools/build_og_images.py)
+    text = text.replace(f"{v4.ORIGIN}/assets/og.png", f"{v4.ORIGIN}/assets/og/{p.get('og_image', p['lang'])}.png")
     # The placeholder markers say what they are in the page's language
     return text.replace('title="Dummy text: replace before launch"', f'title="{t.attr("label.dummy_text")}"') \
                .replace('title="Dummy date: replace before launch"', f'title="{t.attr("label.dummy_date")}"')
@@ -462,7 +464,7 @@ def article(a, lang, alt):
     own = f"{t.insights}/{a['slug']}"
     ld = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": a["title"], "description": a["description"],
           "datePublished": a["date"], "dateModified": a.get("updated") or a["date"], "author": ORG, "publisher": ORG, "inLanguage": t.ld_lang,
-          "mainEntityOfPage": f"{v4.ORIGIN}{own}", "url": f"{v4.ORIGIN}{own}", "image": f"{v4.ORIGIN}/assets/og.png"}
+          "mainEntityOfPage": f"{v4.ORIGIN}{own}", "url": f"{v4.ORIGIN}{own}", "image": f"{v4.ORIGIN}/assets/og/{lang}/{a['slug']}.png"}
     if lang == "pt":
         ld["translationOfWork"] = {"@id": f"{v4.ORIGIN}/insights/{a['en']}"}
     add(lang, own[1:], alt, t.raw("article.tab_title").replace("{title}", a["title"]), a["description"],
@@ -482,7 +484,7 @@ def article(a, lang, alt):
     </div>
   </section>
 """,
-        nav="insights", og="article", published=a["date"],
+        nav="insights", og="article", og_image=f"{lang}/{a['slug']}", published=a["date"],
         ld=[ld, crumbs(t, (t.raw("nav.insights"), t.insights), (a["title"], own))])
 
 
