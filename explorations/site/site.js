@@ -33,3 +33,46 @@
   hero.addEventListener("pointerleave", leave);
   hero.addEventListener("pointercancel", leave);
 })();
+
+/* Language switch: the other language opens at the same place in the page. Both languages share one
+   template, so the first block that starts in view is found by its position among the page's blocks and
+   put back at the same height. If the blocks do not match (a page with no counterpart), the same share of
+   the page's length is used instead. Instant, no scrolling animation. */
+(function () {
+  var KEY = "solven-lang-scroll";
+  var main = document.querySelector("main");
+  if (!main || !window.sessionStorage) return;
+  var BLOCKS = "h1, h2, h3, h4, p, li, figure, img, blockquote, table, tr, dt, dd, form, section, article";
+  function blocks() {
+    return Array.prototype.filter.call(main.querySelectorAll(BLOCKS), function (el) { return el.getClientRects().length; });
+  }
+  function room() { return document.documentElement.scrollHeight - window.innerHeight; }
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest(".lang a[href]");
+    if (!a || a.getAttribute("aria-current") || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var list = blocks(), at = -1, top = 0;
+    for (var i = 0; i < list.length; i++) {
+      top = list[i].getBoundingClientRect().top;
+      if (top >= 0) { at = i; break; }
+    }
+    try {
+      sessionStorage.setItem(KEY, JSON.stringify({ path: new URL(a.href).pathname, count: list.length, at: at, top: top,
+                                                   share: room() > 0 ? window.scrollY / room() : 0 }));
+    } catch (err) {}
+  });
+
+  var saved;
+  try { saved = JSON.parse(sessionStorage.getItem(KEY)); sessionStorage.removeItem(KEY); } catch (err) { return; }
+  if (!saved || saved.path !== location.pathname || location.hash) return;
+  function restore() {
+    var list = blocks();
+    if (list.length === saved.count && saved.at >= 0) {
+      window.scrollTo({ top: window.scrollY + list[saved.at].getBoundingClientRect().top - saved.top, behavior: "instant" });
+    } else {
+      window.scrollTo({ top: saved.share * room(), behavior: "instant" });
+    }
+  }
+  restore();
+  window.addEventListener("load", restore, { once: true });
+})();
