@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Regenerate llms-full.txt from the site's pages.
+"""Regenerate legacy-site/llms-full.txt from the old site's pages.
 
-Run from the repo root after any copy change:  python3 tools/build_llms_full.py
-The file is the complete site text for AI crawlers; it must never drift
-from the pages, so it is always generated, never hand-edited.
+The old site lives in legacy-site/ as a reference copy; site v5 writes its own
+llms-full.txt (tools/build_site_v5.py --prod). Run:  python3 tools/build_llms_full.py
 """
 import datetime
 import html
+import os
 import re
+
+os.chdir(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "legacy-site"))
 
 PAGES = [
     ("index.html", "Home", "https://solvenadvisory.ai/"),

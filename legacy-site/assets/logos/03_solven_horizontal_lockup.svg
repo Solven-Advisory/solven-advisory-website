@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 70" role="img" aria-label="Solven Advisory">
+  <title>Solven Advisory — Horizontal Lockup</title>
+  <desc>Compact horizontal lockup of the Solven wordmark with vertical divider and ADVISORY designator.</desc>
+
+  
+  <g font-family="Georgia, &#39;Times New Roman&#39;, serif" font-weight="400" fill="#2A2A28">
+    <text x="20" y="45" font-size="36">S</text>
+    <text x="42" y="45" font-size="36">o</text>
+    <text x="64" y="45" font-size="36">l</text>
+    
+    <path d="M 76 23 L 87 45 L 98 23 L 95 23 L 87 40 L 80 23 Z" fill="#6B8068"></path>
+    <text x="99" y="45" font-size="36">e</text>
+    <text x="120" y="45" font-size="36">n</text>
+  </g>
+
+  
+  <line x1="160" y1="17" x2="160" y2="43" stroke="#D8D6CF" stroke-width="0.5"></line>
+
+  
+  <text x="175" y="37" font-family="Calibri, &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif" font-size="10" fill="#6B8068" letter-spacing="3.2">A D V I S O R Y</text>
+</svg>

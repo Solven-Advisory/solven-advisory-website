@@ -21,6 +21,7 @@ import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+LEGACY = ROOT / "legacy-site"   # the pre-v5 site, whose content these pages are read from
 SITE = ROOT / "explorations/site"
 PREVIEW = "/explorations/site"
 ORIGIN = "https://solvenadvisory.ai"
@@ -247,7 +248,7 @@ def close(h2=CLOSE_HOME[0], line=CLOSE_HOME[1], art=None):
 # ---------------------------------------------------------------- content read from the live site
 
 def faq_from(path):
-    s = (ROOT / path).read_text()
+    s = (LEGACY / path).read_text()
     items = re.findall(r'<summary>(.*?)</summary>\s*<div class="faq__a"><p>(.*?)</p></div>', s, re.S)
     return [(html.unescape(q.strip()), a.strip()) for q, a in items]
 
@@ -279,7 +280,7 @@ ARTICLES = [
 
 
 def article_src(slug):
-    s = (ROOT / f"blog/{slug}.html").read_text()
+    s = (LEGACY / f"blog/{slug}.html").read_text()
     body = re.search(r'<article class="prose reveal">\n?(.*?)</article>', s, re.S).group(1).strip()
     body = body.replace('href="/contact#book"', 'href="/contact#calendar"')
     lead = re.search(r'<p class="lead[^"]*"[^>]*>(.*?)</p>', s, re.S).group(1)
@@ -592,7 +593,7 @@ add("about", "About us · A finance-native and AI-native firm · Solven Advisory
 
 # -------- Contact
 CAL_LOADER = re.search(r"\(function \(C, A, L\).*?\)\(window, \"https://app\.cal\.eu/embed/embed\.js\", \"init\"\);",
-                       (ROOT / "contact.html").read_text(), re.S).group(0)
+                       (LEGACY / "contact.html").read_text(), re.S).group(0)
 faq_open = "\n".join(f"""        <div class="faq__item">
           <h3 class="h3">{esc(q)}</h3>
           <p class="faq__a">{a}</p>
@@ -749,7 +750,7 @@ for a in ARTICLES:
              "mainEntityOfPage": f"{ORIGIN}/insights/{slug}", "url": f"{ORIGIN}/insights/{slug}", "image": f"{ORIGIN}/assets/og.png"}])
 
 # -------- Privacy
-PRIV = re.search(r"<main.*?</main>", (ROOT / "privacy.html").read_text(), re.S).group(0)
+PRIV = re.search(r"<main.*?</main>", (LEGACY / "privacy.html").read_text(), re.S).group(0)
 
 
 def priv_section(heading):

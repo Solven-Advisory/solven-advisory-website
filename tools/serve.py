@@ -27,7 +27,9 @@ ROOT = os.path.join(REPO, sys.argv[2]) if len(sys.argv) > 2 else REPO
 def vercel_redirects():
     """The redirects in vercel.json as (pattern, destination): ":slug" matches one path segment."""
     out = []
-    for r in json.load(open(os.path.join(REPO, "vercel.json"))).get("redirects", []):
+    # The served folder's own vercel.json if it has one (legacy-site/ does), else the repo's
+    config = next(c for c in (os.path.join(ROOT, "vercel.json"), os.path.join(REPO, "vercel.json")) if os.path.isfile(c))
+    for r in json.load(open(config)).get("redirects", []):
         pattern = re.sub(r":(\w+)", r"(?P<\1>[^/]+)", r["source"])
         out.append((re.compile(f"^{pattern}$"), r["destination"]))
     return out
