@@ -264,6 +264,26 @@ PT: Insights da Solven Advisory
 EN: {title} · Insights · Solven Advisory
 PT: {title} · Insights · Solven Advisory
 
+### article.byline
+> First of the article tags
+EN: By Solven Advisory
+PT: Por Solven Advisory
+
+### article.updated
+> Article tags, only when the insight has an updated: date; {date} is replaced by it
+EN: Updated {date}
+PT: Atualizado a {date}
+
+### article.service
+> Under the article's buttons; {service} is replaced by the service's name, linked to it on the homepage
+EN: Our work on this: {service}.
+PT: O nosso trabalho nesta área: {service}.
+
+### article.related
+> Heading of the two related insights at the end of each article
+EN: More insights.
+PT: Mais insights.
+
 ### article.minutes
 > Article tags and cards; {n} is replaced by the number of minutes
 EN: {n} min read

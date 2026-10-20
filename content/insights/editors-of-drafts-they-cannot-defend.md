@@ -4,6 +4,7 @@ subtitle: The real failure mode of an AI rollout is not that analysts refuse the
 summary: Why the real risk in AI rollouts is cognitive offloading, not adoption failure.
 description: Why the real risk in AI rollouts is cognitive offloading, not adoption failure, and how inverting the workflow keeps investment analysis defensible.
 topic: AI adoption
+service: Enablement
 date: 2026-10-02
 date_is_placeholder: yes
 image:

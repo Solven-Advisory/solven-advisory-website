@@ -12,7 +12,7 @@ The production build stops if an insight has no share image. For any other edit,
 
 ## The header block
 
-Every file starts with this block. All lines are required except the last four.
+Every file starts with this block. All lines are required except the last five.
 
     ---
     title: How to tell whether the AI is real
@@ -25,6 +25,7 @@ Every file starts with this block. All lines are required except the last four.
     image_alt: What the photograph shows, for readers who cannot see it.
     date_is_placeholder: no
     updated: 2026-11-04
+    service: Token Economics
     ---
 
 - **image**: a real photograph, chosen for each insight. Put the file in `content/insights/images/`
@@ -32,7 +33,11 @@ Every file starts with this block. All lines are required except the last four.
   placeholder.
 - **image_alt**: required once there is an image.
 - **date_is_placeholder**: `yes` marks the date as a dummy on the page, until the real one is known.
-- **updated**: the day of the last material revision, for search engines (`dateModified`). Leave it out until there is one.
+- **updated**: the day of the last material revision. The page shows it as a tag ("Updated 4 Nov 2026") and search
+  engines read it (`dateModified`). Leave it out until there is one.
+- **service**: the service on the homepage this insight belongs to, exactly as named there (Enablement, Build,
+  Portfolio, Token Economics). The article ends with a line linking to it. Leave it out for no link. The
+  Portuguese translation takes its original's; do not repeat it there.
 - The reading time is counted from the text. To set it by hand, add `minutes: 6`.
 
 ## The text

@@ -318,6 +318,12 @@ def body_image(src, alt):
     return f'<figure class="prose__image"><img src="{ASSETS}/img/insights/{esc(src)}" alt="{esc(alt)}"></figure>'
 
 
+def day_label(iso, t):
+    """2026-07-28 as the page shows it: 28 Jul 2026, or 28 jul. 2026 in Portuguese."""
+    d = date.fromisoformat(iso)
+    return f"{d.day} {t.months[d.month - 1]} {d.year}" if t.months else f"{d.day} {d:%b %Y}"
+
+
 def load_insights(folder, lang):
     """Every <slug>.md in the folder, newest first. The file name is the address: /insights/<slug>
     (/pt/insights/<slug> for the Portuguese ones, which name their English original under en:)."""
@@ -332,8 +338,7 @@ def load_insights(folder, lang):
             raise SystemExit(f"{f.relative_to(ROOT)}: the header block is missing {', '.join(missing)}")
         if meta.get("image") and not meta.get("image_alt"):
             raise SystemExit(f"{f.relative_to(ROOT)}: the image needs a description (image_alt)")
-        d = date.fromisoformat(meta["date"])
-        label = f"{d.day} {t.months[d.month - 1]} {d.year}" if t.months else f"{d.day} {d:%b %Y}"
+        label = day_label(meta["date"], t)
         out.append(dict(meta, slug=f.stem, body=md.to_html(body, image=body_image), label=label,
                         placeholder=meta.get("date_is_placeholder", "no") == "yes",
                         minutes=int(meta.get("minutes") or max(1, round(md.words(body) / WORDS_PER_MINUTE)))))
@@ -344,6 +349,20 @@ ARTICLES = {"en": load_insights(INSIGHTS, "en"), "pt": load_insights(INSIGHTS / 
 for a in ARTICLES["pt"]:
     if a["en"] not in {e["slug"] for e in ARTICLES["en"]}:
         raise SystemExit(f"content/insights/pt/{a['slug']}.md: en: {a['en']} names no English insight")
+# The service an insight belongs to: service: in the English header block names a service on the homepage
+# (home.service1.name, ...); the Portuguese translation takes its original's.
+SERVICES = [n for n, in COPY["en"].items("home.service", "name")]
+
+
+def service_id(name):
+    return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+
+
+for a in ARTICLES["en"]:
+    if a.get("service") and a["service"] not in SERVICES:
+        raise SystemExit(f"content/insights/{a['slug']}.md: service: {a['service']} is not one of {', '.join(SERVICES)}")
+for a in ARTICLES["pt"]:
+    a["service"] = next(e.get("service") for e in ARTICLES["en"] if e["slug"] == a["en"])
 for a in ARTICLES["en"]:
     # An English insight without a translation yet toggles to the Portuguese index
     a["pt"] = next((f"pt/insights/{p['slug']}" for p in ARTICLES["pt"] if p["en"] == a["slug"]), None)
@@ -378,6 +397,9 @@ def article_image(a, t):
 
 def home(t, lang):
     cards = v4.cards([(n, x, "", None) for n, x in t.items("home.service", "name", "text")]).replace("service service--static", "service service--quiet")
+    # Each service card is an anchor the insights link to (/#token-economics)
+    ids = iter(service_id(n) for n in SERVICES)
+    cards = re.sub(r'<article class="service service--quiet">', lambda m: f'<article class="service service--quiet" id="{next(ids)}">', cards)
     convictions = "\n".join(f"""        <li class="conviction">
           <h3 class="h3">{h}</h3>
           <p>{x}</p>
@@ -466,6 +488,12 @@ def insights_index(t, lang):
 both("insights", insights_index, nav="insights")
 
 
+def related(a, lang, n=2):
+    """Two other insights in the same language: the same topic first, then the newest."""
+    others = [o for o in ARTICLES[lang] if o["slug"] != a["slug"]]     # already newest first
+    return sorted(others, key=lambda o: o["topic"] != a["topic"])[:n]
+
+
 def article(a, lang, alt, unpaired=False):
     """Each insight: title and subtitle on top, then the image, the tags, and the text across the page."""
     t = COPY[lang]
@@ -473,6 +501,15 @@ def article(a, lang, alt, unpaired=False):
     ld = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": a["title"], "description": a["description"],
           "datePublished": a["date"], "dateModified": a.get("updated") or a["date"], "author": ORG, "publisher": ORG, "inLanguage": t.ld_lang,
           "mainEntityOfPage": f"{v4.ORIGIN}{own}", "url": f"{v4.ORIGIN}{own}", "image": f"{v4.ORIGIN}/assets/og/{lang}/{a['slug']}.png"}
+    updated, label = "", t["article.updated"]     # read even when unused: no insight has an updated: date yet
+    if a.get("updated"):
+        stamp = f'<time datetime="{a["updated"]}">{day_label(a["updated"], t)}</time>'
+        updated = f'\n        <li>{label.replace("{date}", stamp)}</li>'
+    service = ""
+    if a.get("service"):
+        name = COPY[lang].items("home.service", "name")[SERVICES.index(a["service"])][0]
+        link = f'<a href="{t.home}#{service_id(a["service"])}">{name}</a>'
+        service = f'\n      <p class="article__service">{t["article.service"].replace("{service}", link)}</p>'
     if lang == "pt":
         ld["translationOfWork"] = {"@id": f"{v4.ORIGIN}/insights/{a['en']}"}
     add(lang, own[1:], alt, t.raw("article.tab_title").replace("{title}", a["title"]), a["description"],
@@ -481,14 +518,24 @@ def article(a, lang, alt, unpaired=False):
 {article_image(a, t)}
     <div class="wrap">
       <ul class="article__tags" aria-label="{t.attr("article.tags_label")}">
+        <li>{t['article.byline']}</li>
         <li>{t['article.minutes'].replace('{n}', str(a['minutes']))}</li>
         <li>{esc(a['topic'])}</li>
-        <li>{when(a)}</li>
+        <li>{when(a)}</li>{updated}
       </ul>
       <article class="prose prose--wide">
 {a['body']}
       </article>
-      <p class="article__foot"><a class="btn btn--primary" href="{t.book}">{t["nav.book"]}</a><a class="text-link" href="{t.insights}">{t["insights.all"]}</a></p>
+      <p class="article__foot"><a class="btn btn--primary" href="{t.book}">{t["nav.book"]}</a><a class="text-link" href="{t.insights}">{t["insights.all"]}</a></p>{service}
+    </div>
+  </section>
+
+  <section class="section related" aria-labelledby="related-title">
+    <div class="wrap">
+{v4.shead(t["article.related"], "related-title")}
+      <div class="insights__cards insights__cards--2">
+{chr(10).join(icard(o, t, topic=True) for o in related(a, lang))}
+      </div>
     </div>
   </section>
 """,

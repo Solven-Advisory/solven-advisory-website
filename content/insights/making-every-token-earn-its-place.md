@@ -4,6 +4,7 @@ subtitle: AI costs are metered and shaped by usage, which makes them easy to bur
 summary: Why AI spend behaves nothing like software licences.
 description: Why AI spend behaves nothing like software licences, and how costing by workflow, from cost per memo to cost per data room, gives partners a P&L they can read.
 topic: Token economics
+service: Token Economics
 date: 2026-07-28
 date_is_placeholder: no
 image:
