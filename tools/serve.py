@@ -31,6 +31,8 @@ def vercel_redirects():
     # The served folder's own vercel.json if it has one (legacy-site/ does), else the repo's
     config = next(c for c in (os.path.join(ROOT, "vercel.json"), os.path.join(REPO, "vercel.json")) if os.path.isfile(c))
     for r in json.load(open(config)).get("redirects", []):
+        if "has" in r:  # host-only redirects (the vercel.app address) never apply locally
+            continue
         pattern = re.sub(r":(\w+)", r"(?P<\1>[^/]+)", r["source"])
         out.append((re.compile(f"^{pattern}$"), r["destination"]))
     return out

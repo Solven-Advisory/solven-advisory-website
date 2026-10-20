@@ -752,6 +752,8 @@ def check_links():
         bad += [f"{f.relative_to(SITE)}: {r}" for r in refs if not r.startswith(("//", "/_vercel/")) and not resolve(r)]
     # The old addresses in vercel.json: each must land on a page, and none may hide a live one
     for r in json.loads((ROOT / "vercel.json").read_text())["redirects"]:
+        if "has" in r:  # host-only redirects send the vercel.app address to the apex
+            continue
         targets = [r["destination"]]
         if ":slug" in r["destination"]:
             targets = [r["destination"].replace(":slug", a["slug"]) for a in ARTICLES["pt" if r["destination"].startswith("/pt/") else "en"]]

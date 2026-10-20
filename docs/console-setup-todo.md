@@ -28,7 +28,7 @@ The site is on Vercel's free plan (Hobby). On Hobby, a project has one account, 
 | 2 | Release site v5 to `main` | Owner |
 | 3 | Vercel domains | Owner |
 | 4 | GoDaddy DNS for the website | Whoever has the GoDaddy login (probably the Owner) |
-| 5 | Code fix for the `vercel.app` address, then a second release | Developer, then Owner |
+| 5 | Send the `vercel.app` address to the real domain (a small edit on `main`) | Owner |
 | 6 | Vercel Web Analytics | Owner |
 | 7 | Google Search Console, Bing, Ahrefs | Either; whoever does it adds the other as a user |
 | 8 | Email records (SPF, DKIM) | Microsoft 365 admin and the GoDaddy login |
@@ -135,7 +135,7 @@ Run these from inside the `solven-advisory-website` folder, one at a time, and c
    ```
    git merge-base --is-ancestor main origin/redesign/site-v5-seo && echo SAFE
    ```
-   It must print `SAFE`. If it prints nothing, stop: someone added commits to `main` that the branch does not have. Ask the Developer to bring them into the branch first.
+   It must print `SAFE`. If it prints nothing, stop: someone added commits to `main` that the branch does not have. Ask the Developer to sync the branch with `main` (Part 9 step 1) and push it again, then start this release over.
 5. [ ] Replace the files on `main` with the files from the branch. This changes files only; it does not copy anyone's commits:
    ```
    git read-tree -u --reset origin/redesign/site-v5-seo
@@ -201,11 +201,43 @@ Run these from inside the `solven-advisory-website` folder, one at a time, and c
 
 ## Part 5. Send the `vercel.app` address to the real domain
 
-**Who:** Developer, then Owner. Do this only after Part 4 step 11 works; doing it earlier creates a redirect loop.
+**Who:** Owner, alone, directly on `main`. Do this only after Part 4 step 11 works; doing it earlier creates a redirect loop.
 
-1. [ ] **Developer:** ask Claude: "Add the host redirect from `solven-advisory-website.vercel.app` to `https://solvenadvisory.ai` in `vercel.json` (plan item 1.2), rebuild, commit." Check the commit, then push the branch only: `git push origin redesign/site-v5-seo`. Tell the Owner.
-2. [ ] **Owner:** do a release (Part 2b, all steps).
-3. [ ] **Either:** open https://solven-advisory-website.vercel.app/book in a private window. The address bar must end up as `https://solvenadvisory.ai/book`.
+This is one small edit to one file, `vercel.json`. It needs no rebuild.
+
+1. [ ] In a terminal, inside the `solven-advisory-website` folder, update `main`:
+   ```
+   git switch main
+   git pull
+   git status
+   ```
+   `git status` must say `nothing to commit, working tree clean`.
+2. [ ] Open the file `vercel.json` (in the top folder of the repository) in a text editor (VS Code, Notepad, TextEdit in plain-text mode).
+3. [ ] Find this line. It is the last line inside `"redirects": [`:
+   ```
+       { "source": "/pt/publicacoes/:slug", "destination": "/pt/insights/:slug", "permanent": true }
+   ```
+4. [ ] Put a comma at the very end of that line, then add a new line after it, so the two lines read exactly:
+   ```
+       { "source": "/pt/publicacoes/:slug", "destination": "/pt/insights/:slug", "permanent": true },
+       { "source": "/:path*", "has": [{ "type": "host", "value": "solven-advisory-website.vercel.app" }], "destination": "https://solvenadvisory.ai/:path*", "permanent": true }
+   ```
+   The next line must still be `  ],`. Change nothing else. Save the file.
+5. [ ] Check that only that file changed, and only by those lines:
+   ```
+   git diff
+   ```
+   It must show one line removed (the old `/pt/publicacoes/:slug` line without the comma) and two lines added (the same line with the comma, and the new line). If it shows anything else, run `git checkout vercel.json` to undo and start again from step 2.
+6. [ ] Commit and push. As in Part 2b, no `Co-Authored-By:` line:
+   ```
+   git commit -am "Send the vercel.app address to solvenadvisory.ai"
+   git log -1 --format='%an <%ae>%n%b'
+   git push origin main
+   ```
+   The `git log` line must show your name and email, with no `Co-Authored-By` line.
+7. [ ] Vercel → project **solven-advisory-website** → tab **Deployments**. The newest row must say **Production** and turn **Ready**. If it says **Error**, the file has a typo: open the row to see the message, or use **Instant Rollback** (Part 11), and compare `vercel.json` with step 4 character by character.
+8. [ ] Open https://solven-advisory-website.vercel.app/book in a private window. The address bar must end up as `https://solvenadvisory.ai/book`.
+9. [ ] Tell the Developer: "I changed `vercel.json` on `main`. Sync the branch (Part 9 step 1) before your next change." If the Developer skips this, the next release would undo your edit; the check in Part 2b step 4 stops that release before it happens.
 
 ## Part 6. Vercel Web Analytics
 
@@ -277,9 +309,17 @@ Bing results also feed ChatGPT search and Microsoft Copilot.
 
 ## Part 9. Every later update to the site
 
-1. [ ] **Developer:** make the change on `redesign/site-v5-seo`, run `python3 tools/build_site_v5.py --prod`, check locally with `python3 tools/serve.py`, commit, then `git push origin redesign/site-v5-seo`. Never push `main`.
-2. [ ] **Developer:** tell the Owner the branch is ready and paste the output of `git rev-parse --short HEAD`.
-3. [ ] **Owner:** do a release: Part 2b, every step, in order. Step 4 and steps 9 and 10 are the safety checks; never skip them.
+1. [ ] **Developer:** before starting any change, sync the branch with `main`, so it has the Owner's release commits and any edit the Owner made on `main` (such as Part 5):
+   ```
+   git switch redesign/site-v5-seo
+   git fetch origin main
+   git merge origin/main
+   ```
+   This copies `main` into the branch, never the other way round, and it is the only merge ever allowed. If git opens an editor for the merge message, save and close it. If it reports a conflict, stop and ask Claude. Then check that the guard file is still there: `ls .no-merge-to-main` must print `.no-merge-to-main`.
+2. [ ] **Developer:** make the change on `redesign/site-v5-seo`, run `python3 tools/build_site_v5.py --prod`, check locally with `python3 tools/serve.py`, commit, then `git push origin redesign/site-v5-seo`. Never push `main`.
+3. [ ] **Developer:** tell the Owner the branch is ready and paste the output of `git rev-parse --short HEAD`.
+4. [ ] **Owner:** do a release: Part 2b, every step, in order. Step 4 and steps 9 and 10 are the safety checks; never skip them.
+5. [ ] **Developer:** right after each release, do step 1 again, so the branch stays in step with `main`.
 
 ## Part 10. Final checks
 
