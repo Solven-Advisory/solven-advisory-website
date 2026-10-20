@@ -6,9 +6,9 @@ description: Why the real risk in AI rollouts is cognitive offloading, not adopt
 topic: AI adoption
 service: Enablement
 date: 2026-10-02
-date_is_placeholder: yes
-image:
-image_alt:
+date_is_placeholder: no
+image: editors-of-drafts.jpg
+image_alt: Hands holding a pen over printed pages on a desk, about to sign.
 ---
 
 Every investment committee has a version of the same moment. A partner stops on a single figure,

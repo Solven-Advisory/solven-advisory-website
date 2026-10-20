@@ -7,8 +7,8 @@ topic: Token economics
 service: Token Economics
 date: 2026-07-28
 date_is_placeholder: no
-image:
-image_alt:
+image: token-economics.jpg
+image_alt: A calculator, an open notebook and a pen on a desk beside a laptop, in raking light.
 ---
 
 For two decades, software has been the best-behaved line in a firm's budget. A licence had a price,

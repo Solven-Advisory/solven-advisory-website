@@ -286,7 +286,7 @@ a, button, summary { transition: color var(--t), background-color var(--t), bord
 .hero__cta { margin-top: var(--s-5); }
 
 .hero__calcada { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-.hero__calcada i { position: absolute; inset: 0; background: url("/assets/site/img/calcada-wave.svg?v=f21ca4b902") center top / 200px 200px repeat; }
+.hero__calcada i { position: absolute; inset: 0; background: url("/assets/site/img/calcada-wave.svg") center top / 200px 200px repeat; }
 .hero__calcada i:first-child { opacity: .12; }
 .hero__calcada i + i {
   display: none;
@@ -719,8 +719,8 @@ a, button, summary { transition: color var(--t), background-color var(--t), bord
 /* Lisbon skyline (About us): a quiet silhouette along the band's bottom edge */
 .close__art--skyline { position: absolute; z-index: -1; left: 0; right: 0; bottom: 0; height: 120px;
   background: #DEDBD5;
-  -webkit-mask: url("/assets/site/img/skyline.svg?v=e5054e6df9") 38% 100% / auto 100% repeat-x;
-          mask: url("/assets/site/img/skyline.svg?v=e5054e6df9") 38% 100% / auto 100% repeat-x; }
+  -webkit-mask: url("/assets/site/img/skyline.svg") 38% 100% / auto 100% repeat-x;
+          mask: url("/assets/site/img/skyline.svg") 38% 100% / auto 100% repeat-x; }
 .close--skyline { padding-bottom: calc(var(--section-y) + 112px); }
 
 @media (min-width: 960px) {

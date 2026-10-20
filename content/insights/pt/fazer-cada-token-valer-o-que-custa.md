@@ -7,8 +7,8 @@ description: Porque é que a despesa com IA não se comporta como licenças de s
 topic: Economia de tokens
 date: 2026-07-28
 date_is_placeholder: no
-image:
-image_alt:
+image: token-economics.jpg
+image_alt: Uma calculadora, um caderno aberto e uma caneta numa secretária, ao lado de um portátil, com luz rasante.
 ---
 
 Durante duas décadas, o software foi a linha mais bem-comportada do orçamento de uma casa. Uma

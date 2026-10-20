@@ -6,9 +6,9 @@ summary: Um método de trabalho para a due diligence de IA.
 description: Um método para a due diligence de IA: a origem do modelo, o que o rodeia, o que falha se o fornecedor mudar as condições e o que os engenheiros mostram ao vivo.
 topic: Due diligence de IA
 date: 2026-09-09
-date_is_placeholder: yes
-image:
-image_alt:
+date_is_placeholder: no
+image: ai-diligence.jpg
+image_alt: Uma sala de reuniões vazia à luz do dia, com uma mesa branca comprida e cadeiras dos dois lados.
 ---
 
 A maior parte dos decks que uma equipa de investimento vai ler este ano descreve a empresa-alvo

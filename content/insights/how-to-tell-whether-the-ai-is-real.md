@@ -5,9 +5,9 @@ summary: A working method for AI diligence.
 description: A working method for AI diligence: where the model comes from, what surrounds it, what breaks when a provider changes terms, and what engineers can show live.
 topic: AI diligence
 date: 2026-09-09
-date_is_placeholder: yes
-image:
-image_alt:
+date_is_placeholder: no
+image: ai-diligence.jpg
+image_alt: An empty meeting room in daylight, with a long white table and chairs on either side.
 ---
 
 Most decks a deal team reads this year will describe the target as AI-powered. The phrase has

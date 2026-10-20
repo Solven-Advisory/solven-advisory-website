@@ -80,3 +80,14 @@ common Brazilian form.
 Once the owner has read and approved a translation, add `reviewed: YYYY-MM-DD` to its header block.
 The build warns about every translation without one (and every unreviewed entry in
 `content/site-copy.md`); `python3 tools/build_site_v5.py --pt-review` lists them.
+
+## Photo sources
+
+Every photograph in `images/` must be free to use without a licence or credit. The current ones are
+CC0 (public domain dedication), from the Unsplash archive on Wikimedia Commons:
+
+- `editors-of-drafts.jpg`: "Sign here" by Helloquence, https://commons.wikimedia.org/wiki/File:Sign_here_(Unsplash).jpg
+- `ai-diligence.jpg`: "Minimalist meeting room" by Breather, https://commons.wikimedia.org/wiki/File:Minimalist_meeting_room_(Unsplash).jpg
+- `token-economics.jpg`: "Desktop with laptop and calculator", https://commons.wikimedia.org/wiki/File:Desktop_with_laptop_and_calculator_(Unsplash).jpg
+
+Saved at 2000px wide, JPEG quality 78. The page crops them to 16:7 (4:3 on phones).

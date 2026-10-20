@@ -6,9 +6,9 @@ summary: Porque é que o verdadeiro risco da IA é delegar o raciocínio, e não
 description: Porque é que o verdadeiro risco da IA é delegar o raciocínio, e não a adoção falhar, e como inverter o fluxo de trabalho mantém a análise defensável.
 topic: Adoção de IA
 date: 2026-10-02
-date_is_placeholder: yes
-image:
-image_alt:
+date_is_placeholder: no
+image: editors-of-drafts.jpg
+image_alt: Mãos com uma caneta sobre folhas impressas numa secretária, prestes a assinar.
 ---
 
 Todos os comités de investimento conhecem uma versão do mesmo momento. Um partner detém-se num
