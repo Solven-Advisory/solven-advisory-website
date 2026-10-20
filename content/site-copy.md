@@ -131,8 +131,8 @@ EN: Solven Advisory · AI enablement and implementation for investment firms
 PT: Solven Advisory · Formação e implementação de IA em empresas de investimento
 
 ### home.description
-EN: Solven Advisory trains private equity teams on AI, builds it into their workflows, and runs AI projects in their portfolio companies that lift EBITDA. Augmentation without cognitive atrophy.
-PT: A Solven Advisory forma equipas de capital de investimento em IA, integra-a nos seus fluxos de trabalho e implementa projetos de IA nas empresas do seu portfólio que aumentam o EBITDA. Ampliar capacidades, preservando o pensamento crítico.
+EN: Solven Advisory trains private equity teams on AI, builds it into their workflows, and runs AI projects in portfolio companies that lift EBITDA.
+PT: A Solven Advisory forma equipas de capital de investimento em IA, integra-a nos seus fluxos de trabalho e implementa projetos de IA que aumentam o EBITDA.
 
 ### home.ld_description
 > Description for search engines (structured data), not shown on the page
@@ -249,7 +249,7 @@ PT: Publicações · Notas sobre IA para empresas de investimento · Solven Advi
 
 ### insights.description
 EN: Short notes from Solven Advisory on AI in private equity, real estate and venture firms: what we see in the work, and what it means for partners.
-PT: Notas curtas da Solven Advisory sobre IA em fundos de private equity, imobiliário e venture capital: o que vemos no nosso trabalho, e o que isso pode trazer para os sócios.
+PT: Notas curtas da Solven Advisory sobre IA em private equity, imobiliário e venture capital: o que vemos no nosso trabalho e o que pode trazer aos sócios.
 
 ### insights.ld_name
 > Name for search engines (structured data)

@@ -3,7 +3,7 @@ en: making-every-token-earn-its-place
 title: Fazer cada token valer o que custa
 subtitle: Os custos de IA são cobrados ao consumo e moldados pela utilização, o que os torna fáceis de gastar em trabalho de pouco valor; o remédio é um P&L por fluxo de trabalho, não um orçamento maior.
 summary: Porque é que a despesa com IA não se comporta como as licenças de software.
-description: Porque é que a despesa com IA não se comporta como as licenças de software, e como o custeio por fluxo de trabalho, do custo por memorando ao custo por data room, transforma tokens num P&L que os partners conseguem ler.
+description: Porque é que a despesa com IA não se comporta como licenças de software, e como custear por fluxo de trabalho dá aos partners um P&L que conseguem ler.
 topic: Economia de tokens
 date: 2026-07-28
 date_is_placeholder: no

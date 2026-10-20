@@ -3,7 +3,7 @@ en: editors-of-drafts-they-cannot-defend
 title: Editores de rascunhos que não conseguem defender
 subtitle: O verdadeiro risco de uma implementação de IA não é os analistas recusarem as ferramentas; é acabarem a polir argumentos que nunca construíram.
 summary: Porque é que o verdadeiro risco da IA é delegar o raciocínio, e não a adoção falhar.
-description: Porque é que o verdadeiro risco da IA é delegar o raciocínio, e não a adoção falhar, e como inverter o fluxo de trabalho mantém a análise de investimento defensável.
+description: Porque é que o verdadeiro risco da IA é delegar o raciocínio, e não a adoção falhar, e como inverter o fluxo de trabalho mantém a análise defensável.
 topic: Adoção de IA
 date: 2026-10-02
 date_is_placeholder: yes

@@ -2,7 +2,7 @@
 title: Making every token earn its place
 subtitle: AI costs are metered and shaped by usage, which makes them easy to burn on low-value work; the remedy is a workflow-level P&L, not a bigger budget.
 summary: Why AI spend behaves nothing like software licences.
-description: Why AI spend behaves nothing like software licences, and how workflow-level costing, from cost per memo to cost per data room, turns tokens into a P&L partners can read.
+description: Why AI spend behaves nothing like software licences, and how costing by workflow, from cost per memo to cost per data room, gives partners a P&L they can read.
 topic: Token economics
 date: 2026-07-28
 date_is_placeholder: no
