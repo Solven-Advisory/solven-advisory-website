@@ -431,12 +431,14 @@ both("", home)
 
 # ---------------------------------------------------------------- Insights and articles
 
-def title_hero(title):
-    """Insights and Book a call: the homepage's hero, at its height and title size, with the title only."""
+def title_hero(title, lead=None):
+    """Insights and Book a call: the homepage's hero, at its height and title size, with the title and, on Book a call,
+    the homepage's lead beside it."""
+    side = f'\n      <div class="hero__side">\n        <p class="lead hero__lead">{lead}</p>\n      </div>' if lead else ""
     return f"""  <section class="hero hero--page hero--title" aria-labelledby="hero-title">
     <div class="hero__calcada" aria-hidden="true"><i></i><i></i></div>
     <div class="wrap grid">
-      <h1 class="h1 hero__title" id="hero-title">{title}</h1>
+      <h1 class="h1 hero__title" id="hero-title">{title}</h1>{side}
     </div>
   </section>
 """
@@ -503,7 +505,7 @@ CAL_SCRIPT = (re.search(r'<script>\n  /\* Inline booking calendar.*?</script>\n'
 
 
 def book(t, lang):
-    main = title_hero(t["book.title"]) + f"""  <section class="section book" id="calendar" aria-label="{t.attr("book.calendar_label")}">
+    main = title_hero(t["book.title"], t["book.text"]) + f"""  <section class="section book" id="calendar" aria-label="{t.attr("book.calendar_label")}">
     <div class="wrap">
       <div class="cal" id="cal-inline"></div>
       <p class="cal__note">{t["book.fallback"].replace(' rel="noopener">', ' target="_blank" rel="noopener">')} {t["book.write"]} {email_icon(t)}</p>

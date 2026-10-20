@@ -297,6 +297,11 @@ PT: Marque uma reunião de trinta minutos com um dos cofundadores da Solven Advi
 EN: Book a call.
 PT: Marcar uma chamada.
 
+### book.text
+> Beside the title: what the call covers
+EN: Thirty minutes with a co-founder, by video or phone: your firm, the work you want AI to help with, and whether one of our four services fits.
+PT: Trinta minutos com um dos cofundadores, por vídeo ou por telefone: a vossa casa de investimento, o trabalho em que querem a ajuda da IA e se algum dos nossos quatro serviços se adequa.
+
 ### book.calendar_label
 > Hidden label of the calendar
 EN: Calendar
