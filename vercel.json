@@ -6,7 +6,19 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/blog.html", "destination": "/blog", "permanent": true }
+    { "source": "/programmes", "destination": "/#services", "permanent": true },
+    { "source": "/approach", "destination": "/#approach", "permanent": true },
+    { "source": "/work", "destination": "/#services", "permanent": true },
+    { "source": "/about", "destination": "/", "permanent": true },
+    { "source": "/contact", "destination": "/book", "permanent": true },
+    { "source": "/ai-flix", "destination": "/", "permanent": true },
+    { "source": "/blog", "destination": "/insights", "permanent": true },
+    { "source": "/blog/:slug", "destination": "/insights/:slug", "permanent": true },
+    { "source": "/pt/programas", "destination": "/pt#services", "permanent": true },
+    { "source": "/pt/abordagem", "destination": "/pt#approach", "permanent": true },
+    { "source": "/pt/trabalho", "destination": "/pt#services", "permanent": true },
+    { "source": "/pt/sobre", "destination": "/pt", "permanent": true },
+    { "source": "/pt/contacto", "destination": "/pt/marcar", "permanent": true }
   ],
   "headers": [
     {

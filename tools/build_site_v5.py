@@ -614,6 +614,14 @@ def check_links():
         refs += re.findall(r"<loc>https://solvenadvisory\.ai(/[^<]*)</loc>", text)
         refs += re.findall(r'href="https://solvenadvisory\.ai(/[^"]*)"', text)
         bad += [f"{f.relative_to(SITE)}: {r}" for r in refs if not r.startswith("//") and not resolve(r)]
+    # The old addresses in vercel.json: each must land on a page, and none may hide a live one
+    for r in json.loads((ROOT / "vercel.json").read_text())["redirects"]:
+        targets = [r["destination"]]
+        if ":slug" in r["destination"]:
+            targets = [r["destination"].replace(":slug", a["slug"]) for a in ARTICLES["en"]]
+        bad += [f"vercel.json redirect {r['source']}: {d}" for d in targets if not resolve(d)]
+        if ":" not in r["source"] and resolve(r["source"]):
+            bad.append(f"vercel.json redirect {r['source']} hides a page that exists")
     if bad:
         raise SystemExit("Links to nothing in public/:\n  " + "\n  ".join(sorted(set(bad))))
 
