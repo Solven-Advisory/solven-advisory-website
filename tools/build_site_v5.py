@@ -25,6 +25,7 @@ import hashlib
 import json
 import re
 import shutil
+import subprocess
 import sys
 from datetime import date, datetime
 from pathlib import Path
@@ -626,6 +627,52 @@ def check_links():
         raise SystemExit("Links to nothing in public/:\n  " + "\n  ".join(sorted(set(bad))))
 
 
+def changed(files):
+    """The last day any of these files changed: its last commit, or today if it has changes not yet committed."""
+    days = []
+    for f in files:
+        rel = str(f.relative_to(ROOT))
+        dirty = subprocess.run(["git", "status", "--porcelain", "--", rel], cwd=ROOT, capture_output=True, text=True).stdout
+        day = subprocess.run(["git", "log", "-1", "--format=%cs", "--", rel], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+        days.append(date.today().isoformat() if dirty or not day else day)
+    return max(days)
+
+
+def sources(p):
+    """The files a page is made from, for its lastmod: the copy, plus the insights it shows."""
+    lang, t = p["lang"], COPY[p["lang"]]
+    folder = INSIGHTS if lang == "en" else INSIGHTS / "pt"
+    md_of = lambda a: folder / f"{a['slug']}.md"
+    if p["path"] in ("", "pt"):
+        return [COPY_FILE] + [md_of(a) for a in ARTICLES[lang][:3]]
+    if p["path"] == t.insights.lstrip("/"):
+        return [COPY_FILE] + [md_of(a) for a in ARTICLES[lang]]
+    article = next((a for a in ARTICLES[lang] if p["path"] == f"{t.insights.lstrip('/')}/{a['slug']}"), None)
+    return [md_of(article)] if article else [COPY_FILE]
+
+
+def sitemap():
+    """Every indexable page, with its counterpart in the other language and the day it last changed."""
+    full = lambda path: v4.ORIGIN + ("/" + path if path else "/")
+    rows = []
+    for p in PAGES:
+        if p["path"] in ("404", "pt/404"):
+            continue
+        en, pt = (p["path"], p["alt"]) if p["lang"] == "en" else (p["alt"], p["path"])
+        rows.append(f"""  <url>
+    <loc>{full(p["path"])}</loc>
+    <lastmod>{changed(sources(p))}</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="{full(en)}"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="{full(pt)}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{full(en)}"/>
+  </url>""")
+    text = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+            + "\n".join(rows) + "\n</urlset>\n")
+    (SITE / "sitemap.xml").write_text(text)
+    print("public/sitemap.xml", len(rows), "pages")
+
+
 def write_pages():
     for p in PAGES:
         if PROD and p["path"] == "pt/404":
@@ -675,6 +722,7 @@ def build_prod():
         shutil.copyfile(ROOT / "explorations/site/img" / name, out / "img" / name)
     for f in sorted(files, key=lambda f: f.suffix != ".css"):    # stylesheets first: the pages stamp their hash
         f.write_text(stamp(f.read_text()))
+    sitemap()
     check_links()
 
 
